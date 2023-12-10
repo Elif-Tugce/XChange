@@ -1,27 +1,26 @@
-package XChange;
+import java.util.Currency;
 
 /**
  * User
  */
 public class User {
-    int userKey;
-    String userName;
-    String password;
-    String name;
-    String surname;
-    String motherName;
-    String favouriteColor;
-    CurrencyCalculation defaultCurrFrom;
-    CurrencyCalculation defaultCurrTo;
-    boolean isDarkMode;
-    Graph[] userGraphs = new Graph[50];
 
-    public User(){
+    private int userID;
+    private String userName;
+    private String password; //im not sure that if we should have password here since its not used directly in the app and just used in authentication
+    private String firstName;
+    private String lastName;
+    private String mothersName; //same as password
+    private String favouriteColor; //same as password
+    private Currency defaultFrom;
+    private Currency defaultTo;
+    private boolean darkModeOn;
+    private Graph[] graphs;
+
+    public User(int userID, String userName, String password, String firstName, String lastName, ) {
 
     }
-
+}
     public void setVisibility(){
 
     }
-    
-}
