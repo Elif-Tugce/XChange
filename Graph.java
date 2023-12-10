@@ -17,5 +17,23 @@ public class Graph {
     double ratesToDollarByDay;
 
 
-    
+    public Graph(CurrencyCalculation currencyFrom, CurrencyCalculation currencyTo, Date dateFrom, Date dateTo){
+
+    }
+
+    public Graph(CurrencyCalculation currencyFrom, CurrencyCalculation currencyTo, Date dateFrom, Date dateTo, String graphName, String graphDescription, int graphImportance, Date dateCreated, String imageAddress){
+
+    }
+
+    public void drawGraph(){
+
+    }
+
+    public void saveGraph(){
+
+    }
+
+    public void downloadGraph(){
+
+    }
 }
