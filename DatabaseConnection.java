@@ -5,35 +5,35 @@ import java.util.Date;
  */
 public class DatabaseConnection {
 
-    public User getUser(String userName) {
+    public static User getUser(String userName) {
 
     }
 
-    public void insertNewUser(User user) {
+    public static void insertNewUser(User user) {
 
     }
 
-    public void insertNewGraph(Graph graph, int UserID) {
+    public static void insertNewGraph(Graph graph, int UserID) {
 
     }
 
-    public double[] getValuesByDate(int currencyID, Date dateFrom, Date dateTo) {
+    public static double[] getValuesByDate(int currencyID, Date dateFrom, Date dateTo) {
 
     }
 
-    public double getTodaysValue(int currencyID) {
+    public static double getTodaysValue(int currencyID) {
 
     }
 
-    public void insertValueByDate(int currencyID, Date date, double value) {
+    public static void insertValueByDate(int currencyID, Date date, double value) {
 
     }
 
-    public boolean checkUserName(String userName) {
+    public static boolean checkUserName(String userName) {
         
     }
 
-    public boolean checkPassword(String userName, String password) {
+    public static boolean checkPassword(String userName, String password) {
 
     }
 
