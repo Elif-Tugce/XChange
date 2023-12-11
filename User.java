@@ -15,10 +15,11 @@ public class User {
     private boolean darkModeOn;
     private Graph[] graphs;
 
-    public User(int userID, String userName, String password, String firstName, String lastName, ) {
+    /*public User(int userID, String userName, String password, String firstName, String lastName, ) {
 
     }
 }
     public void setVisibility(){
 
-    }
+    */
+}
