@@ -1,4 +1,3 @@
-package XChange;
 import java.util.Date;
 
 /**

@@ -1,5 +1,3 @@
-import java.util.Currency;
-
 /**
  * User
  */
@@ -12,8 +10,8 @@ public class User {
     private String lastName;
     private String mothersName; //same as password
     private String favouriteColor; //same as password
-    private Currency defaultFrom;
-    private Currency defaultTo;
+    private CurrencyCalculation defaultFrom;
+    private CurrencyCalculation defaultTo;
     private boolean darkModeOn;
     private Graph[] graphs;
 
