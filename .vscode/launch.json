@@ -6,59 +6,10 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Database",
+            "name": "Launch App",
             "request": "launch",
-            "mainClass": "Database",
-            "projectName": "XChange_975cb943"
+            "mainClass": "Navigator",
+            "vmArgs": "--module-path \"javafx-sdk-21.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
         },
-        {
-            "type": "java",
-            "name": "DatabaseConnection",
-            "request": "launch",
-            "mainClass": "DatabaseConnection",
-            "projectName": "XChange_975cb943"
-        },
-        {
-            "type": "java",
-            "name": "Current File",
-            "request": "launch",
-            "mainClass": "${file}"
-        },
-        {
-            "type": "java",
-            "name": "ConvertCurrencyFrame",
-            "request": "launch",
-            "mainClass": "ConvertCurrencyFrame",
-            "projectName": "XChange_c63aab4b"
-        },
-        {
-            "type": "java",
-            "name": "ForgotPasswordFrame",
-            "request": "launch",
-            "mainClass": "ForgotPasswordFrame",
-            "projectName": "XChange_c63aab4b"
-        },
-        {
-            "type": "java",
-            "name": "Graph",
-            "request": "launch",
-            "mainClass": "Graph",
-            "projectName": "XChange_c63aab4b"
-        },
-        {
-            "type": "java",
-            "name": "HelpFrame",
-            "request": "launch",
-            "mainClass": "HelpFrame",
-            "projectName": "XChange_c63aab4b"
-        },
-        {
-            "type": "java",
-            "name": "Login",
-            "request": "launch",
-            "mainClass": "Login",
-            "projectName": "XChange_c63aab4b",
-            "vmArgs": "--module-path \"C:/Users/eliftugce/Desktop/XChange/javafx-sdk-21.0.1/lib\" --add-modules javafx.controls,javafx.fxml"
-        }
     ]
 }
