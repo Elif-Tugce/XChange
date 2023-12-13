@@ -15,55 +15,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="900.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.xchange.CurrencyConverterController">
+<AnchorPane prefHeight="900.0" prefWidth="1210.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.xchange.CurrencyConverterController">
    <children>
-      <AnchorPane prefHeight="900.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF;">
-         <children>
-            <ImageView fitHeight="230.0" fitWidth="230.0" layoutY="-78.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../../../Icons/211.png" />
-               </image>
-            </ImageView>
-            <Button layoutY="64.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Convert Currency">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutY="152.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Create Graph">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutY="239.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="My Graphs">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutY="326.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Help">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutY="415.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="About">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutY="830.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="LogOut" textFill="#f40707">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Button layoutY="738.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Settings">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Label alignment="CENTER" layoutY="666.0" prefHeight="50.0" prefWidth="230.0" text="Kullanıcıya göre değişecek" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="230.0" prefHeight="900.0" prefWidth="1210.0" style="-fx-background-color: #AFD3E2;">
+      <AnchorPane prefHeight="900.0" prefWidth="1210.0" style="-fx-background-color: #AFD3E2;">
          <children>
             <Label alignment="CENTER" prefHeight="50.0" prefWidth="1210.0" style="-fx-background-color: #F7FAFC;" text="Currency Converter">
                <font>
