@@ -25,5 +25,9 @@ public class CurrencyCalculation {
     public double getRateToDollarToday (){
         return DatabaseConnection.getTodaysValue(currencyID);
     }
+
+    public int getCurrencyID() {
+        return currencyID;
+    }
     
 }
