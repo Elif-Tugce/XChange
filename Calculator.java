@@ -6,11 +6,13 @@ import java.util.Date;
 
 public class Calculator {
 
-    public static double calculateToday(CurrencyCalculation currencyFrom, CurrencyCalculation currencyTo, double amount) {
+    /*We probably wont need this since we will get the current data from the API directly
+    public static double calculateToday(Currency currencyFrom, Currency currencyTo, double amount) {
         return ((currencyTo.getRateToDollarToday() / currencyFrom.getRateToDollarToday()) * amount);
-    }
+    }*/
 
-    public static double [] calculatePast (CurrencyCalculation currencyFrom, CurrencyCalculation currencyTo, Date dateFrom, Date dateTo) {
+    /*We also probably dont need this since we wont store all data daily
+    public static double [] calculatePast (Currency currencyFrom, Currency currencyTo, Date dateFrom, Date dateTo) {
 
         double [] curToDollarFrom = currencyFrom.getRateToDollar(dateFrom, dateTo);
         double [] curToDollarTo = currencyTo.getRateToDollar(dateFrom, dateTo);
@@ -21,6 +23,6 @@ public class Calculator {
         }
 
         return cur;
-    }
+    }*/
     
 }

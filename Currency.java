@@ -4,22 +4,17 @@
 
 import java.util.Calendar;
 import java.util.Date;
-public class CurrencyCalculation {
+public class Currency {
 
-    private int currencyID;
     private String currencyCode;
-    private String currencyName;
     private String currencyFlagPath;
-    private double rateToDollar;
 
-    public CurrencyCalculation (int currencyID, String currencyCode, String currencyName, String currencyFlagPath) {
-        this.currencyID = currencyID;
+    public Currency (String currencyCode, String currencyFlagPath) {
         this.currencyCode = currencyCode;
-        this.currencyName = currencyName;
         this.currencyFlagPath = currencyFlagPath;
     }
 
-    public double [] getRateToDollar (Date dateFrom, Date dateTo) {
+    /*public double [] getRateToDollar (Date dateFrom, Date dateTo) {
         //Ece, I am just looping and calling my code, nothing to worry about I think
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(dateFrom);
@@ -43,15 +38,16 @@ public class CurrencyCalculation {
             }
         }
         return DatabaseConnection.getValuesByDate(currencyID, dateFrom, dateTo);
-    }
-   
-    public double getRateToDollarToday (){
-        new GetCurrencyRate("latest", currencyCode);
-        return DatabaseConnection.getTodaysValue(currencyID);
+    }*/
+
+    public String getCurrencyCode() {
+        return currencyCode;
     }
 
-    public int getCurrencyID() {
-        return currencyID;
+    public String getCurrencyFlagPath() {
+        return currencyFlagPath;
     }
+   
+    
     
 }

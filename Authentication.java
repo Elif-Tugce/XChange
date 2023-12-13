@@ -2,31 +2,71 @@
  * Authentication
  */
 public class Authentication {
-    public String userName;
-    public String currentPassword;
-    public String newPassword;
-    public String sequrityQuestionOne;
-    public String sequrityQuestionTwo;
 
-
-    public boolean userSignIn(){
-        if (userName == userName/*After the equal there should be something like database.searchForUsername(userName) which w'll return true if there is such a name*/ && currentPassword == currentPassword
-        /*Again there should be a search method l'ke database.searchForPassword(userName,password) wh'ch w'll return true if the userName has such a password */) {
-            return true;
+    //1: username and password are correct, proceed to the next page
+    //2: empty value
+    //3: username does not exist
+    //4: password is wrong
+    public static int userSignIn(String userName, String password) {
+        if (userName == null || password == null) {
+            return 2;
         }
-        return false;
+        if (Database.checkUsername(userName)) {
+            if (Database.checkPassword(userName, password)) {
+                //also gets the user, where are we going to store the user? navigator?
+                return 1;
+            }
+            else {
+                return 4;
+            }
+        }
+        else {
+            return 3;
+        }
     }
 
-    public void userSignUp(){//WE SHOULD add all the necessary 'nformat'ons for a user to database in this\ we should create a new user in database
-
+    //1: create user, proceed to the next page
+    //2: empty value
+    //3: username already exists
+    //4: repeated password is wrong
+    public static int userSignUp(String userName, String password, String repeatPassword, String firstName, String lastName, String mothersName, String favouriteColor) {
+        if (userName == null || password == null || repeatPassword == null || firstName == null || lastName == null || mothersName == null || favouriteColor == null) {
+            return 2;
+        }
+        if (!Database.checkUsername(userName)) {
+            if (password.equals(repeatPassword)) {
+                //creates user, same problem as above
+                return 1;
+            }
+            else {
+                return 4;
+            }
+        }
+        else {
+            return 3;
+        }
     }
 
-    public void forgotPassword(){
-        if ( sequrityQuestionOne == sequrityQuestionOne && sequrityQuestionTwo == sequrityQuestionTwo
-        /*database.user.sequrityQuestionOne == sequrityQuestionOne && database.user.sequrityQuestionTwo == sequrityQuestionTwo */) {
-            currentPassword = newPassword;
+    //1: correct values, change password
+    //2: empty value
+    //3: username does not exist
+    //4: wrong security answer
+    public static int forgotPassword(String userName, String mothersName, String favouriteColor, String newPassword) {
+        if (userName == null || mothersName == null || favouriteColor == null || newPassword == null) {
+            return 2;
         }
-        /*OtherWise 't should g've an error message saying that your answers are incorrect */
+        if (Database.checkUsername(userName)) {
+            if (Database.checkMothersName(userName, mothersName) && Database.checkFavouriteColor(userName, favouriteColor)) {
+                //changes password
+                return 1;
+            }
+            else {
+                return 4;
+            }
+        }
+        else {
+            return 3;
+        }
     }
 
 
