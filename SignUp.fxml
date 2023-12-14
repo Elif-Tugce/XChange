@@ -42,7 +42,7 @@
             <TextField fx:id="motherNameTextField" layoutX="47.0" layoutY="381.0" prefHeight="25.0" prefWidth="299.0" promptText="Mother's Name" />
             <Label layoutX="47.0" layoutY="415.0" text="Enter your favourite color" />
             <TextField fx:id="favouriteColorTextField" layoutX="47.0" layoutY="443.0" prefHeight="25.0" prefWidth="299.0" promptText="Favourite color" />
-            <Button fx:id="signUpButton" layoutX="128.0" layoutY="480.0" mnemonicParsing="false" onAction="#signUpButtonListener" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: #FFB21E;" text="SIGN UP">
+            <Button fx:id="signUpButton" layoutX="128.0" layoutY="480.0" mnemonicParsing="false" onMouseClicked="#signUpButtonListener" prefHeight="25.0" prefWidth="111.0" style="-fx-background-color: #FFB21E;" text="SIGN UP">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
