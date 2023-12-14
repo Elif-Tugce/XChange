@@ -39,7 +39,7 @@ public class Database {
         try {
             Statement st = connection.createStatement();
             String sql = "INSERT INTO Users (UserID, UserName, UserPassword, FirstName, LastName, MothersName, FavouriteColor, DefaultCurrencyFrom, DefaultCurrencyTo, DarkModeOn)"
-                       + "SELECT " + user.getUserID() + ", '" + user.getUserName() + "', '" + user.getPassword() + "', '" + user.getFirstName() + "', '" + user.getLastName() + "', '" + user.getMothersName() + "', '" + user.getFavouriteColor() + "', '" + user.getDefaultFrom().getCurrencyCode() + "', '" + user.getDefaultTo().getCurrencyCode() + "'," + darkModeOn;
+                       + "SELECT " + user.getUserID() + ", '" + user.getUserName() + "', '" + user.getPassword() + "', '" + user.getFirstName() + "', '" + user.getLastName() + "', '" + user.getMothersName() + "', '" + user.getFavouriteColor() + "', '" + user.getCurDefaultFrom() + "', '" + user.getCurDefaultTo() + "'," + darkModeOn;
             st.execute(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -75,8 +75,6 @@ public class Database {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        Currency defaultFrom = getCurrency(defaultFromCode);
-        Currency defaultTo = getCurrency(defaultToCode);
         boolean isDarkModeOn;
         if (darkModeOn == 0) {
             isDarkModeOn = false;
@@ -84,29 +82,28 @@ public class Database {
         else {
             isDarkModeOn = true;
         }
-        return new User(userID, userName, password, firstName, lastName, mothersName, favouriteColor, defaultFrom, defaultTo, isDarkModeOn);
+        return new User(userID, userName, password, firstName, lastName, mothersName, favouriteColor, defaultFromCode, defaultToCode, isDarkModeOn);
     }
 
-    public static Currency getCurrency(String currencyCode) {
+    public static String getFlagPath(String currencyCode) {
         String flagPath = "";
         try {
             Statement st = connection.createStatement();
-            String sql = "SELECT * FROM CurrencyFlags WHERE CurrencyCode = '" + currencyCode + "'";
+            String sql = "SELECT CurrencyFlagPath FROM CurrencyFlags WHERE CurrencyCode = '" + currencyCode + "'";
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
-                currencyCode = rs.getString(1);
-                flagPath = rs.getString(2);
+                flagPath = rs.getString(1);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return new Currency(currencyCode, flagPath);
+        return flagPath;
     }
 
-    public static void insertCurrency(Currency currency) {
+    public static void insertCurrency(String currencyCode, String flagPath) {
         try {
             Statement st = connection.createStatement();
-            String sql = "INSERT INTO CurrencyFlags (CurrencyCode, CurrencyFlagPath) SELECT '" + currency.getCurrencyCode() + "', '" + currency.getCurrencyFlagPath() + "'";
+            String sql = "INSERT INTO CurrencyFlags (CurrencyCode, CurrencyFlagPath) SELECT '" + currencyCode + "', '" + flagPath + "'";
             st.execute(sql);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -180,20 +177,20 @@ public class Database {
         }
     }
 
-    public static void updateDefaultTo(int userID, Currency defaultTo) {
+    public static void updateDefaultTo(int userID, String defaultToCode) {
         try {
             Statement st = connection.createStatement();
-            String sql = "UPDATE Users SET DefaultCurrencyTo = '" + defaultTo.getCurrencyCode() + "' WHERE UserID = " + userID;
+            String sql = "UPDATE Users SET DefaultCurrencyTo = '" + defaultToCode + "' WHERE UserID = " + userID;
             st.execute(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public static void updateDefaultFrom(int userID, Currency defaultFrom) {
+    public static void updateDefaultFrom(int userID, String defaultFromCode) {
         try {
             Statement st = connection.createStatement();
-            String sql = "UPDATE Users SET DefaultCurrencyFrom = '" + defaultFrom.getCurrencyCode() + "' WHERE UserID = " + userID;
+            String sql = "UPDATE Users SET DefaultCurrencyFrom = '" + defaultFromCode + "' WHERE UserID = " + userID;
             st.execute(sql);
         } catch (SQLException e) {
             e.printStackTrace();
