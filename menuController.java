@@ -33,7 +33,11 @@ public class menuController {
     private URL location;
 
     @FXML
-    void aboutButtonListener(MouseEvent event) {
+    void aboutButtonListener(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("AboutUs.fxml"));
+
+        sp.getItems().clear();
+        sp.getItems().addAll(sideBarLeft ,root.lookup("#aboutUsAnchorPane") );
 
     }
 
