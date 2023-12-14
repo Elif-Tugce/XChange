@@ -45,15 +45,15 @@
             </ImageView>
             <Text layoutX="37.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Not A Member?" />
             <Text layoutX="17.0" layoutY="388.0" strokeType="OUTSIDE" strokeWidth="0.0" text="_________________________" />
-            <Button fx:id="SignUpButton" layoutX="24.0" layoutY="398.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #FFB21E;" text="SignUp Now!">
+            <Button fx:id="SignUpButton" layoutX="24.0" layoutY="398.0" mnemonicParsing="false" onMouseClicked="#signUpNowButtonListener" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #FFB21E;" text="SignUp Now!">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="ForgotPasswordButton" layoutX="227.0" layoutY="398.0" mnemonicParsing="false" style="-fx-background-color: #FFB21E;" text="Forgot Password">
+            <Button fx:id="ForgotPasswordButton" layoutX="227.0" layoutY="398.0" mnemonicParsing="false" onMouseClicked="#forgotPasswordButtonListener" style="-fx-background-color: #FFB21E;" text="Forgot Password">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <Button fx:id="SignInButton" layoutX="138.0" layoutY="448.0" mnemonicParsing="false" onAction="#SignInButtonListener" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #FFB21E;" text="Sign In">
+            <Button fx:id="SignInButton" layoutX="138.0" layoutY="448.0" mnemonicParsing="false" onMouseClicked="#signInButtonListener" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #FFB21E;" text="Sign In">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>

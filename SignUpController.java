@@ -1,11 +1,22 @@
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import javafx.scene.Node;
 
 public class SignUpController {
+
+    private Stage stage;
+    private Scene scene;
 
     @FXML
     private TextField favouriteColorTextField;
@@ -56,9 +67,13 @@ public class SignUpController {
     private TextField usernameTextField;
 
     @FXML
-    void signUpButtonListener(MouseEvent event) {
+    void signUpButtonListener(MouseEvent event) throws IOException {
         
-
+        Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }
