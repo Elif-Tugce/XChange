@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="900.0" prefWidth="1210.0" style="-fx-background-color: #AFD3E2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.xchange.MyGraphsController">
    <children>
       <Label alignment="CENTER" prefHeight="50.0" prefWidth="1210.0" style="-fx-background-color: #F7FAFC;" text="My Graph">
@@ -17,21 +16,28 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <TableView layoutY="47.0" prefHeight="443.0" prefWidth="1210.0">
+      <TableView fx:id="MyGraphsTable" layoutY="47.0" prefHeight="440.0" prefWidth="1210.0">
         <columns>
-          <TableColumn prefWidth="386.66669714450836" text="Name" />
-          <TableColumn minWidth="0.0" prefWidth="440.6666564941406" text="Description" />
-            <TableColumn prefWidth="196.0" text="Date" />
-            <TableColumn prefWidth="186.0" text="Currency" />
+          <TableColumn prefWidth="315.333353638649" text="Name" />
+          <TableColumn minWidth="0.0" prefWidth="291.99993896484375" text="Description" />
+            <TableColumn prefWidth="180.0" text="Date" />
+            <TableColumn minWidth="0.0" prefWidth="106.66668701171875" text="İmportance" />
+            <TableColumn prefWidth="130.66668701171875" text="Currency" />
+            <TableColumn prefWidth="102.6666259765625" text="Download" />
+            <TableColumn prefWidth="82.0" text="Remove" />
         </columns>
       </TableView>
-      <LineChart layoutY="490.0" prefHeight="410.0" prefWidth="1210.0">
-        <xAxis>
-          <CategoryAxis side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis side="LEFT" />
-        </yAxis>
-      </LineChart>
+      <AnchorPane layoutY="486.0" prefHeight="410.0" prefWidth="1210.0">
+         <children>
+            <LineChart fx:id="MyGraph" prefHeight="410.0" prefWidth="1210.0">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
