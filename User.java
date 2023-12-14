@@ -12,8 +12,8 @@ public class User {
     private String lastName;
     private String mothersName;
     private String favouriteColor;
-    private Currency defaultFrom;
-    private Currency defaultTo;
+    private String curDefaultFrom;
+    private String curDefaultTo;
     private boolean darkModeOn;
     private ArrayList<Graph> graphs;
 
@@ -34,7 +34,7 @@ public class User {
     }
 
     //constructor for getting user from database
-    public User(int userId, String userName, String password, String firstName, String lastName, String mothersName, String favouriteColor, Currency defaultFrom, Currency defaultTo, boolean darkModeOn) {
+    public User(int userId, String userName, String password, String firstName, String lastName, String mothersName, String favouriteColor, String currencyDefaultFrom, String currencyDefaultTo, boolean darkModeOn) {
         this.userID = userId;
         this.userName = userName;
         this.password = password;
@@ -42,8 +42,8 @@ public class User {
         this.lastName = lastName;
         this.mothersName = mothersName;
         this.favouriteColor = favouriteColor;
-        this.defaultFrom = defaultFrom;
-        this.defaultTo = defaultTo;
+        this.curDefaultFrom = currencyDefaultFrom;
+        this.curDefaultTo = currencyDefaultTo;
         this.darkModeOn = darkModeOn;
     }
 
@@ -67,14 +67,12 @@ public class User {
         Database.updateLastName(userID, lastName);
     }
 
-    public void setDefaultFrom(Currency defaultFrom) {
-        this.defaultFrom = defaultFrom;
-        Database.updateDefaultFrom(userID, defaultFrom);
+    public void setCurDefaultFrom(String curDefaultFrom) {
+        this.curDefaultFrom = curDefaultFrom;
     }
 
-    public void setDefaultTo(Currency defaultTo) {
-        this.defaultTo = defaultTo;
-        Database.updateDefaultTo(userID, defaultTo);
+    public void setCurDefaultTo(String curDefaultTo) {
+        this.curDefaultTo = curDefaultTo;
     }
 
     public void setDarkModeOn(boolean darkModeOn) {
@@ -86,12 +84,12 @@ public class User {
         graphs.add(graph);
     }
 
-    public Currency getDefaultFrom() {
-        return defaultFrom;
+    public String getCurDefaultFrom() {
+        return curDefaultFrom;
     }
 
-    public Currency getDefaultTo() {
-        return defaultTo;
+    public String getCurDefaultTo() {
+        return curDefaultTo;
     }
 
     public String getFavouriteColor() {

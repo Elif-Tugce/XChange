@@ -3,26 +3,38 @@
  */
 
 import java.util.Date;
+import java.util.Calendar;
 
 public class Calculator {
 
-    /*We probably wont need this since we will get the current data from the API directly
-    public static double calculateToday(Currency currencyFrom, Currency currencyTo, double amount) {
-        return ((currencyTo.getRateToDollarToday() / currencyFrom.getRateToDollarToday()) * amount);
-    }*/
+    public static double calculateCurrentRate(String currencyFromCode, String currencyToCode) {
 
-    /*We also probably dont need this since we wont store all data daily
-    public static double [] calculatePast (Currency currencyFrom, Currency currencyTo, Date dateFrom, Date dateTo) {
+    }
 
-        double [] curToDollarFrom = currencyFrom.getRateToDollar(dateFrom, dateTo);
-        double [] curToDollarTo = currencyTo.getRateToDollar(dateFrom, dateTo);
-        double [] cur = new double[curToDollarFrom.length];
-
-        for (int i = 0; i < cur.length; i++){
-            cur [i] = curToDollarTo[i] / curToDollarFrom [i];
-        }
-
-        return cur;
+    /*public double [] getRateToDollar (Date dateFrom, Date dateTo) { 
+        //Ece, I am just looping and calling my code, nothing to worry about I think 
+        Calendar calendar = Calendar.getInstance(); 
+        calendar.setTime(dateFrom); 
+        calendar.add(Calendar.YEAR, 1); 
+ 
+        boolean useMonths = calendar.getTime().before(dateTo); 
+ 
+        // Loop through the dates 
+        calendar.setTime(dateFrom); 
+        while (!calendar.getTime().after(dateTo)) { 
+            Date currentDate = calendar.getTime(); 
+ 
+            // Make API call for the current date 
+            new GetCurrencyRate("historical/" + currentDate, currencyCode); 
+ 
+            // Increment the date by 1 day or 1 month 
+            if (useMonths) { 
+                calendar.add(Calendar.MONTH, 1); 
+            } else { 
+                calendar.add(Calendar.DAY_OF_MONTH, 1); 
+            } 
+        } 
+        return DatabaseConnection.getValuesByDate(currencyID, dateFrom, dateTo); 
     }*/
     
 }
