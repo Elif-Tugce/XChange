@@ -22,7 +22,7 @@
             <Text layoutX="21.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" />
             <Text layoutX="21.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Converted Amount" />
             <Text layoutX="33.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="________________________________________________________________________________________________" />
-            <SplitMenuButton layoutX="106.0" layoutY="55.0" mnemonicParsing="false" text="USD">
+            <SplitMenuButton layoutX="106.0" layoutY="55.0" mnemonicParsing="false" onAction="#amountDropDownAction" text="USD">
                <items>
                   <MenuItem mnemonicParsing="false" text="Action 1" />
                   <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -31,7 +31,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </SplitMenuButton>
-            <SplitMenuButton layoutX="106.0" layoutY="184.0" mnemonicParsing="false" text="TRY">
+            <SplitMenuButton layoutX="106.0" layoutY="184.0" mnemonicParsing="false" onAction="#convertedAmountDropDownAction" text="TRY">
                <items>
                   <MenuItem mnemonicParsing="false" text="Action 1" />
                   <MenuItem mnemonicParsing="false" text="Action 2" />
@@ -50,7 +50,7 @@
                   <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Flags/turkey.png" />
                </image>
             </ImageView>
-            <Button layoutX="240.0" layoutY="118.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="63.0" style="-fx-background-color: #26278D;" text="Change" textFill="WHITE">
+            <Button layoutX="240.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#changeButtonAction" prefHeight="38.0" prefWidth="63.0" style="-fx-background-color: #26278D;" text="Change" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -64,7 +64,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <LineChart layoutX="221.0" layoutY="414.0" prefHeight="472.0" prefWidth="768.0">
+      <LineChart layoutX="134.0" layoutY="414.0" prefHeight="472.0" prefWidth="768.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -72,6 +72,8 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </LineChart>
-      <Button layoutX="531.0" layoutY="352.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="147.0" text="Generate now!" />
+      <Button layoutX="531.0" layoutY="344.0" mnemonicParsing="false" onMouseClicked="#generateNowButtonAction" prefHeight="38.0" prefWidth="147.0" text="Generate now!" />
+      <Button layoutX="931.0" layoutY="715.0" mnemonicParsing="false" onMouseClicked="#saveButtonAction" prefHeight="62.0" prefWidth="119.0" text="Save" />
+      <Button layoutX="931.0" layoutY="799.0" mnemonicParsing="false" onMouseClicked="#downloadButtonAction" prefHeight="61.0" prefWidth="119.0" text="Download" />
    </children>
 </AnchorPane>
