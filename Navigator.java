@@ -25,10 +25,6 @@ public class Navigator extends Application{
         launch(args);
 
     }
-
-    @Override
-    public void start(Stage arg0) throws Exception {
-    }
     
     
 }
