@@ -8,8 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="menuController">
    <children>
       <SplitPane dividerPositions="0.16" prefHeight="900.0" prefWidth="1440.0">
         <items>
@@ -22,37 +21,37 @@
                               <Image url="@../../../../../../Icons/211.png" />
                            </image>
                         </ImageView>
-                        <Button layoutY="64.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Convert Currency">
+                        <Button layoutY="64.0" mnemonicParsing="false" onMouseClicked="#convertCurrencyButtonListener" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Convert Currency">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button layoutY="152.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Create Graph">
+                        <Button layoutY="152.0" mnemonicParsing="false" onMouseClicked="#createGraphButtonListener" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Create Graph">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button layoutY="239.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="My Graphs">
+                        <Button layoutY="239.0" mnemonicParsing="false" onMouseClicked="#myGraphsButtonListener" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="My Graphs">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button layoutY="326.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Help">
+                        <Button layoutY="326.0" mnemonicParsing="false" onMouseClicked="#helpButtonListener" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Help">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button layoutY="415.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="About">
+                        <Button layoutY="415.0" mnemonicParsing="false" onMouseClicked="#aboutButtonListener" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="About">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button layoutY="830.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="LogOut" textFill="#f40707">
+                        <Button layoutY="830.0" mnemonicParsing="false" onMouseClicked="#logOutButtonListener" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="LogOut" textFill="#f40707">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button layoutY="738.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Settings">
+                        <Button layoutY="738.0" mnemonicParsing="false" onMouseClicked="#settingsButtonListener" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Settings">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
