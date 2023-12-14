@@ -41,7 +41,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Button layoutY="415.0" mnemonicParsing="false" onMouseClicked="#aboutButtonListener" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="About">
+                        <Button layoutY="415.0" mnemonicParsing="false" onMouseClicked="#aboutButtonListener" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="About Us">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
