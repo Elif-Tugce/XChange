@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 public class menuController {
 
@@ -17,6 +18,9 @@ public class menuController {
 
    @FXML
     private SplitPane sp;
+
+    @FXML
+    private AnchorPane sideBarLeft;
 
 
     @FXML
@@ -31,7 +35,8 @@ public class menuController {
     void convertCurrencyButtonListener(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("CurrencyConverter.fxml"));
 
-        sp.getItems().add(2,root.lookup("#anchorPane"));
+        sp.getItems().clear();
+        sp.getItems().addAll(sideBarLeft ,root.lookup("#currencyConverterAnchorPane") );
         
     }
 
