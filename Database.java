@@ -10,7 +10,10 @@ public class Database {
     private static Connection connection = DatabaseConnection.connectDatabase();
 
     public static void main(String[] args) {
-        
+        Currency cur1 = new Currency("USD", "dgsregs");
+        Currency cur2 = new Currency("TRY", "dgsrgs");
+        insertNewUser(new User(1, "Kerim", "6106", "mirek", "Fena", "Hatce", "Blue", cur1, cur2, false));
+        insertNewUser(new User(2, "Kerin", "6106", "mirek", "Fena", "Hatce", "Blue", cur1, cur2, false));
     }
 
     public static int getMaxID() {
@@ -288,5 +291,4 @@ public class Database {
         return favouriteColor.equals(userFavouriteColor);
     }
 
-    
 }

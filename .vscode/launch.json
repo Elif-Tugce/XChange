@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Graph",
+            "request": "launch",
+            "mainClass": "Graph",
+            "projectName": "XChange_975cb943"
+        },
+        {
+            "type": "java",
             "name": "Database",
             "request": "launch",
             "mainClass": "Database",
