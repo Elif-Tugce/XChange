@@ -62,7 +62,12 @@ public class menuController {
     }
 
     @FXML
-    void myGraphsButtonListener(MouseEvent event) {
+    void myGraphsButtonListener(MouseEvent event) throws IOException {
+
+        Parent root = FXMLLoader.load(getClass().getResource("MyGraphs.fxml"));
+
+        sp.getItems().clear();
+        sp.getItems().addAll(sideBarLeft ,root.lookup("#myGraphAnchorPane") );
 
     }
 
