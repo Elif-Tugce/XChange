@@ -16,6 +16,7 @@ public class menuController {
     private Scene scene;
     private Stage stage;
 
+
     @FXML
     private ResourceBundle resources;
 
@@ -89,7 +90,14 @@ public class menuController {
     }
 
     @FXML
-    void settingsButtonListener(MouseEvent event) {
+    void settingsButtonListener(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Settings.fxml"));
+
+        System.out.println("test");
+
+        sp.getItems().clear();
+        sp.getItems().addAll(sideBarLeft ,root.lookup("#settingsAnchorPane") );
+
 
     }
 
