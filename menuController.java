@@ -22,6 +22,9 @@ public class menuController {
     @FXML
     private AnchorPane sideBarLeft;
 
+    @FXML
+    private AnchorPane allAnchorPane;
+
 
     @FXML
     private URL location;
@@ -47,12 +50,14 @@ public class menuController {
         sp.getItems().clear();
         sp.getItems().addAll(sideBarLeft ,root.lookup("#createAnchorPane") );
 
-
-
     }
 
     @FXML
-    void helpButtonListener(MouseEvent event) {
+    void helpButtonListener(MouseEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("Help.fxml"));
+
+        sp.getItems().clear();
+        sp.getItems().addAll(sideBarLeft ,root.lookup("#helpAnchorPane") );
 
     }
 
