@@ -42,7 +42,11 @@ public class menuController {
 
     @FXML
     void createGraphButtonListener(MouseEvent event) throws IOException {
-        
+        Parent root = FXMLLoader.load(getClass().getResource("CreateGraph.fxml"));
+
+        sp.getItems().clear();
+        sp.getItems().addAll(sideBarLeft ,root.lookup("#createAnchorPane") );
+
 
 
     }
