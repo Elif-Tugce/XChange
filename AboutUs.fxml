@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.xchange.AboutUsController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="900.0" prefWidth="1210.0" style="-fx-background-color: #AFD3E2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.xchange.AboutUsController">
+   <children>
+      <Label alignment="CENTER" prefHeight="50.0" prefWidth="1210.0" style="-fx-background-color: #F7FAFC;" text="About Us">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="447.0" layoutY="86.0" text="WHO ARE WE?">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <TextArea layoutX="44.0" layoutY="186.0" prefHeight="219.0" prefWidth="377.0" text="Mehmet Batuhan Neziroğlu&#10;Emir Atlas&#10;Elif Tuğçe Neziroğlu&#10;Ece Bulut&#10;Ansar Myrzagerey">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </TextArea>
+      <Label layoutX="737.0" layoutY="269.0" text="GROUP NIGHTHAWKS">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="501.0" fitWidth="479.0" layoutX="366.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/2.png" />
+         </image>
+      </ImageView>
+   </children>
 </AnchorPane>
