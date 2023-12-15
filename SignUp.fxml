@@ -16,12 +16,12 @@
          <children>
             <ImageView fx:id="mainLogo" fitHeight="380.0" fitWidth="365.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/21.png" />
+                  <Image url="@Icons/21.png" />
                </image>
             </ImageView>
             <ImageView fx:id="backButtonImage" fitHeight="46.0" fitWidth="45.0" layoutX="5.0" layoutY="5.0" onMouseClicked="#forgotPasswordBackButtonListener" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/backButton.png" />
+                  <Image url="@Icons/backButton.png" />
                </image>
             </ImageView>
          </children>
@@ -53,37 +53,37 @@
                </cursor></Button>
             <ImageView fx:id="logoForName" fitHeight="25.0" fitWidth="25.0" layoutX="17.0" layoutY="83.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/user.png" />
+                  <Image url="@Icons/user.png" />
                </image>
             </ImageView>
             <ImageView fx:id="logoForPassword" fitHeight="25.0" fitWidth="25.0" layoutX="17.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/lock.png" />
+                  <Image url="@Icons/lock.png" />
                </image>
             </ImageView>
             <ImageView fx:id="logoForRepeatPassword" fitHeight="25.0" fitWidth="25.0" layoutX="17.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/lock.png" />
+                  <Image url="@Icons/lock.png" />
                </image>
             </ImageView>
             <ImageView fx:id="logoForSurname" fitHeight="25.0" fitWidth="25.0" layoutX="17.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/user.png" />
+                  <Image url="@Icons/user.png" />
                </image>
             </ImageView>
             <ImageView fx:id="logoForUsername" fitHeight="25.0" fitWidth="25.0" layoutX="17.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/user.png" />
+                  <Image url="@Icons/user.png" />
                </image>
             </ImageView>
             <ImageView fx:id="logoForMotherName" fitHeight="25.0" fitWidth="25.0" layoutX="17.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/secure.png" />
+                  <Image url="@Icons/secure.png" />
                </image>
             </ImageView>
             <ImageView fx:id="logoForFavouriteColor" fitHeight="25.0" fitWidth="25.0" layoutX="17.0" layoutY="452.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/secure.png" />
+                  <Image url="@Icons/secure.png" />
                </image>
             </ImageView>
             <Label fx:id="invalidMessage" alignment="CENTER" layoutY="29.0" prefHeight="17.0" prefWidth="365.0" textFill="RED" />

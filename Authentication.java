@@ -49,7 +49,7 @@ public class Authentication {
         if (Database.checkUsername(userName)) {
             if (Database.checkMothersName(userName, mothersName) && Database.checkFavouriteColor(userName, favouriteColor)) {
                 if (newPassword.equals(repeatPassword)) {
-                    Navigator.getUser().setPassword(newPassword);
+                    Database.updatePassword(userName, newPassword);
                     return 1;
                 }
                 else {

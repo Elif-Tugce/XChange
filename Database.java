@@ -157,6 +157,16 @@ public class Database {
         }
     }
 
+    public static void updatePassword(String userName, String password) {
+        try {
+            Statement st = connection.createStatement();
+            String sql = "UPDATE Users SET UserPassword = '" + password + "' WHERE UserName = '" + userName + "'";
+            st.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void updateFirstName(int userID, String firstName) {
         try {
             Statement st = connection.createStatement();
