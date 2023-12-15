@@ -54,6 +54,15 @@ public class ForgotPasswordController {
     private PasswordField repeatPasswordField;
 
     @FXML
+    void forgotPasswordBackButtonListener(MouseEvent event) throws IOException {
+            Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+    }
+
+    @FXML
     void changePasswordButtonListener(MouseEvent event) throws IOException {
         if(usernameTextField.getText().isBlank() || motherNameTextField.getText().isBlank() || favouriteColorTextField.getText().isBlank() || passwordField.getText().isBlank() || repeatPasswordField.getText().isBlank()){
             invalidMessage.setText("Please enter all of the required information!");
