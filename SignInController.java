@@ -60,8 +60,8 @@ public class SignInController {
     @FXML
     void signInButtonListener(MouseEvent event) throws IOException {
 
-        if (passwordField.getText().isBlank() && usernameTextField.getText().isBlank()){
-            invalidMessage.setText("Invalid login, please try again");
+        if (passwordField.getText().isBlank() || usernameTextField.getText().isBlank()){
+            invalidMessage.setText("Invalid login, please try again!");
         }
         else if(Authentication.userSignIn(usernameTextField.getText(), passwordField.getText()) == 1){
             invalidMessage.setText("");
@@ -73,10 +73,10 @@ public class SignInController {
             stage.show();
         }
         else if (Authentication.userSignIn(usernameTextField.getText(), passwordField.getText()) == 2){
-            invalidMessage.setText("This username does not exist, please try again");
+            invalidMessage.setText("Such username does not exist, please try again!");
         }
         else if (Authentication.userSignIn(usernameTextField.getText(), passwordField.getText()) == 3){
-            invalidMessage.setText("Password is wrong, please try again");
+            invalidMessage.setText("Password is wrong, please try again!");
         }
 
     }

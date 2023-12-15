@@ -72,7 +72,7 @@ public class SignUpController {
 
     @FXML
     void signUpButtonListener(MouseEvent event) throws IOException {
-        if (passwordField.getText().isBlank() || repeatPasswordField.getText().isBlank() || nameTextField.getText().isBlank() || surnameTextField.getText().isBlank() || motherNameTextField.getText().isBlank() || favouriteColorTextField.getText().isBlank()){
+        if (usernameTextField.getText().isBlank() || passwordField.getText().isBlank() || repeatPasswordField.getText().isBlank() || nameTextField.getText().isBlank() || surnameTextField.getText().isBlank() || motherNameTextField.getText().isBlank() || favouriteColorTextField.getText().isBlank()){
             invalidMessage.setText("Please enter all of the required information!");
         }
         else if(Authentication.userSignUp(usernameTextField.getText(), passwordField.getText(), repeatPasswordField.getText(), nameTextField.getText(), surnameTextField.getText(), motherNameTextField.getText(), favouriteColorTextField.getText()) == 1){

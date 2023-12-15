@@ -26,8 +26,8 @@ public class User {
         this.lastName = lastName;
         this.mothersName = mothersName;
         this.favouriteColor = favouriteColor;
-        //this.defaultFrom =
-        //this.defaultTo =
+        this.curDefaultFrom = "USD";
+        this.curDefaultTo = "TRY";
         darkModeOn = false;
         graphs = new ArrayList<Graph>();
         Database.insertNewUser(this);
