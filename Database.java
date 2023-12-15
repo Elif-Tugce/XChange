@@ -109,6 +109,21 @@ public class Database {
             e.printStackTrace();
         }
     }
+
+    public static ArrayList<String> getCurrencies() {
+        ArrayList<String> currencies = new ArrayList<String>();
+        try {
+            Statement st = connection.createStatement();
+            String sql = "SELECT CurrencyCode FROM CurrencyFlags";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                currencies.add(rs.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return currencies;
+    }
     
     public static void insertCurrencyValue(String currencyCode, java.util.Date date, double value) {
         Date sqlDate = new Date(date.getTime());

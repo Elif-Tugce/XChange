@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,7 +12,7 @@ import javafx.stage.Stage;
 public class Navigator extends Application{
 
     private static User user;
-
+    private static ArrayList<String> currencies = Database.getCurrencies();
     @Override
     public void start(Stage stage){
         try{
@@ -34,6 +36,10 @@ public class Navigator extends Application{
 
     public static void setUser(User user) {
         Navigator.user = user;
+    }
+
+    public static ArrayList<String> getCurrencies() {
+        return currencies;
     }
     
 }
