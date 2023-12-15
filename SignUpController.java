@@ -68,12 +68,22 @@ public class SignUpController {
 
     @FXML
     void signUpButtonListener(MouseEvent event) throws IOException {
-        
-        Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if (passwordField.getText().isBlank() || repeatPasswordField.getText().isBlank() || nameTextField.getText().isBlank() || surnameTextField.getText().isBlank() || motherNameTextField.getText().isBlank() || favouriteColorTextField.getText().isBlank()){
+            invalidMessage.setText("Please enter all of the required information!");
+        }
+        else if(Authentication.userSignUp(usernameTextField.getText(), passwordField.getText(), repeatPasswordField.getText(), nameTextField.getText(), surnameTextField.getText(), motherNameTextField.getText(), favouriteColorTextField.getText()) == 1){
+            Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else if(Authentication.userSignUp(usernameTextField.getText(), passwordField.getText(), repeatPasswordField.getText(), nameTextField.getText(), surnameTextField.getText(), motherNameTextField.getText(), favouriteColorTextField.getText()) == 2){
+            invalidMessage.setText("The repeated password is not the same as the original, please try again!");
+        }
+        else{
+            invalidMessage.setText("This username already exist, please try another one!");
+        }
     }
 
 }

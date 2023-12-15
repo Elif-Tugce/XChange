@@ -72,10 +72,10 @@ public class SignInController {
             stage.centerOnScreen();
             stage.show();
         }
-        else if (Authentication.userSignIn(usernameTextField.getText(), passwordField.getText()) == 3){
+        else if (Authentication.userSignIn(usernameTextField.getText(), passwordField.getText()) == 2){
             invalidMessage.setText("This username does not exist, please try again");
         }
-        else if (Authentication.userSignIn(usernameTextField.getText(), passwordField.getText()) == 4){
+        else if (Authentication.userSignIn(usernameTextField.getText(), passwordField.getText()) == 3){
             invalidMessage.setText("Password is wrong, please try again");
         }
 

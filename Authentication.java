@@ -4,13 +4,9 @@
 public class Authentication {
 
     //1: username and password are correct, proceed to the next page
-    //2: empty value
-    //3: username does not exist
-    //4: password is wrong
+    //2: username does not exist
+    //3: password is wrong
     public static int userSignIn(String userName, String password) {
-        if (userName == null || password == null) {
-            return 2;
-        }
         if (Database.checkUsername(userName)) {
             if (Database.checkPassword(userName, password)) {
                 User user = Database.getUser(userName);
@@ -18,55 +14,54 @@ public class Authentication {
                 return 1;
             }
             else {
-                return 4;
+                return 3;
             }
         }
         else {
-            return 3;
+            return 2;
         }
     }
 
     //1: create user, proceed to the next page
-    //2: empty value
-    //3: username already exists
-    //4: repeated password is wrong
+    //2: username already exists
+    //3: repeated password is wrong
     public static int userSignUp(String userName, String password, String repeatPassword, String firstName, String lastName, String mothersName, String favouriteColor) {
-        if (userName == null || password == null || repeatPassword == null || firstName == null || lastName == null || mothersName == null || favouriteColor == null) {
-            return 2;
-        }
         if (!Database.checkUsername(userName)) {
             if (password.equals(repeatPassword)) {
-                //creates user, same problem as above
+                User user = new User(userName, password, firstName, lastName, mothersName, favouriteColor);
+                Navigator.setUser(user);
                 return 1;
             }
             else {
-                return 4;
+                return 3;
             }
         }
         else {
-            return 3;
+            return 2;
         }
     }
 
     //1: correct values, change password
-    //2: empty value
-    //3: username does not exist
-    //4: wrong security answer
-    public static int forgotPassword(String userName, String mothersName, String favouriteColor, String newPassword) {
-        if (userName == null || mothersName == null || favouriteColor == null || newPassword == null) {
-            return 2;
-        }
+    //2: username does not exist
+    //3: wrong security answer
+    //4: repeated password is wrong
+    public static int forgotPassword(String userName, String mothersName, String favouriteColor, String newPassword, String repeatPassword) {
         if (Database.checkUsername(userName)) {
             if (Database.checkMothersName(userName, mothersName) && Database.checkFavouriteColor(userName, favouriteColor)) {
-                //changes password
-                return 1;
+                if (newPassword.equals(repeatPassword)) {
+                    Navigator.getUser().setPassword(newPassword);
+                    return 1;
+                }
+                else {
+                    return 4;
+                }
             }
             else {
-                return 4;
+                return 3;
             }
         }
         else {
-            return 3;
+            return 2;
         }
     }
 

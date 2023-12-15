@@ -41,7 +41,7 @@ public class ForgotPasswordController {
     private TextField motherNameTextField;
 
     @FXML
-    private TextField nameTextField;
+    private TextField usernameTextField;  //username text field
 
     @FXML
     private PasswordField passwordField;
@@ -51,11 +51,25 @@ public class ForgotPasswordController {
 
     @FXML
     void changePasswordButtonListener(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        if(usernameTextField.getText().isBlank() || motherNameTextField.getText().isBlank() || favouriteColorTextField.getText().isBlank() || passwordField.getText().isBlank() || repeatPasswordField.getText().isBlank()){
+            invalidMessage.setText("Please enter all of the required information!");
+        }
+        else if(Authentication.forgotPassword(usernameTextField.getText(), motherNameTextField.getText(), favouriteColorTextField.getText(), passwordField.getText(), repeatPasswordField.getText()) == 1){
+            Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else if(Authentication.forgotPassword(usernameTextField.getText(), motherNameTextField.getText(), favouriteColorTextField.getText(), passwordField.getText(), repeatPasswordField.getText()) == 2){
+            invalidMessage.setText("Such username does not exist, please try again!");
+        }
+        else if(Authentication.forgotPassword(usernameTextField.getText(), motherNameTextField.getText(), favouriteColorTextField.getText(), passwordField.getText(), repeatPasswordField.getText()) == 3){
+            invalidMessage.setText("Answer to the security question is wrong, please try again!");
+        }
+        else{
+            invalidMessage.setText("The repeated password is not the same as the original, please try again!");
+        }
     }
 
 }
