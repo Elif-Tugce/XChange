@@ -2,6 +2,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -16,6 +17,9 @@ public class CurrencyConverterController {
 
     @FXML
     private URL location;
+
+    @FXML
+    private Label welcomeText;
 
     @FXML
     void amountDropDownAction(ActionEvent event) {
@@ -34,7 +38,8 @@ public class CurrencyConverterController {
 
     @FXML
     void initialize() {
-
+        Navigator.setUser(new User(0, "null", "null", "null", "nulll", "null", "null", null, null, true));
+        welcomeText.setText("Welcome to XChange " + Navigator.getUser().getFirstName() + " " + Navigator.getUser().getLastName());
     }
 
 }

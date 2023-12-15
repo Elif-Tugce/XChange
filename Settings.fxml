@@ -70,27 +70,28 @@
             </Label>
             <RadioButton fx:id="darkRadioButton" layoutX="168.0" layoutY="704.0" mnemonicParsing="false" text="Dark" />
             <RadioButton fx:id="lightRadioButton" layoutX="268.0" layoutY="704.0" mnemonicParsing="false" selected="true" text="Light" />
-            <AnchorPane fx:id="changePasswordPane" layoutX="776.0" layoutY="440.0" prefHeight="235.0" prefWidth="200.0" style="-fx-border-color: #000000;">
+            <AnchorPane fx:id="changePasswordPane" layoutX="776.0" layoutY="421.0" prefHeight="254.0" prefWidth="200.0" style="-fx-border-color: #000000;">
                <children>
-                  <Label fx:id="oldPasswordText" layoutX="46.0" layoutY="14.0" text="Old Password">
+                  <Label fx:id="oldPasswordText" layoutX="46.0" layoutY="38.0" text="Old Password">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="oldPasswordField" layoutX="24.0" layoutY="39.0" />
-                  <Label fx:id="newPasswordText" layoutX="42.0" layoutY="71.0" text="New Password">
+                  <PasswordField fx:id="oldPasswordField" layoutX="24.0" layoutY="63.0" />
+                  <Label fx:id="newPasswordText" layoutX="42.0" layoutY="95.0" text="New Password">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="newPasswordField" layoutX="24.0" layoutY="98.0" />
-                  <Label fx:id="repeatPasswordText" layoutX="32.0" layoutY="134.0" text="Repeat Password">
+                  <PasswordField fx:id="newPasswordField" layoutX="24.0" layoutY="122.0" />
+                  <Label fx:id="repeatPasswordText" layoutX="32.0" layoutY="158.0" text="Repeat Password">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="repeatPasswordField" layoutX="25.0" layoutY="161.0" />
-                  <Button fx:id="changePasswordButton" layoutX="41.0" layoutY="195.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="116.0" text="Change Password" />
+                  <PasswordField fx:id="repeatPasswordField" layoutX="25.0" layoutY="185.0" />
+                  <Button fx:id="changePasswordButton" layoutX="41.0" layoutY="219.0" mnemonicParsing="false" onAction="#changePasswordButtonAction" prefHeight="25.0" prefWidth="116.0" text="Change Password" />
+                  <Label fx:id="wrongPassword" alignment="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="200.0" textFill="RED" />
                </children>
             </AnchorPane>
             <Label fx:id="changePasswordText" layoutX="761.0" layoutY="383.0" prefHeight="43.0" prefWidth="230.0" text="CHANGE PASSWORD">

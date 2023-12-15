@@ -56,7 +56,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Button>
-                        <Label alignment="CENTER" layoutY="666.0" prefHeight="50.0" prefWidth="230.0" text="Kullanıcıya göre değişecek" />
+                        <Label fx:id="usernameText" alignment="CENTER" layoutY="666.0" prefHeight="50.0" prefWidth="230.0" text="Kullanıcıya göre değişecek" />
                      </children>
                   </AnchorPane>
                </children>

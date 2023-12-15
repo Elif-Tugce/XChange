@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -25,6 +26,9 @@ public class menuController {
 
     @FXML
     private AnchorPane sideBarLeft;
+
+    @FXML
+    private Label usernameText;
 
     @FXML
     private AnchorPane allAnchorPane;
@@ -103,7 +107,8 @@ public class menuController {
 
     @FXML
     void initialize() {
-
+        Navigator.setUser(new User(0, "null", "null", "null", "nulll", "null", "null", null, null, true));
+        usernameText.setText(Navigator.getUser().getFirstName());
     }
 
 }

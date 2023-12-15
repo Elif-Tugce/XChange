@@ -2,6 +2,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
@@ -56,6 +57,9 @@ public class SettingsController {
 
     @FXML
     private Label fromText;
+
+    @FXML
+    private Label wrongPassword;
 
     @FXML
     private TextField lastNameTextField;
@@ -126,6 +130,19 @@ public class SettingsController {
     @FXML
     void visibilityDropDownAction(ActionEvent event) {
 
+    }
+
+    @FXML
+    void changePasswordButtonAction(ContextMenuEvent event) {
+        // if (newPasswordField.getText().toString().equals(repeatPasswordField.getText().toString())) {
+        //     Navigator.getUser().setPassword(newPasswordField.getText());
+        //     wrongPassword.setText("Succesfully changed");
+        //     wrongPassword.textFillProperty();
+        // }
+        // else{
+        //     wrongPassword.setText("Retry to change the password");
+        // }
+        //NOT WORKING GIVING ARGUMENT TYPE MISTMATCH ERROR
     }
 
     @FXML
