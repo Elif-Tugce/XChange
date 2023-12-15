@@ -46,7 +46,6 @@ public class SignInController {
     @FXML
     private TextField usernameTextField;
 
-
     @FXML
     void forgotPasswordButtonListener(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("ForgotPassword.fxml"));

@@ -13,7 +13,8 @@ public class Authentication {
         }
         if (Database.checkUsername(userName)) {
             if (Database.checkPassword(userName, password)) {
-                //also gets the user, where are we going to store the user? navigator?
+                User user = Database.getUser(userName);
+                Navigator.setUser(user);
                 return 1;
             }
             else {

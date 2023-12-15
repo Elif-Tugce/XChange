@@ -9,6 +9,8 @@ import javafx.stage.Stage;
  */
 public class Navigator extends Application{
 
+    private static User user;
+
     @Override
     public void start(Stage stage){
         try{
@@ -26,5 +28,12 @@ public class Navigator extends Application{
 
     }
     
+    public static User getUser() {
+        return user;
+    }
+
+    public static void setUser(User user) {
+        Navigator.user = user;
+    }
     
 }

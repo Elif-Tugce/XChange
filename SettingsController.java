@@ -5,10 +5,13 @@ import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.SplitMenuButton;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 
 public class SettingsController {
@@ -23,6 +26,9 @@ public class SettingsController {
     
     @FXML
     private Button changePasswordButton;
+
+    @FXML
+    private Button applyChangesButton;
 
     @FXML
     private AnchorPane changePasswordPane;
@@ -40,19 +46,19 @@ public class SettingsController {
     private Label defaultText;
 
     @FXML
-    private Label firstNameLabel;
+    private TextField firstNameTextField;
 
     @FXML
     private Label firstNameText;
 
     @FXML
-    private SplitMenuButton fromDropdownBox;
+    private ChoiceBox fromDropdownBox;
 
     @FXML
     private Label fromText;
 
     @FXML
-    private Label lastNameLabel;
+    private TextField lastNameTextField;
 
     @FXML
     private Label lastNameText;
@@ -64,13 +70,13 @@ public class SettingsController {
     private ImageView moneyImage;
 
     @FXML
-    private PasswordField newPasswordLabel;
+    private PasswordField newPasswordField;
 
     @FXML
     private Label newPasswordText;
 
     @FXML
-    private PasswordField oldPasswordLabel;
+    private PasswordField oldPasswordField;
 
     @FXML
     private Label oldPasswordText;
@@ -79,7 +85,7 @@ public class SettingsController {
     private Label profileText;
 
     @FXML
-    private PasswordField repeatPasswordLabel;
+    private PasswordField repeatPasswordField;
 
     @FXML
     private Label repeatPasswordText;
@@ -91,13 +97,13 @@ public class SettingsController {
     private AnchorPane settingsBacground;
 
     @FXML
-    private SplitMenuButton toDropdownBox;
+    private ChoiceBox toDropdownBox;
 
     @FXML
     private Label toText;
 
     @FXML
-    private Label usernameLabel;
+    private TextField usernameTextField;
 
     @FXML
     private Label usernameText;
@@ -124,10 +130,19 @@ public class SettingsController {
 
     @FXML
     void initialize() {
+        final ToggleGroup group = new ToggleGroup();
+        darkRadioButton.setToggleGroup(group);
+        lightRadioButton.setToggleGroup(group);
 
+        Navigator.setUser(new User(0, "null", "null", "null", "nulll", "null", "null", null, null, true));
+        firstNameTextField.setText(Navigator.getUser().getFirstName());
+        lastNameTextField.setText(Navigator.getUser().getLastName());
+        usernameTextField.setText(Navigator.getUser().getUserName());
+        oldPasswordField.setText(Navigator.getUser().getPassword());
+        if (Navigator.getUser().getDarkModeOn()) {
+            darkRadioButton.setSelected(true);
+        }
     }
 
-    Label getFirstNameLabel(){
-        return firstNameLabel;
-    }
+
 }
