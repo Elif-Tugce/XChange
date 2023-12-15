@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -65,6 +66,9 @@ public class SignUpController {
 
     @FXML
     private TextField usernameTextField;
+
+    @FXML
+    private Label invalidMessage;
 
     @FXML
     void signUpButtonListener(MouseEvent event) throws IOException {
