@@ -31,7 +31,7 @@
       </Label>
       <ImageView fitHeight="501.0" fitWidth="479.0" layoutX="366.0" layoutY="388.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/2.png" />
+            <Image url="@Icons/2.png" />
          </image>
       </ImageView>
    </children>

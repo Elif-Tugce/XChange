@@ -60,12 +60,12 @@
                   </SplitMenuButton>
                   <ImageView fitHeight="70.0" fitWidth="63.0" layoutX="21.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Flags/united%20states.png" />
+                        <Image url="@Flags/united%20states.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="70.0" fitWidth="63.0" layoutX="21.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Flags/turkey.png" />
+                        <Image url="@Flags/turkey.png" />
                      </image>
                   </ImageView>
                   <TextField layoutX="226.0" layoutY="55.0" onInputMethodTextChanged="#currencyConverterAmountListener" prefHeight="32.0" prefWidth="160.0" style="-fx-border-color: #000000;" />
@@ -84,12 +84,12 @@
             </Label>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="983.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/Coin.jpg" />
+                  <Image url="@Icons/Coin.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="188.0" fitWidth="197.0" layoutX="973.0" layoutY="687.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/Currency.png" />
+                  <Image url="@Icons/Currency.png" />
                </image>
             </ImageView>
          </children>

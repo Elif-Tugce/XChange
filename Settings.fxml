@@ -22,12 +22,12 @@
             </Label>
             <ImageView fx:id="coinImage" fitHeight="150.0" fitWidth="200.0" layoutX="983.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/Coin.jpg" />
+                  <Image url="@Icons/Coin.jpg" />
                </image>
             </ImageView>
             <ImageView fx:id="moneyImage" fitHeight="188.0" fitWidth="197.0" layoutX="973.0" layoutY="687.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../../../../OneDrive/Desktop/XChange/Icons/Currency.png" />
+                  <Image url="@Icons/Currency.png" />
                </image>
             </ImageView>
             <Label fx:id="profileText" layoutX="561.0" layoutY="74.0" text="PROFILE">
