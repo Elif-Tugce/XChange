@@ -134,7 +134,6 @@ public class SettingsController {
         darkRadioButton.setToggleGroup(group);
         lightRadioButton.setToggleGroup(group);
 
-        Navigator.setUser(new User(0, "null", "null", "null", "nulll", "null", "null", null, null, true));
         firstNameTextField.setText(Navigator.getUser().getFirstName());
         lastNameTextField.setText(Navigator.getUser().getLastName());
         usernameTextField.setText(Navigator.getUser().getUserName());

@@ -46,6 +46,7 @@ public class SignInController {
     @FXML
     private TextField usernameTextField;
 
+
     @FXML
     void forgotPasswordButtonListener(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("ForgotPassword.fxml"));
@@ -62,15 +63,22 @@ public class SignInController {
         if (passwordField.getText().isBlank() && usernameTextField.getText().isBlank()){
             invalidMessage.setText("Invalid login, please try again");
         }
-        else {
+        else if(Authentication.userSignIn(usernameTextField.getText(), passwordField.getText()) == 1){
             invalidMessage.setText("");
-        Parent root = FXMLLoader.load(getClass().getResource("SidebarMenu.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.show();
+            Parent root = FXMLLoader.load(getClass().getResource("SidebarMenu.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.centerOnScreen();
+            stage.show();
         }
+        else if (Authentication.userSignIn(usernameTextField.getText(), passwordField.getText()) == 3){
+            invalidMessage.setText("This username does not exist, please try again");
+        }
+        else if (Authentication.userSignIn(usernameTextField.getText(), passwordField.getText()) == 4){
+            invalidMessage.setText("Password is wrong, please try again");
+        }
+
     }
 
     @FXML
