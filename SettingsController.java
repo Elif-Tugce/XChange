@@ -146,6 +146,13 @@ public class SettingsController {
     }
 
     @FXML
+    void applyChangesButtonAction(MouseEvent event) {
+        Navigator.getUser().setFirstName(firstNameTextField.getText());
+        Navigator.getUser().setLastName(lastNameTextField.getText());
+        Navigator.getUser().setUserName(usernameTextField.getText());
+    }
+
+    @FXML
     void initialize() {
         final ToggleGroup group = new ToggleGroup();
         darkRadioButton.setToggleGroup(group);
