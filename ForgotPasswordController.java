@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -18,6 +19,9 @@ public class ForgotPasswordController {
     
     @FXML
     private TextField favouriteColorTextField;
+
+    @FXML
+    private Label invalidMessage;
 
     @FXML
     private ImageView logoForFavouriteColor;
