@@ -83,7 +83,7 @@ public class SignUpController {
             stage.show();
         }
         else if(Authentication.userSignUp(usernameTextField.getText(), passwordField.getText(), repeatPasswordField.getText(), nameTextField.getText(), surnameTextField.getText(), motherNameTextField.getText(), favouriteColorTextField.getText()) == 2){
-            invalidMessage.setText("The repeated password is not the same as the original, please try again!");
+            invalidMessage.setText("The repeated password is different, please try again!");
         }
         else{
             invalidMessage.setText("This username already exist, please try another one!");
