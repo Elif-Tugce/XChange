@@ -59,12 +59,19 @@ public class SignInController {
 
     @FXML
     void signInButtonListener(MouseEvent event) throws IOException {
+
+        if (passwordField.getText().isBlank() && usernameTextField.getText().isBlank()){
+            invalidMessage.setText("Invalid login, please try again");
+        }
+        else {
+            invalidMessage.setText("");
         Parent root = FXMLLoader.load(getClass().getResource("SidebarMenu.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.centerOnScreen();
         stage.show();
+        }
     }
 
     @FXML
