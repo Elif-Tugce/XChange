@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
@@ -66,6 +67,9 @@ public class SettingsController {
 
     @FXML
     private Label lastNameText;
+
+    @FXML
+    private Label applyChangesLabel;
 
     @FXML
     private RadioButton lightRadioButton;
@@ -133,23 +137,33 @@ public class SettingsController {
     }
 
     @FXML
-    void changePasswordButtonAction(ContextMenuEvent event) {
-        // if (newPasswordField.getText().toString().equals(repeatPasswordField.getText().toString())) {
-        //     Navigator.getUser().setPassword(newPasswordField.getText());
-        //     wrongPassword.setText("Succesfully changed");
-        //     wrongPassword.textFillProperty();
-        // }
-        // else{
-        //     wrongPassword.setText("Retry to change the password");
-        // }
-        //NOT WORKING GIVING ARGUMENT TYPE MISTMATCH ERROR
+    void changePasswordButtonAction(ActionEvent event) {
+        if (newPasswordField.getText().toString().equals(repeatPasswordField.getText().toString()) && Database.checkPassword(Navigator.getUser().getUserName(), oldPasswordField.getText())) {
+            Navigator.getUser().setPassword(newPasswordField.getText());
+            wrongPassword.setTextFill(Color.color(0, 1, 0));
+            wrongPassword.setText("Succesfully changed");
+        }
+        else{
+            wrongPassword.setTextFill(Color.color(1, 0, 0));
+            wrongPassword.setText("Retry to change the password");
+        }
     }
 
     @FXML
     void applyChangesButtonAction(MouseEvent event) {
-        Navigator.getUser().setFirstName(firstNameTextField.getText());
-        Navigator.getUser().setLastName(lastNameTextField.getText());
-        Navigator.getUser().setUserName(usernameTextField.getText());
+
+        if (!usernameTextField.getText().equals(Navigator.getUser().getUserName()) && Database.checkUsername(usernameTextField.getText())) {
+            applyChangesLabel.setTextFill(Color.color(1, 0, 0));
+            applyChangesLabel.setText("Username already exist");
+        }
+        else {
+            Navigator.getUser().setFirstName(firstNameTextField.getText());
+            Navigator.getUser().setLastName(lastNameTextField.getText());
+            Navigator.getUser().setUserName(usernameTextField.getText());
+            wrongPassword.setTextFill(Color.color(0, 1, 0));
+            applyChangesLabel.setText("Succesfully Changed");
+        }
+        
     }
 
     @FXML
@@ -161,7 +175,6 @@ public class SettingsController {
         firstNameTextField.setText(Navigator.getUser().getFirstName());
         lastNameTextField.setText(Navigator.getUser().getLastName());
         usernameTextField.setText(Navigator.getUser().getUserName());
-        oldPasswordField.setText(Navigator.getUser().getPassword());
         if (Navigator.getUser().getDarkModeOn()) {
             darkRadioButton.setSelected(true);
         }
