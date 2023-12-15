@@ -38,7 +38,6 @@ public class CurrencyConverterController {
 
     @FXML
     void initialize() {
-        Navigator.setUser(new User(0, "null", "null", "null", "nulll", "null", "null", null, null, true));
         welcomeText.setText("Welcome to XChange " + Navigator.getUser().getFirstName() + " " + Navigator.getUser().getLastName());
     }
 

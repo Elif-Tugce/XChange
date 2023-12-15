@@ -107,8 +107,7 @@ public class menuController {
 
     @FXML
     void initialize() {
-        Navigator.setUser(new User(0, "null", "null", "null", "nulll", "null", "null", null, null, true));
-        usernameText.setText(Navigator.getUser().getFirstName());
+        usernameText.setText(Navigator.getUser().getFirstName() + " " + Navigator.getUser().getLastName());
     }
 
 }
