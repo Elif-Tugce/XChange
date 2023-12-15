@@ -54,6 +54,9 @@ public class ForgotPasswordController {
     private PasswordField repeatPasswordField;
 
     @FXML
+    private ImageView backButtonImage;
+
+    @FXML
     void forgotPasswordBackButtonListener(MouseEvent event) throws IOException {
             Parent root = FXMLLoader.load(getClass().getResource("SignIn.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
