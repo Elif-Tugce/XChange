@@ -132,8 +132,13 @@ public class SettingsController {
     }
 
     @FXML
-    void visibilityDropDownAction(ActionEvent event) {
-
+    void visibilityAction(MouseEvent event) {
+        if (darkRadioButton.isSelected()) {
+            System.out.println("ney");
+        }
+        else{
+            System.out.println("2");
+        }
     }
 
     @FXML
