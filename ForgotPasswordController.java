@@ -45,7 +45,7 @@ public class ForgotPasswordController {
     private TextField motherNameTextField;
 
     @FXML
-    private TextField usernameTextField;  //username text field
+    private TextField usernameTextField;
 
     @FXML
     private PasswordField passwordField;
