@@ -1,49 +1,83 @@
-import javafx.application.Application;
-import javafx.scene.Scene;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
-import javafx.stage.Stage;
+import java.util.Date;
+
+public class Graph {
  
- 
-public class Graph extends Application {
- 
-    @Override public void start(Stage stage) {
-        stage.setTitle("Line Chart Sample");
-        //defining the axes
-        final NumberAxis xAxis = new NumberAxis();
-        final NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("Number of Month");
-        //creating the chart
-        final LineChart<Number,Number> lineChart = 
-                new LineChart<Number,Number>(xAxis,yAxis);
-                
-        lineChart.setTitle("Stock Monitoring, 2010");
-        //defining a series
-        XYChart.Series series = new XYChart.Series();
-        series.setName("My portfolio");
-        //populating the series with data
-        series.getData().add(new XYChart.Data(1, 23));
-        series.getData().add(new XYChart.Data(2, 14));
-        series.getData().add(new XYChart.Data(3, 15));
-        series.getData().add(new XYChart.Data(4, 24));
-        series.getData().add(new XYChart.Data(5, 34));
-        series.getData().add(new XYChart.Data(6, 36));
-        series.getData().add(new XYChart.Data(7, 22));
-        series.getData().add(new XYChart.Data(8, 45));
-        series.getData().add(new XYChart.Data(9, 43));
-        series.getData().add(new XYChart.Data(10, 17));
-        series.getData().add(new XYChart.Data(11, 29));
-        series.getData().add(new XYChart.Data(12, 25));
-        
-        Scene scene  = new Scene(lineChart,800,600);
-        lineChart.getData().add(series);
-       
-        stage.setScene(scene);
-        stage.show();
+    String graphName;
+    String graphDescription;
+    int graphImportance;
+    Date dateCreated;
+    String curFromCode;
+    String curToCode;
+    Date startDate;
+    Date endDate;
+    String imagePath;
+
+    public Graph(String curFromCode, String curToCode, Date startDate, Date endDate) {
+        this.curFromCode = curFromCode;
+        this.curToCode = curToCode;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
- 
-    public static void main(String[] args) {
-        launch(args);
+
+    public Graph(String graphName, String graphDescription, int graphImportance, Date dateCreated, String curFromCode, String curToCode, Date startDate, Date endDate, String imagePath) {
+        this.graphName = graphName;
+        this.graphDescription = graphDescription;
+        this.graphImportance = graphImportance;
+        this.dateCreated = dateCreated;
+        this.curFromCode = curFromCode;
+        this.curToCode = curToCode;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.imagePath = imagePath;
+    }
+
+    public Graph(String graphName, String graphDescription, int graphImportance) {
+        this.graphName = graphName;
+        this.graphDescription = graphDescription;
+        this.graphImportance = graphImportance;
+        
+    }
+
+    public String getCurFromCode() {
+        return curFromCode;
+    }
+
+    public String getCurToCode() {
+        return curToCode;
+    }
+    public Date getDateCreated() {
+        return dateCreated;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public String getGraphDescription() {
+        return graphDescription;
+    }
+
+    public int getGraphImportance() {
+        return graphImportance;
+    }
+
+    public String getGraphName() {
+        return graphName;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setCurFromCode(String curFromCode) {
+        this.curFromCode = curFromCode;
+    }
+
+    public void setCurToCode(String curToCode) {
+        this.curToCode = curToCode;
     }
 }
