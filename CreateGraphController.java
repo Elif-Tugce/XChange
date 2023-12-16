@@ -53,12 +53,20 @@ public class CreateGraphController {
 
     @FXML
     void saveButtonAction(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("SaveGraphFrame.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen(); 
-        stage.show();
+        FXMLLoader rootLoader = new FXMLLoader(getClass().getResource("SaveGraphFrame.fxml"));
+        FXMLLoader parentLoader = new FXMLLoader(getClass().getResource("CreateGraph.fxml"));
+
+        Parent root = rootLoader.load();
+        Parent parent = parentLoader.load();
+        Stage mainStage = new Stage();
+
+        Stage popupStage = new Stage();
+        popupStage.initOwner(mainStage);
+        popupStage.setTitle("Save Graph");
+
+        Scene popupScene = new Scene(root);
+        popupStage.setScene(popupScene);
+        popupStage.showAndWait();
     }
 
     @FXML
