@@ -104,8 +104,8 @@
             <TextField fx:id="usernameTextField" layoutX="744.0" layoutY="164.0" />
             <Button fx:id="applyChangesButton" layoutX="536.0" layoutY="254.0" mnemonicParsing="false" onMouseClicked="#applyChangesButtonAction" prefHeight="27.0" prefWidth="135.0" text="Apply Changes" />
             <Label fx:id="applyChangesLabel" alignment="CENTER" layoutX="391.0" layoutY="215.0" prefHeight="17.0" prefWidth="426.0" textFill="#23ff00" />
-            <ComboBox fx:id="fromDefaultComboBox" layoutX="127.0" layoutY="453.0" prefWidth="150.0" />
-            <ComboBox fx:id="toDefaultComboBox" layoutX="127.0" layoutY="540.0" prefWidth="150.0" />
+            <ComboBox fx:id="fromDefaultComboBox" layoutX="127.0" layoutY="453.0" onAction="#defaultFromDropdownAction" prefWidth="150.0" />
+            <ComboBox fx:id="toDefaultComboBox" layoutX="127.0" layoutY="540.0" onAction="#defaultToDropdownAction" prefWidth="150.0" />
          </children>
       </AnchorPane>
    </children>

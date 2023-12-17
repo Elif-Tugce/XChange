@@ -1,3 +1,4 @@
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -18,11 +19,12 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class SettingsController {
 
-    ObservableList<String> currencyList = FXCollections.observableArrayList("USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR");
+    ObservableList<String> currencyList = FXCollections.observableArrayList();
 
     @FXML
     private ResourceBundle resources;
@@ -125,6 +127,8 @@ public class SettingsController {
     @FXML
     private ComboBox toDefaultComboBox;
 
+    
+
 
     public RadioButton getLightRadioButton(){
         return lightRadioButton;
@@ -135,6 +139,11 @@ public class SettingsController {
 
     @FXML
     void initialize() {
+
+        for (int i = 0; i < Navigator.getCurrencies().size(); i ++){
+            currencyList.add(Navigator.getCurrencies().get(i));
+        }
+
         fromDefaultComboBox.setValue(Navigator.getUser().getCurDefaultFrom());
         fromDefaultComboBox.setItems(currencyList);
 
@@ -199,17 +208,17 @@ public class SettingsController {
         darkRadioButton.setStyle("-fx-text-fill: black");
     }
     
-    
-    @FXML
-    void fromDefaultDropDownAction(ActionEvent event) {
-        System.out.println("helloowwww");
-    }
-
 
     @FXML
-    void toDefaultDropDownAction(ActionEvent event) {
-
+    void defaultFromDropdownAction(ActionEvent event) {
+        Navigator.getUser().setCurDefaultFrom((String)fromDefaultComboBox.getValue());
     }
+
+    @FXML
+    void defaultToDropdownAction(ActionEvent event) {
+        Navigator.getUser().setCurDefaultTo((String)toDefaultComboBox.getValue());
+    }
+
 
     @FXML
     void visibilityAction(MouseEvent event) {
