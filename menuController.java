@@ -15,12 +15,9 @@ import javafx.stage.Stage;
 public class menuController {
 
     Parent aboutUsRoot;
-    Parent currencyConverterRoot;
-    Parent createGraphRoot;
     Parent helpRoot;
     Parent myGraphsRoot;
     Parent settingsRoot;
-    Node currencyNode;
 
     private Scene scene;
     private Stage stage;
@@ -47,12 +44,9 @@ public class menuController {
 
     public menuController() throws IOException{
         aboutUsRoot = FXMLLoader.load(getClass().getResource("AboutUs.fxml"));
-        currencyConverterRoot = FXMLLoader.load(getClass().getResource("CurrencyConverter.fxml"));
-        createGraphRoot = FXMLLoader.load(getClass().getResource("CreateGraph.fxml"));
         helpRoot = FXMLLoader.load(getClass().getResource("Help.fxml"));
         myGraphsRoot = FXMLLoader.load(getClass().getResource("MyGraphs.fxml"));
-        settingsRoot = FXMLLoader.load(getClass().getResource("Settings.fxml"));        
-        currencyNode = currencyConverterRoot.lookup("#currencyConverterAnchorPane");
+        settingsRoot = FXMLLoader.load(getClass().getResource("Settings.fxml"));
     }
 
     @FXML
@@ -73,9 +67,9 @@ public class menuController {
 
     @FXML
     void convertCurrencyButtonListener(MouseEvent event) throws IOException {
-        //Parent root = FXMLLoader.load(getClass().getResource("CurrencyConverter.fxml"));
+        Parent currencyConverterRoot = FXMLLoader.load(getClass().getResource("CurrencyConverter.fxml"));
 
-        //Node node = currencyConverterRoot.lookup("#currencyConverterAnchorPane");
+        Node currencyNode = currencyConverterRoot.lookup("#currencyConverterAnchorPane");
 
         if(Navigator.getUser().getDarkModeOn() == 1){
             currencyNode.setStyle("-fx-background-color: #00072D");
@@ -91,7 +85,7 @@ public class menuController {
 
     @FXML
     void createGraphButtonListener(MouseEvent event) throws IOException {
-        //Parent root = FXMLLoader.load(getClass().getResource("CreateGraph.fxml"));
+        Parent createGraphRoot = FXMLLoader.load(getClass().getResource("CreateGraph.fxml"));
         Node node = createGraphRoot.lookup("#createAnchorPane");
 
         if(Navigator.getUser().getDarkModeOn() == 1){
@@ -163,17 +157,20 @@ public class menuController {
     @FXML
     void initialize() throws IOException {
         usernameText.setText(Navigator.getUser().getFirstName() + " " + Navigator.getUser().getLastName());
-        
-        //Parent root = FXMLLoader.load(getClass().getResource("CurrencyConverter.fxml"));
+
+        Parent currencyConverterRoot = FXMLLoader.load(getClass().getResource("CurrencyConverter.fxml"));
+
+        Node currencyNode = currencyConverterRoot.lookup("#currencyConverterAnchorPane");
+
         if(Navigator.getUser().getDarkModeOn() == 1){
             currencyNode.setStyle("-fx-background-color: #00072D");
         }
         else{
             currencyNode.setStyle("-fx-background-color: #AFD3E2");
         }
-        
+
         sp.getItems().clear();
-        sp.getItems().addAll(sideBarLeft ,currencyNode );
+        sp.getItems().addAll(sideBarLeft ,currencyNode);
     }
 
 }

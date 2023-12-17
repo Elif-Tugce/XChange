@@ -16,6 +16,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
+
 import java.io.File;
 
 public class CurrencyConverterController{
@@ -50,6 +52,16 @@ public class CurrencyConverterController{
     @FXML
     void initialize() {
 
+        String imagePath = Database.getCurrencyFlag(Navigator.getUser().getCurDefaultFrom());
+        File file = new File(imagePath);
+        Image image = new Image(file.toURI().toString());
+        fromCurrencyFlag.setImage(image);
+
+        String imagePath2 = Database.getCurrencyFlag(Navigator.getUser().getCurDefaultTo());
+        File file2 = new File(imagePath2);
+        Image image2 = new Image(file2.toURI().toString());
+        toCurrencyFlag.setImage(image2);
+        
         for (int i = 0; i < Navigator.getCurrencies().size(); i ++){
             currencyList.add(Navigator.getCurrencies().get(i));
         }
@@ -61,6 +73,7 @@ public class CurrencyConverterController{
         convertToBox.setValue(Navigator.getUser().getCurDefaultTo());
         convertToBox.setItems(currencyList);
     }
+
     
     @FXML
     void fromCurrencyDropdownAction(ActionEvent event) {
@@ -72,10 +85,10 @@ public class CurrencyConverterController{
 
     @FXML
     void toCurrencyDropdownAction(ActionEvent event) {
-        String imagePath = Database.getCurrencyFlag((String)convertToBox.getValue());
-        File file = new File(imagePath);
-        Image image = new Image(file.toURI().toString());
-        toCurrencyFlag.setImage(image);
+        String imagePath2 = Database.getCurrencyFlag((String)convertToBox.getValue());
+        File file2 = new File(imagePath2);
+        Image image2 = new Image(file2.toURI().toString());
+        toCurrencyFlag.setImage(image2);
     }
 
     @FXML

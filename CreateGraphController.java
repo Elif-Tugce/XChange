@@ -62,6 +62,17 @@ public class CreateGraphController {
 
     @FXML
     void initialize() {
+        
+        String imagePath = Database.getCurrencyFlag(Navigator.getUser().getCurDefaultFrom());
+        File file = new File(imagePath);
+        Image image = new Image(file.toURI().toString());
+        fromCurrencyFlag.setImage(image);
+
+        String imagePath2 = Database.getCurrencyFlag(Navigator.getUser().getCurDefaultTo());
+        File file2 = new File(imagePath2);
+        Image image2 = new Image(file2.toURI().toString());
+        toCurrencyFlag.setImage(image2);
+        
         for (int i = 0; i < Navigator.getCurrencies().size(); i ++){
             currencyList.add(Navigator.getCurrencies().get(i));
         }

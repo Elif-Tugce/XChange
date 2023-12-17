@@ -127,6 +127,8 @@ public class SettingsController {
     @FXML
     private ComboBox toDefaultComboBox;
 
+    CurrencyConverterController currencyConverterController = new CurrencyConverterController();
+
     
 
 
