@@ -14,9 +14,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="currencyConverterAnchorPane" prefHeight="900.0" prefWidth="1210.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CurrencyConverterController">
+<AnchorPane fx:id="currencyConverterAnchorPane1" prefHeight="900.0" prefWidth="1210.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CurrencyConverterController">
    <children>
-      <AnchorPane prefHeight="900.0" prefWidth="1210.0" style="-fx-background-color: #AFD3E2;">
+      <AnchorPane fx:id="currencyConverterAnchorPane" prefHeight="900.0" prefWidth="1210.0" style="-fx-background-color: #AFD3E2;">
          <children>
             <Label alignment="CENTER" prefHeight="50.0" prefWidth="1210.0" style="-fx-background-color: #F7FAFC;" text="Currency Converter">
                <font>

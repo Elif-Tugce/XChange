@@ -47,6 +47,13 @@ public class CreateGraphController {
 
     }
 
+    public void darkMode(){
+        createAnchorPane.setStyle("-fx-background-color: #ffffff");
+    }
+
+    public void lightMode(){
+        createAnchorPane.setStyle("-fx-background-color: #00072D");
+    }
     @FXML
     void changeButtonAction(MouseEvent event) {
 

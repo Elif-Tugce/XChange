@@ -8,37 +8,32 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="helpAnchorPane" prefHeight="900.0" prefWidth="1210.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HelpController">
+<AnchorPane fx:id="helpAnchorPane" prefHeight="900.0" prefWidth="1210.0" style="-fx-background-color: #AFD3E2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="900.0" prefWidth="0.0" style="-fx-background-color: #FFFFFF;" />
-      <AnchorPane prefHeight="900.0" prefWidth="1210.0" style="-fx-background-color: #AFD3E2;">
-         <children>
-            <Label alignment="CENTER" prefHeight="50.0" prefWidth="1210.0" style="-fx-background-color: #F7FAFC;" text="Help">
-               <font>
-                  <Font name="System Bold" size="24.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="983.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Icons/Coin.jpg" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="188.0" fitWidth="197.0" layoutX="973.0" layoutY="694.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Icons/Currency.png" />
-               </image>
-            </ImageView>
-            <TextArea layoutX="31.0" layoutY="230.0" prefHeight="478.0" prefWidth="1129.0" style="-fx-background-color: #AFD3E2;" text="To turn back to the main menu, click the logo.&#10;&#10;With the Convert Currency page, you can see the values of desired currencies by selecting them from the dropdown menu.&#10;&#10;You can calculate the selected currency’s value by giving an amount.&#10;&#10;You will also see a graph that shows the rate of change of the chosen currency over the selected time interval.&#10;&#10;With the Create Graph option, you can create the graphs of desired currencies by selecting a currency and defining a specific time interval.&#10;&#10;You can also save and download the graphs you created for later purposes.&#10;&#10;With the My Graphs option, you can see your previously saved graphs and download them if you haven’t.&#10;&#10;With the settings menu, you can set your default currency and change the">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </TextArea>
-            <Text layoutX="31.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEEMS LIKE YOU ARE CONFUSED LET US HELP YOU">
-               <font>
-                  <Font size="36.0" />
-               </font>
-            </Text>
-         </children>
-      </AnchorPane>
+      <Label alignment="CENTER" prefHeight="50.0" prefWidth="1210.0" style="-fx-background-color: #F7FAFC;" text="Help">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="983.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Icons/Coin.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="188.0" fitWidth="197.0" layoutX="973.0" layoutY="694.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Icons/Currency.png" />
+         </image>
+      </ImageView>
+      <TextArea layoutX="31.0" layoutY="230.0" prefHeight="478.0" prefWidth="1129.0" style="-fx-background-color: #AFD3E2;" text="To turn back to the main menu, click the logo.&#10;&#10;With the Convert Currency page, you can see the values of desired currencies by selecting them from the dropdown menu.&#10;&#10;You can calculate the selected currency’s value by giving an amount.&#10;&#10;You will also see a graph that shows the rate of change of the chosen currency over the selected time interval.&#10;&#10;With the Create Graph option, you can create the graphs of desired currencies by selecting a currency and defining a specific time interval.&#10;&#10;You can also save and download the graphs you created for later purposes.&#10;&#10;With the My Graphs option, you can see your previously saved graphs and download them if you haven’t.&#10;&#10;With the settings menu, you can set your default currency and change the">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
+      <Text layoutX="31.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEEMS LIKE YOU ARE CONFUSED LET US HELP YOU">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
