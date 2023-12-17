@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="createAnchorPane" onMouseClicked="#downloadButtonAction" prefHeight="900.0" prefWidth="1210.0" style="-fx-background-color: #AFD3E2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateGraphController">
+<AnchorPane fx:id="createAnchorPane" prefHeight="900.0" prefWidth="1210.0" style="-fx-background-color: #AFD3E2;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateGraphController">
    <children>
       <AnchorPane layoutX="339.0" layoutY="58.0" prefHeight="273.0" prefWidth="531.0" style="-fx-background-color: #F7FAFC;">
          <children>
