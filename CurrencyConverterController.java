@@ -16,7 +16,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class CurrencyConverterController{
 
-    ObservableList<String> currencyList = FXCollections.observableArrayList("USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR");
+    ObservableList<String> currencyList = FXCollections.observableArrayList("USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR");
 
     @FXML
     private ResourceBundle resources;
@@ -31,10 +31,10 @@ public class CurrencyConverterController{
     private Label welcomeText;
     
     @FXML
-    private ChoiceBox convertFromBox;
+    private ComboBox convertFromBox;
 
     @FXML
-    private ChoiceBox convertToBox;
+    private ComboBox convertToBox;
 
     @FXML
     void initialize() {
@@ -48,9 +48,6 @@ public class CurrencyConverterController{
     
     @FXML
     void amountDropDownAction(ActionEvent event) {
-        for(int i = 0; i < 30; i++){
-            convertFromBox.getItems().addAll(Navigator.getCurrencies().get(i));
-        }
     }
 
     @FXML

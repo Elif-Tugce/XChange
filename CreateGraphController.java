@@ -5,6 +5,8 @@ import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +20,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.ComboBox;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -27,6 +30,7 @@ import javafx.stage.Stage;
 
 public class CreateGraphController {
 
+    ObservableList<String> currencyList = FXCollections.observableArrayList("USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR");
     private Stage stage;
     private Scene scene;
     
@@ -41,6 +45,21 @@ public class CreateGraphController {
 
     @FXML
     private LineChart<String, Number> linearChart;
+
+    @FXML
+    private ComboBox convertFromBox;
+
+    @FXML
+    private ComboBox convertToBox;
+
+    @FXML
+    void initialize() {
+        convertFromBox.setValue(Navigator.getUser().getCurDefaultFrom());
+        convertFromBox.setItems(currencyList);
+
+        convertToBox.setValue(Navigator.getUser().getCurDefaultTo());
+        convertToBox.setItems(currencyList);
+    }
 
     @FXML
     void amountDropDownAction(ActionEvent event) {
@@ -114,11 +133,6 @@ public class CreateGraphController {
         Scene popupScene = new Scene(root);
         popupStage.setScene(popupScene);
         popupStage.showAndWait();
-    }
-
-    @FXML
-    void initialize() {
-
     }
 
 }
