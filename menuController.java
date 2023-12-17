@@ -104,8 +104,13 @@ public class menuController {
     }
 
     @FXML
-    void initialize() {
+    void initialize() throws IOException {
         usernameText.setText(Navigator.getUser().getFirstName() + " " + Navigator.getUser().getLastName());
+        
+        Parent root = FXMLLoader.load(getClass().getResource("CurrencyConverter.fxml"));
+
+        sp.getItems().clear();
+        sp.getItems().addAll(sideBarLeft ,root.lookup("#currencyConverterAnchorPane") );
     }
 
 }
