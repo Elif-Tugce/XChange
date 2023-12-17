@@ -47,6 +47,13 @@ public class CreateGraphController {
 
     }
 
+    public void darkMode(){
+        createAnchorPane.setStyle("-fx-background-color: #ffffff");
+    }
+
+    public void lightMode(){
+        createAnchorPane.setStyle("-fx-background-color: #00072D");
+    }
     @FXML
     void changeButtonAction(MouseEvent event) {
 
@@ -80,18 +87,16 @@ public class CreateGraphController {
         series.getData().add(new XYChart.Data<>("2 May 2022", 11));
         linearChart.getData().add(series);
 
-        // Create a group containing only the line chart
         Group chartGroup = new Group(linearChart);
 
-        // Create a file chooser dialog
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Save Graph");
+        fileChooser.setTitle("Save your linear graph");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PNG Files", "*.png"));
 
-        // Show the dialog to get the file location
         File file = fileChooser.showSaveDialog(null);
+
         if (file != null) {
-            // Snapshot the line chart group and save it to the selected file
+
             WritableImage image = chartGroup.snapshot(new SnapshotParameters(), null);
             try {
                 ImageIO.write(SwingFXUtils.fromFXImage(image, null), "png", file);

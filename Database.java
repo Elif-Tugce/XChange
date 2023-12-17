@@ -30,12 +30,13 @@ public class Database {
 
     public static void insertNewUser(User user) {
         int darkModeOn;
-        if (user.getDarkModeOn()) {
+        darkModeOn = user.getDarkModeOn();
+        /*if (user.getDarkModeOn()) {
             darkModeOn = 1;
         }
         else {
             darkModeOn = 0;
-        }
+        }*/
         try {
             Statement st = connection.createStatement();
             String sql = "INSERT INTO Users (UserID, UserName, UserPassword, FirstName, LastName, MothersName, FavouriteColor, DefaultCurrencyFrom, DefaultCurrencyTo, DarkModeOn)"
@@ -75,12 +76,12 @@ public class Database {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        boolean isDarkModeOn;
+        int isDarkModeOn;
         if (darkModeOn == 0) {
-            isDarkModeOn = false;
+            isDarkModeOn = 0;
         }
         else {
-            isDarkModeOn = true;
+            isDarkModeOn = 1;
         }
         ArrayList<Graph> graphs = getGraphs(userID);
         return new User(userID, userName, password, firstName, lastName, mothersName, favouriteColor, defaultFromCode, defaultToCode, isDarkModeOn, graphs);
@@ -221,17 +222,18 @@ public class Database {
         }
     }
 
-    public static void updateDarkModeOn(int userID, boolean isDarkModeOn) {
+    public static void updateDarkModeOn(int userID, int isDarkModeOn) {
         int darkModeOn;
-        if (isDarkModeOn) {
+        darkModeOn = isDarkModeOn;
+        /*if (isDarkModeOn) {
             darkModeOn = 1;
         }
         else {
             darkModeOn = 0;
-        }
+        }*/
         try {
             Statement st = connection.createStatement();
-            String sql = "UPDATE Users SET DefaultCurrencyFrom = " + darkModeOn + " WHERE UserID = " + userID;
+            String sql = "UPDATE Users SET DarkModeOn = " + darkModeOn + " WHERE UserID = " + userID;
             st.execute(sql);
         } catch (SQLException e) {
             e.printStackTrace();

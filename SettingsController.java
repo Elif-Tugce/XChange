@@ -118,6 +118,50 @@ public class SettingsController {
 
     @FXML
     private Label visibilityText;
+
+
+    public RadioButton getLightRadioButton(){
+        return lightRadioButton;
+    }
+    public RadioButton getDarkRadioButton(){
+        return darkRadioButton;
+    }
+
+    public void darkMode(){
+        changePasswordText.setStyle("-fx-text-fill: white");
+        defaultText.setStyle("-fx-text-fill: white");
+        firstNameText.setStyle("-fx-text-fill: white");
+        fromText.setStyle("-fx-text-fill: white");
+        wrongPassword.setStyle("-fx-text-fill: white");
+        lastNameText.setStyle("-fx-text-fill: white");
+        applyChangesLabel.setStyle("-fx-text-fill: white");
+        newPasswordText.setStyle("-fx-text-fill: white");
+        oldPasswordText.setStyle("-fx-text-fill: white");
+        profileText.setStyle("-fx-text-fill: white");
+        repeatPasswordText.setStyle("-fx-text-fill: white");
+        settingsBacground.setStyle("-fx-background-color: #00072D");
+        toText.setStyle("-fx-text-fill: white");
+        usernameText.setStyle("-fx-text-fill: white");
+        visibilityText.setStyle("-fx-text-fill: white");
+    }
+
+    public void lightMode(){
+        changePasswordText.setStyle("-fx-text-fill: black");
+        defaultText.setStyle("-fx-text-fill: black");
+        firstNameText.setStyle("-fx-text-fill: black");
+        fromText.setStyle("-fx-text-fill: black");
+        wrongPassword.setStyle("-fx-text-fill: black");
+        lastNameText.setStyle("-fx-text-fill: black");
+        applyChangesLabel.setStyle("-fx-text-fill: black");
+        newPasswordText.setStyle("-fx-text-fill: black");
+        oldPasswordText.setStyle("-fx-text-fill: black");
+        profileText.setStyle("-fx-text-fill: black");
+        repeatPasswordText.setStyle("-fx-text-fill: black");
+        settingsBacground.setStyle("-fx-background-color: #AFD3E2");
+        toText.setStyle("-fx-text-fill: black");
+        usernameText.setStyle("-fx-text-fill: black");
+        visibilityText.setStyle("-fx-text-fill: black");
+    }
     
     
     @FXML
@@ -133,11 +177,24 @@ public class SettingsController {
 
     @FXML
     void visibilityAction(MouseEvent event) {
+        CreateGraphController createGraphController = new CreateGraphController();
+
         if (darkRadioButton.isSelected()) {
-            System.out.println("ney");
+            Navigator.getUser().setDarkModeOn(1);
         }
         else{
-            System.out.println("2");
+            Navigator.getUser().setDarkModeOn(0);
+        }
+
+        if (Navigator.getUser().getDarkModeOn() == 1 || darkRadioButton.isSelected()){
+            Database.updateDarkModeOn(Navigator.getUser().getUserID(), 1);
+            darkMode();
+            createGraphController.darkMode();
+        }
+        else if((Navigator.getUser().getDarkModeOn() == 0 || lightRadioButton.isSelected())){
+            Database.updateDarkModeOn(Navigator.getUser().getUserID(), 0);
+            lightMode();
+            createGraphController.lightMode();
         }
     }
 
@@ -152,6 +209,7 @@ public class SettingsController {
             wrongPassword.setTextFill(Color.color(1, 0, 0));
             wrongPassword.setText("Retry to change the password");
         }
+        
     }
 
     @FXML
@@ -180,8 +238,14 @@ public class SettingsController {
         firstNameTextField.setText(Navigator.getUser().getFirstName());
         lastNameTextField.setText(Navigator.getUser().getLastName());
         usernameTextField.setText(Navigator.getUser().getUserName());
-        if (Navigator.getUser().getDarkModeOn()) {
+        if (Navigator.getUser().getDarkModeOn() == 1) {
+            Database.updateDarkModeOn(Navigator.getUser().getUserID(), 1);
             darkRadioButton.setSelected(true);
+            darkMode();
+        }
+        else{
+            Database.updateDarkModeOn(Navigator.getUser().getUserID(), 0);
+            lightMode();
         }
     }
 
