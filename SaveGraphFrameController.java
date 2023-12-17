@@ -32,17 +32,10 @@ public class SaveGraphFrameController {
     @FXML
     private URL location;
 
-
-    public Graph createGraphObject(){
-        return new Graph(graphDescriptionTextField.getText(), graphDescriptionTextField.getText(), Integer.parseInt(graphImportanceTextField.getText()));  //date, from ve to currency'leri de eklenecek
-    }
     
     
     @FXML
     void saveGraphButtonAction(MouseEvent event) throws IOException {
-        MyGraphsController myGraphsController = new MyGraphsController();
-
-        myGraphsController.addToTable(createGraphObject());
     }
 
     @FXML

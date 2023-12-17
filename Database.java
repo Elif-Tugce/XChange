@@ -319,7 +319,7 @@ public class Database {
                 LocalDate startDate = LocalDate.parse(rs.getDate(6).toString());
                 LocalDate endDate = LocalDate.parse(rs.getDate(6).toString());
                 String imagePath = rs.getString(10);
-                Graph graph = new Graph(graphName, graphDescription, graphImportance, dateCreated, curFromCode, curToCode, startDate, endDate, imagePath);
+                Graph graph = new Graph(graphName, graphDescription, graphImportance, dateCreated, curFromCode, curToCode, startDate, endDate);
                 graphs.add(graph);
             }
         } catch (SQLException e) {
@@ -332,7 +332,7 @@ public class Database {
         try {
             Statement st = connection.createStatement();
             String sql = "INSERT INTO Graphs (UserID, GraphName, GraphDescription, GraphImportance, DateCreated, CurrencyFrom, CurrencyTo, StartDate, EndDate, ImagePath)"
-                       + "SELECT " + userID + ", '" + graph.getGraphName() + "', " + graph.getGraphImportance() + ", '" + graph.getDateCreated().toString() + "', '" + graph.getCurFromCode() + "', '" + graph.getCurToCode() + "', '" + graph.getStartDate().toString() + "', '" + graph.getEndDate().toString() + "', '" + graph.getImagePath() + "'";
+                       + "SELECT " + userID + ", '" + graph.getGraphName() + "', " + graph.getGraphImportance() + ", '" + graph.getDateCreated().toString() + "', '" + graph.getCurFromCode() + "', '" + graph.getCurToCode() + "', '" + graph.getStartDate().toString() + "', '" + graph.getEndDate().toString() + "', '";
             st.execute(sql);
         } catch (SQLException e) {
             e.printStackTrace();
