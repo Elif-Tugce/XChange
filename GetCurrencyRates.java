@@ -1,5 +1,5 @@
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 /**
  * Calculator
@@ -7,37 +7,43 @@ import java.util.Date;
 
 public class GetCurrencyRates {
 
-    public static double latest(String currencyFromCode, String currencyToCode) throws Exception {
+    public static double calculateLatest(String currencyFromCode, String currencyToCode) throws Exception {
         Double x = GetRatesAPI.requestLatest(currencyFromCode);
         Double y = GetRatesAPI.requestLatest(currencyToCode);
         return y/x;
     }
 
-    public static double historical(Date dateFrom, Date dateTo, String currencyFromCode, String currencyToCode) throws Exception {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(dateFrom);
-        calendar.add(Calendar.YEAR, 1);
+    public static ArrayList<Double> calculateHistorical(String currencyFromCode, String currencyToCode, LocalDate startDate, LocalDate endDate) {
+        ArrayList<Double> values = new ArrayList<Double>();
+        ArrayList<Double> fromValues = Database.getCurrencyValuesBetween(currencyFromCode, startDate, endDate);
+        ArrayList<Double> toValues = Database.getCurrencyValuesBetween(currencyToCode, startDate, endDate);
 
-        boolean useMonths = calendar.getTime().before(dateTo);
-
-        // Loop through the dates
-        calendar.setTime(dateFrom);
-        while (!calendar.getTime().after(dateTo)) {
-            Date currentDate = calendar.getTime();
-
-            // Make API call for the current date 
-            Double x = GetRatesAPI.requestHistorical(currentDate, currencyFromCode);
-            Double y = GetRatesAPI.requestHistorical(currentDate, currencyToCode);
-
-            // Increment the date by 1 day or 1 month
-            if (useMonths) {
-                calendar.add(Calendar.MONTH, 1);
-            } else {
-                calendar.add(Calendar.DAY_OF_MONTH, 1);
-            }
-            return x/y;
+        int valuesSize;
+        if (fromValues.size() > toValues.size()) {
+            valuesSize = toValues.size();
         }
-        return 0;
+        else {
+            valuesSize = fromValues.size();
+        }
+        
+        for (int i = 0; i < valuesSize; i++) {
+            values.add(toValues.get(i) / fromValues.get(i));
+        }
+
+        return values;
     }
+
+    public static ArrayList<LocalDate> getHistoricalDates(ArrayList<Double> values, LocalDate endDate) {
+        ArrayList<LocalDate> dates = new ArrayList<LocalDate>();
+        LocalDate startFrom = endDate.minusDays(values.size() - 1);
+
+        for (int i = 0; i < values.size(); i++) {
+            dates.add(startFrom);
+            startFrom = startFrom.plusDays(1);
+        }
+
+        return dates;
+    }
+    
 
 }
