@@ -56,8 +56,8 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <ChoiceBox layoutX="105.0" layoutY="64.0" prefWidth="150.0" />
-                  <ChoiceBox layoutX="105.0" layoutY="193.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="convertFromBox" layoutX="105.0" layoutY="64.0" prefWidth="150.0" />
+                  <ChoiceBox fx:id="convertToBox" layoutX="105.0" layoutY="193.0" prefWidth="150.0" />
                </children>
             </AnchorPane>
             <Label fx:id="welcomeText" alignment="CENTER" layoutX="316.0" layoutY="74.0" prefHeight="95.0" prefWidth="577.0" style="-fx-background-color: #FFFFFF;" text="WELCOME BACK TO XCHANGE SERKAN YILMAZ">

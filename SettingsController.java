@@ -189,12 +189,10 @@ public class SettingsController {
         if (Navigator.getUser().getDarkModeOn() == 1 || darkRadioButton.isSelected()){
             Database.updateDarkModeOn(Navigator.getUser().getUserID(), 1);
             darkMode();
-            createGraphController.darkMode();
         }
         else if((Navigator.getUser().getDarkModeOn() == 0 || lightRadioButton.isSelected())){
             Database.updateDarkModeOn(Navigator.getUser().getUserID(), 0);
             lightMode();
-            createGraphController.lightMode();
         }
     }
 
