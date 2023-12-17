@@ -10,7 +10,6 @@ public class Graph {
     private String curToCode;
     private LocalDate startDate;
     private LocalDate endDate;
-    private String imagePath;
 
     public Graph(String curFromCode, String curToCode, LocalDate startDate, LocalDate endDate) {
         this.curFromCode = curFromCode;
@@ -19,7 +18,7 @@ public class Graph {
         this.endDate = endDate;
     }
 
-    public Graph(String graphName, String graphDescription, int graphImportance, LocalDate dateCreated, String curFromCode, String curToCode, LocalDate startDate, LocalDate endDate, String imagePath) {
+    public Graph(String graphName, String graphDescription, int graphImportance, LocalDate dateCreated, String curFromCode, String curToCode, LocalDate startDate, LocalDate endDate) {
         this.graphName = graphName;
         this.graphDescription = graphDescription;
         this.graphImportance = graphImportance;
@@ -28,13 +27,6 @@ public class Graph {
         this.curToCode = curToCode;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.imagePath = imagePath;
-    }
-
-    public Graph(String graphName, String graphDescription, int graphImportance) {
-        this.graphName = graphName;
-        this.graphDescription = graphDescription;
-        this.graphImportance = graphImportance;
     }
 
     public String getCurFromCode() {
@@ -64,10 +56,6 @@ public class Graph {
         return graphName;
     }
 
-    public String getImagePath() {
-        return imagePath;
-    }
-
     public LocalDate getStartDate() {
         return startDate;
     }
@@ -76,7 +64,6 @@ public class Graph {
         this.graphName = graphName;
         this.graphImportance = graphImportance;
         this.graphDescription = graphDescription;
-        this.imagePath = imagePath;
         this.dateCreated = LocalDate.now();
         Navigator.getUser().getGraphs().add(this);
         Database.saveGraph(this, Navigator.getUser().getUserID());
