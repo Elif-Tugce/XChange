@@ -34,7 +34,7 @@
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
               <yAxis>
-                <NumberAxis side="LEFT" />
+                <NumberAxis side="LEFT" tickLabelFill="#f7fafc" />
               </yAxis>
             </LineChart>
          </children>

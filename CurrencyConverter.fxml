@@ -26,12 +26,12 @@
             <Label layoutX="957.0" layoutY="295.0" prefHeight="82.0" prefWidth="239.0" style="-fx-background-color: #F7FAFC;" text="GBP/USD Currency Pair Also Known as Cable" />
             <Label layoutX="837.0" layoutY="439.0" prefHeight="82.0" prefWidth="239.0" style="-fx-background-color: #F7FAFC;" text="GBP/USD Currency Pair Also Known as Cable" />
             <Label layoutX="957.0" layoutY="591.0" prefHeight="82.0" prefWidth="239.0" style="-fx-background-color: #F7FAFC;" text="GBP/USD Currency Pair Also Known as Cable" />
-            <LineChart layoutX="26.0" layoutY="179.0" prefHeight="429.0" prefWidth="734.0" title="Currency Chart">
+            <LineChart alternativeColumnFillVisible="true" layoutX="26.0" layoutY="179.0" prefHeight="429.0" prefWidth="734.0" title="Currency Chart">
               <xAxis>
-                <CategoryAxis label="Time" side="BOTTOM" />
+                <CategoryAxis label="Time" side="BOTTOM" tickLabelFill="#f7fafc" />
               </xAxis>
               <yAxis>
-                <NumberAxis label="Rate" side="LEFT" />
+                <NumberAxis label="Rate" side="LEFT" tickLabelFill="#f7fafc" />
               </yAxis>
             </LineChart>
             <AnchorPane layoutX="160.0" layoutY="609.0" prefHeight="273.0" prefWidth="531.0" style="-fx-background-color: #F7FAFC;">
