@@ -21,6 +21,8 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -53,6 +55,12 @@ public class CreateGraphController {
     private ComboBox convertToBox;
 
     @FXML
+    private ImageView fromCurrencyFlag;
+
+    @FXML
+    private ImageView toCurrencyFlag;
+
+    @FXML
     void initialize() {
         for (int i = 0; i < Navigator.getCurrencies().size(); i ++){
             currencyList.add(Navigator.getCurrencies().get(i));
@@ -65,13 +73,34 @@ public class CreateGraphController {
     }
 
     @FXML
-    void amountDropDownAction(ActionEvent event) {
-
+    void fromCurrencyDropdownAction(ActionEvent event) {
+        String imagePath = Database.getCurrencyFlag((String)convertFromBox.getValue());
+        File file = new File(imagePath);
+        Image image = new Image(file.toURI().toString());
+        fromCurrencyFlag.setImage(image);
     }
 
     @FXML
-    void changeButtonAction(MouseEvent event) {
+    void toCurrencyDropdownAction(ActionEvent event) {
+        String imagePath = Database.getCurrencyFlag((String)convertToBox.getValue());
+        File file = new File(imagePath);
+        Image image = new Image(file.toURI().toString());
+        toCurrencyFlag.setImage(image);
+    }
 
+
+    @FXML
+    void changeButtonAction(MouseEvent event) {
+        ImageView tempForImage;
+        Object tempForCurrency;
+
+        tempForImage = fromCurrencyFlag;
+        fromCurrencyFlag.setImage(toCurrencyFlag.getImage());
+        toCurrencyFlag.setImage(tempForImage.getImage());
+
+        tempForCurrency = convertFromBox.getValue();
+        convertFromBox.setValue(convertToBox.getValue());
+        convertToBox.setValue(tempForCurrency);
     }
 
     @FXML

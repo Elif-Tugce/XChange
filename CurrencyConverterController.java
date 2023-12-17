@@ -1,3 +1,4 @@
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -10,10 +11,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import java.io.File;
 
 public class CurrencyConverterController{
 
@@ -61,17 +64,32 @@ public class CurrencyConverterController{
     
     @FXML
     void fromCurrencyDropdownAction(ActionEvent event) {
-        fromCurrencyFlag.setImage(Navigator.getCurrencyFlag(convertFromBox.getValue()));
+        String imagePath = Database.getCurrencyFlag((String)convertFromBox.getValue());
+        File file = new File(imagePath);
+        Image image = new Image(file.toURI().toString());
+        fromCurrencyFlag.setImage(image);
     }
 
     @FXML
     void toCurrencyDropdownAction(ActionEvent event) {
-
+        String imagePath = Database.getCurrencyFlag((String)convertToBox.getValue());
+        File file = new File(imagePath);
+        Image image = new Image(file.toURI().toString());
+        toCurrencyFlag.setImage(image);
     }
 
     @FXML
     void changeButtonListener(MouseEvent event) {
+        ImageView tempForImage;
+        Object tempForCurrency;
 
+        tempForImage = fromCurrencyFlag;
+        fromCurrencyFlag.setImage(toCurrencyFlag.getImage());
+        toCurrencyFlag.setImage(tempForImage.getImage());
+
+        tempForCurrency = convertFromBox.getValue();
+        convertFromBox.setValue(convertToBox.getValue());
+        convertToBox.setValue(tempForCurrency);
     }
 
     @FXML
