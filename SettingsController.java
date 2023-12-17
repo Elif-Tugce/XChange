@@ -1,5 +1,8 @@
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.input.ContextMenuEvent;
@@ -8,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
@@ -17,6 +21,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 
 public class SettingsController {
+
+    ObservableList<String> currencyList = FXCollections.observableArrayList("USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR");
 
     @FXML
     private ResourceBundle resources;
@@ -42,9 +48,6 @@ public class SettingsController {
     private ImageView coinImage;
 
     @FXML
-    private RadioButton darkRadioButton;
-
-    @FXML
     private Label defaultText;
 
     @FXML
@@ -52,9 +55,6 @@ public class SettingsController {
 
     @FXML
     private Label firstNameText;
-
-    @FXML
-    private ChoiceBox fromDropdownBox;
 
     @FXML
     private Label fromText;
@@ -73,6 +73,9 @@ public class SettingsController {
 
     @FXML
     private RadioButton lightRadioButton;
+    
+    @FXML
+    private RadioButton darkRadioButton;
 
     @FXML
     private ImageView moneyImage;
@@ -105,9 +108,6 @@ public class SettingsController {
     private AnchorPane settingsBacground;
 
     @FXML
-    private ChoiceBox toDropdownBox;
-
-    @FXML
     private Label toText;
 
     @FXML
@@ -119,12 +119,44 @@ public class SettingsController {
     @FXML
     private Label visibilityText;
 
+    @FXML
+    private ComboBox fromDefaultComboBox;
+
+    @FXML
+    private ComboBox toDefaultComboBox;
+
 
     public RadioButton getLightRadioButton(){
         return lightRadioButton;
     }
     public RadioButton getDarkRadioButton(){
         return darkRadioButton;
+    }
+
+    @FXML
+    void initialize() {
+        fromDefaultComboBox.setValue(Navigator.getUser().getCurDefaultFrom());
+        fromDefaultComboBox.setItems(currencyList);
+
+        toDefaultComboBox.setValue(Navigator.getUser().getCurDefaultTo());
+        toDefaultComboBox.setItems(currencyList);
+
+        final ToggleGroup group = new ToggleGroup();
+        darkRadioButton.setToggleGroup(group);
+        lightRadioButton.setToggleGroup(group);
+
+        firstNameTextField.setText(Navigator.getUser().getFirstName());
+        lastNameTextField.setText(Navigator.getUser().getLastName());
+        usernameTextField.setText(Navigator.getUser().getUserName());
+        if (Navigator.getUser().getDarkModeOn() == 1) {
+            Database.updateDarkModeOn(Navigator.getUser().getUserID(), 1);
+            darkRadioButton.setSelected(true);
+            darkMode();
+        }
+        else{
+            Database.updateDarkModeOn(Navigator.getUser().getUserID(), 0);
+            lightMode();
+        }
     }
 
     public void darkMode(){
@@ -143,6 +175,8 @@ public class SettingsController {
         toText.setStyle("-fx-text-fill: white");
         usernameText.setStyle("-fx-text-fill: white");
         visibilityText.setStyle("-fx-text-fill: white");
+        lightRadioButton.setStyle("-fx-text-fill: white");
+        darkRadioButton.setStyle("-fx-text-fill: white");
     }
 
     public void lightMode(){
@@ -161,12 +195,14 @@ public class SettingsController {
         toText.setStyle("-fx-text-fill: black");
         usernameText.setStyle("-fx-text-fill: black");
         visibilityText.setStyle("-fx-text-fill: black");
+        lightRadioButton.setStyle("-fx-text-fill: black");
+        darkRadioButton.setStyle("-fx-text-fill: black");
     }
     
     
     @FXML
     void fromDefaultDropDownAction(ActionEvent event) {
-
+        System.out.println("helloowwww");
     }
 
 
@@ -225,26 +261,6 @@ public class SettingsController {
             applyChangesLabel.setText("Succesfully Changed");
         }
         
-    }
-
-    @FXML
-    void initialize() {
-        final ToggleGroup group = new ToggleGroup();
-        darkRadioButton.setToggleGroup(group);
-        lightRadioButton.setToggleGroup(group);
-
-        firstNameTextField.setText(Navigator.getUser().getFirstName());
-        lastNameTextField.setText(Navigator.getUser().getLastName());
-        usernameTextField.setText(Navigator.getUser().getUserName());
-        if (Navigator.getUser().getDarkModeOn() == 1) {
-            Database.updateDarkModeOn(Navigator.getUser().getUserID(), 1);
-            darkRadioButton.setSelected(true);
-            darkMode();
-        }
-        else{
-            Database.updateDarkModeOn(Navigator.getUser().getUserID(), 0);
-            lightMode();
-        }
     }
 
 
