@@ -14,7 +14,7 @@ public class User {
     private String favouriteColor;
     private String curDefaultFrom;
     private String curDefaultTo;
-    private boolean darkModeOn;
+    private int darkModeOn;
     private ArrayList<Graph> graphs;
 
     //constructor for first creation
@@ -28,13 +28,13 @@ public class User {
         this.favouriteColor = favouriteColor;
         this.curDefaultFrom = "USD";
         this.curDefaultTo = "TRY";
-        darkModeOn = false;
+        darkModeOn = 0;
         graphs = new ArrayList<Graph>();
         Database.insertNewUser(this);
     }
 
     //constructor for getting user from database
-    public User(int userId, String userName, String password, String firstName, String lastName, String mothersName, String favouriteColor, String currencyDefaultFrom, String currencyDefaultTo, boolean darkModeOn) {
+    public User(int userId, String userName, String password, String firstName, String lastName, String mothersName, String favouriteColor, String currencyDefaultFrom, String currencyDefaultTo, int darkModeOn) {
         this.userID = userId;
         this.userName = userName;
         this.password = password;
@@ -75,7 +75,7 @@ public class User {
         this.curDefaultTo = curDefaultTo;
     }
 
-    public void setDarkModeOn(boolean darkModeOn) {
+    public void setDarkModeOn(int darkModeOn) {
         this.darkModeOn = darkModeOn;
         Database.updateDarkModeOn(userID, darkModeOn);
     }
@@ -124,7 +124,7 @@ public class User {
         return userName;
     }
 
-    public boolean getDarkModeOn() {
+    public int getDarkModeOn() {
         return darkModeOn;
     }
 

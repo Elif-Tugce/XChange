@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class SaveGraphFrameController {
 
@@ -32,17 +34,15 @@ public class SaveGraphFrameController {
 
 
     public Graph createGraphObject(){
-        return new Graph();
+        return new Graph(graphDescriptionTextField.getText(), graphDescriptionTextField.getText(), Integer.parseInt(graphImportanceTextField.getText()));  //date, from ve to currency'leri de eklenecek
     }
+    
     
     @FXML
     void saveGraphButtonAction(MouseEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("SaveGraphFrame.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.centerOnScreen();
-        stage.showAndWait();
+        MyGraphsController myGraphsController = new MyGraphsController();
+
+        myGraphsController.addToTable(createGraphObject());
     }
 
     @FXML

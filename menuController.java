@@ -97,8 +97,6 @@ public class menuController {
     void settingsButtonListener(MouseEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Settings.fxml"));
 
-        System.out.println("test");
-
         sp.getItems().clear();
         sp.getItems().addAll(sideBarLeft ,root.lookup("#settingsAnchorPane") );
 
