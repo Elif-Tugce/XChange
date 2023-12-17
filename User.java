@@ -70,10 +70,12 @@ public class User {
 
     public void setCurDefaultFrom(String curDefaultFrom) {
         this.curDefaultFrom = curDefaultFrom;
+        Database.updateDefaultFrom(userID, curDefaultFrom);
     }
 
     public void setCurDefaultTo(String curDefaultTo) {
         this.curDefaultTo = curDefaultTo;
+        Database.updateDefaultTo(userID, curDefaultTo);
     }
 
     public void setDarkModeOn(int darkModeOn) {
