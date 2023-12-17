@@ -34,7 +34,7 @@ public class User {
     }
 
     //constructor for getting user from database
-    public User(int userId, String userName, String password, String firstName, String lastName, String mothersName, String favouriteColor, String currencyDefaultFrom, String currencyDefaultTo, boolean darkModeOn) {
+    public User(int userId, String userName, String password, String firstName, String lastName, String mothersName, String favouriteColor, String currencyDefaultFrom, String currencyDefaultTo, boolean darkModeOn, ArrayList<Graph> graphs) {
         this.userID = userId;
         this.userName = userName;
         this.password = password;
@@ -45,6 +45,7 @@ public class User {
         this.curDefaultFrom = currencyDefaultFrom;
         this.curDefaultTo = currencyDefaultTo;
         this.darkModeOn = darkModeOn;
+        this.graphs = graphs;
     }
 
     public void setUserName(String userName) {

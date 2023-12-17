@@ -1,7 +1,7 @@
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.sql.Connection;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -82,7 +82,8 @@ public class Database {
         else {
             isDarkModeOn = true;
         }
-        return new User(userID, userName, password, firstName, lastName, mothersName, favouriteColor, defaultFromCode, defaultToCode, isDarkModeOn);
+        ArrayList<Graph> graphs = getGraphs(userID);
+        return new User(userID, userName, password, firstName, lastName, mothersName, favouriteColor, defaultFromCode, defaultToCode, isDarkModeOn, graphs);
     }
 
     public static String getFlagPath(String currencyCode) {
@@ -125,23 +126,21 @@ public class Database {
         return currencies;
     }
     
-    public static void insertCurrencyValue(String currencyCode, java.util.Date date, double value) {
-        Date sqlDate = new Date(date.getTime());
+    public static void insertCurrencyValue(String currencyCode, LocalDate date, double value) {
         try {
             Statement st = connection.createStatement();
-            String sql = "INSERT INTO CurrencyValues (CurrencyCode, ValueDate, CurrencyValue) SELECT '" + currencyCode + "', '" + sqlDate.toString() + "', " + value;
+            String sql = "INSERT INTO CurrencyValues (CurrencyCode, ValueDate, CurrencyValue) SELECT '" + currencyCode + "', '" + date.toString() + "', " + value;
             st.execute(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public static double getCurrencyValue(String currencyCode, java.util.Date date) {
-        Date sqlDate = new Date(date.getTime());
+    public static double getCurrencyValue(String currencyCode, LocalDate date) {
         double value = 0;
         try {
             Statement st = connection.createStatement();
-            String sql = "SELECT CurrencyValue FROM CurrencyValues WHERE CurrencyCode = '" + currencyCode + "' AND ValueDate = '" + sqlDate.toString() + "'";
+            String sql = "SELECT CurrencyValue FROM CurrencyValues WHERE CurrencyCode = '" + currencyCode + "' AND ValueDate = '" + date.toString() + "'";
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
                 value = rs.getDouble(1);
@@ -308,6 +307,43 @@ public class Database {
             e.printStackTrace();
         }
         return favouriteColor.equals(userFavouriteColor);
+    }
+
+    public static ArrayList<Graph> getGraphs(int userID) {
+        ArrayList<Graph> graphs = new ArrayList<Graph>();
+        try {
+            Statement st = connection.createStatement();
+            String sql = "SELECT * FROM Graphs WHERE UserID = " + userID;
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                userID = rs.getInt(1);
+                String graphName = rs.getString(2);
+                String graphDescription = rs.getString(3);
+                int graphImportance = rs.getInt(4);
+                LocalDate dateCreated = LocalDate.parse(rs.getDate(5).toString());
+                String curFromCode = rs.getString(6);
+                String curToCode = rs.getString(7);
+                LocalDate startDate = LocalDate.parse(rs.getDate(6).toString());
+                LocalDate endDate = LocalDate.parse(rs.getDate(6).toString());
+                String imagePath = rs.getString(10);
+                Graph graph = new Graph(graphName, graphDescription, graphImportance, dateCreated, curFromCode, curToCode, startDate, endDate, imagePath);
+                graphs.add(graph);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return graphs;
+    }
+
+    public static void saveGraph(Graph graph, int userID) {
+        try {
+            Statement st = connection.createStatement();
+            String sql = "INSERT INTO Graphs (UserID, GraphName, GraphDescription, GraphImportance, DateCreated, CurrencyFrom, CurrencyTo, StartDate, EndDate, ImagePath)"
+                       + "SELECT " + userID + ", '" + graph.getGraphName() + "', " + graph.getGraphImportance() + ", '" + graph.getDateCreated().toString() + "', '" + graph.getCurFromCode() + "', '" + graph.getCurToCode() + "', '" + graph.getStartDate().toString() + "', '" + graph.getEndDate().toString() + "', '" + graph.getImagePath() + "'";
+            st.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }
