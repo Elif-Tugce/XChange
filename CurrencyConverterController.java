@@ -10,13 +10,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 public class CurrencyConverterController{
 
-    ObservableList<String> currencyList = FXCollections.observableArrayList("USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR");
+    ObservableList<String> currencyList = FXCollections.observableArrayList();
+
 
     @FXML
     private ResourceBundle resources;
@@ -37,7 +39,18 @@ public class CurrencyConverterController{
     private ComboBox convertToBox;
 
     @FXML
+    private ImageView fromCurrencyFlag;
+
+    @FXML
+    private ImageView toCurrencyFlag;
+
+    @FXML
     void initialize() {
+
+        for (int i = 0; i < Navigator.getCurrencies().size(); i ++){
+            currencyList.add(Navigator.getCurrencies().get(i));
+        }
+
         welcomeText.setText("Welcome to XChange " + Navigator.getUser().getFirstName() + " " + Navigator.getUser().getLastName());
         convertFromBox.setValue(Navigator.getUser().getCurDefaultFrom());
         convertFromBox.setItems(currencyList);
@@ -47,7 +60,13 @@ public class CurrencyConverterController{
     }
     
     @FXML
-    void amountDropDownAction(ActionEvent event) {
+    void fromCurrencyDropdownAction(ActionEvent event) {
+        fromCurrencyFlag.setImage(Navigator.getCurrencyFlag(convertFromBox.getValue()));
+    }
+
+    @FXML
+    void toCurrencyDropdownAction(ActionEvent event) {
+
     }
 
     @FXML

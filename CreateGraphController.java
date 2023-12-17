@@ -30,7 +30,7 @@ import javafx.stage.Stage;
 
 public class CreateGraphController {
 
-    ObservableList<String> currencyList = FXCollections.observableArrayList("USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR");
+    ObservableList<String> currencyList = FXCollections.observableArrayList();
     private Stage stage;
     private Scene scene;
     
@@ -54,6 +54,9 @@ public class CreateGraphController {
 
     @FXML
     void initialize() {
+        for (int i = 0; i < Navigator.getCurrencies().size(); i ++){
+            currencyList.add(Navigator.getCurrencies().get(i));
+        }
         convertFromBox.setValue(Navigator.getUser().getCurDefaultFrom());
         convertFromBox.setItems(currencyList);
 

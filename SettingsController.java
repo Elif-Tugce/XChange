@@ -22,7 +22,7 @@ import javafx.scene.image.ImageView;
 
 public class SettingsController {
 
-    ObservableList<String> currencyList = FXCollections.observableArrayList("USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR", "USD", "TL", "EUR");
+    ObservableList<String> currencyList = FXCollections.observableArrayList();
 
     @FXML
     private ResourceBundle resources;
@@ -135,6 +135,11 @@ public class SettingsController {
 
     @FXML
     void initialize() {
+
+        for (int i = 0; i < Navigator.getCurrencies().size(); i ++){
+            currencyList.add(Navigator.getCurrencies().get(i));
+        }
+
         fromDefaultComboBox.setValue(Navigator.getUser().getCurDefaultFrom());
         fromDefaultComboBox.setItems(currencyList);
 

@@ -39,12 +39,12 @@
                   <Text layoutX="21.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" />
                   <Text layoutX="21.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Converted Amount" />
                   <Text layoutX="33.0" layoutY="133.0" strokeType="OUTSIDE" strokeWidth="0.0" text="________________________________________________________________________________________________" />
-                  <ImageView fitHeight="70.0" fitWidth="63.0" layoutX="21.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="fromCurrencyFlag" fitHeight="70.0" fitWidth="63.0" layoutX="21.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Flags/united%20states.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="70.0" fitWidth="63.0" layoutX="21.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="toCurrencyFlag" fitHeight="70.0" fitWidth="63.0" layoutX="21.0" layoutY="174.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Flags/turkey.png" />
                      </image>
@@ -56,8 +56,8 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <ComboBox fx:id="convertFromBox" layoutX="105.0" layoutY="63.0" prefWidth="150.0" />
-                  <ComboBox fx:id="convertToBox" layoutX="105.0" layoutY="193.0" prefWidth="150.0" />
+                  <ComboBox fx:id="convertFromBox" layoutX="105.0" layoutY="63.0" onAction="#fromCurrencyDropdownAction" prefWidth="150.0" />
+                  <ComboBox fx:id="convertToBox" layoutX="105.0" layoutY="193.0" onAction="#toCurrencyDropdownAction" prefWidth="150.0" />
                </children>
             </AnchorPane>
             <Label fx:id="welcomeText" alignment="CENTER" layoutX="316.0" layoutY="74.0" prefHeight="95.0" prefWidth="577.0" style="-fx-background-color: #FFFFFF;" text="WELCOME BACK TO XCHANGE SERKAN YILMAZ">
