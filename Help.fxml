@@ -30,7 +30,7 @@
             <Font size="18.0" />
          </font>
       </TextArea>
-      <Text layoutX="31.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEEMS LIKE YOU ARE CONFUSED LET US HELP YOU">
+      <Text fill="#f7fafc" layoutX="31.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SEEMS LIKE YOU ARE CONFUSED LET US HELP YOU">
          <font>
             <Font size="36.0" />
          </font>
