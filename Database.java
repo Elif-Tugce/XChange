@@ -72,7 +72,7 @@ public class Database {
         return new User(userID, userName, password, firstName, lastName, mothersName, favouriteColor, defaultFromCode, defaultToCode, darkModeOn, graphs);
     }
 
-    public static String getFlagPath(String currencyCode) {
+    public static String getCurrencyFlag(String currencyCode) {
         String flagPath = "";
         try {
             Statement st = connection.createStatement();
@@ -87,10 +87,25 @@ public class Database {
         return flagPath;
     }
 
-    public static void insertCurrency(String currencyCode, String flagPath) {
+    public static String getCurrencyName(String currencyCode) {
+        String currencyName = "";
         try {
             Statement st = connection.createStatement();
-            String sql = "INSERT INTO CurrencyFlags (CurrencyCode, CurrencyFlagPath) SELECT '" + currencyCode + "', '" + flagPath + "'";
+            String sql = "SELECT CurrencyName FROM CurrencyFlags WHERE CurrencyCode = '" + currencyCode + "'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                currencyName = rs.getString(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return currencyName;
+    }
+
+    public static void insertCurrency(String currencyCode, String flagPath, String currencyName) {
+        try {
+            Statement st = connection.createStatement();
+            String sql = "INSERT INTO CurrencyFlags (CurrencyCode, CurrencyFlagPath, CurrencyName) SELECT '" + currencyCode + "', '" + flagPath + "', '" + currencyName + "'";
             st.execute(sql);
         } catch (SQLException e) {
             e.printStackTrace();
