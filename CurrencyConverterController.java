@@ -1,6 +1,10 @@
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -56,6 +60,8 @@ public class CurrencyConverterController{
 
     @FXML
     private ImageView toCurrencyFlag;
+
+    ArrayList<String> infoBoxes;
 
     double theRate = 1.5;
 
@@ -141,6 +147,30 @@ public class CurrencyConverterController{
             toCurreencyLabelField.setText("" + (theRate * Double.parseDouble(fromCurreencyTextField.getText())));
         }
        
+    }
+
+    public static ArrayList<String> getRandomInfo() {
+        ArrayList<String> allInfo = new ArrayList<String>();
+        ArrayList<String> randomInfo = new ArrayList<String>();
+
+        try {
+            Scanner sc = new Scanner(new File("information.txt"));
+            
+            while (sc.hasNextLine()) {
+                allInfo.add(sc.nextLine());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        Random rand = new Random();
+        for (int i = 0; i < 3; i++) {
+            int index = rand.nextInt(allInfo.size());
+            randomInfo.add(allInfo.get(index));
+            allInfo.remove(index);
+        }
+
+        return randomInfo;
     }
 
     private boolean isValidInput(String text) {
