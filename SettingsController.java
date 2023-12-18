@@ -166,6 +166,7 @@ public class SettingsController {
         }
         else{
             Database.updateDarkModeOn(Navigator.getUser().getUserID(), 0);
+            lightRadioButton.setSelected(true);
             lightMode();
         }
     }
