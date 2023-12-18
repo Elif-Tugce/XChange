@@ -121,6 +121,9 @@ public class CurrencyConverterController{
 
         convertToBox.setValue(Navigator.getUser().getCurDefaultTo());
         convertToBox.setItems(currencyList);
+
+        currencyConverterDateDropdown.setValue("Monthly");
+        currencyConverterDateDropdownOnAction();
     }
 
     
@@ -132,6 +135,8 @@ public class CurrencyConverterController{
         fromCurrencyFlag.setImage(image);
 
         //theRate = GetCurrencyRates.latest((String)convertFromBox.getValue(), (String)convertToBox.getValue());
+        currencyConverterDateDropdown.setValue("Monthly");
+        currencyConverterDateDropdownOnAction();
     }
 
     @FXML
@@ -142,6 +147,9 @@ public class CurrencyConverterController{
         toCurrencyFlag.setImage(image2);
 
         //theRate = GetCurrencyRates.latest((String)convertFromBox.getValue(), (String)convertToBox.getValue());
+
+        currencyConverterDateDropdown.setValue("Monthly");
+        currencyConverterDateDropdownOnAction();
     }
 
     @FXML
@@ -183,7 +191,7 @@ public class CurrencyConverterController{
     }
 
     @FXML
-    public void currencyConverterDateDropdownOnAction(ActionEvent event) {
+    public void currencyConverterDateDropdownOnAction() {
         LocalDate startDate = LocalDate.now();
         LocalDate endDate = LocalDate.now().minusDays(1);
 
