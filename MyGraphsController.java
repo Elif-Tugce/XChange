@@ -41,15 +41,15 @@ public class MyGraphsController{
 
     private final ObservableList<Graph> data = FXCollections.observableArrayList();
 
-    private final ArrayList<Button>
+    // private final ArrayList<Button>
 
 
-    public void addToTable(){
-        ArrayList<Graph> graphs = Navigator.getUser().getGraphs();
-        for (int i = 0; i < graphs.size(); i++) {
-            Graph graph = graphs.get(i);
-            data.add(new TableObject(graph.getGraphName(), graph.getGraphDescription(), graph.getDateCreated(), graph.getGraphImportance(), graph.getCurFromCode(), graph.getCurToCode(), , null, null))
-        }
-    }
+    // public void addToTable(){
+    //     ArrayList<Graph> graphs = Navigator.getUser().getGraphs();
+    //     for (int i = 0; i < graphs.size(); i++) {
+    //         Graph graph = graphs.get(i);
+    //         data.add(new TableObject(graph.getGraphName(), graph.getGraphDescription(), graph.getDateCreated(), graph.getGraphImportance(), graph.getCurFromCode(), graph.getCurToCode(), , null, null))
+    //     }
+    // }
 
 }

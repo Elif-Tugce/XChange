@@ -57,12 +57,6 @@ public class CreateGraphController {
     private ComboBox convertFromBox;
 
     @FXML
-    private DatePicker dateFrom;
-
-    @FXML
-    private DatePicker dateTo;
-
-    @FXML
     private ComboBox convertToBox;
 
     @FXML
@@ -140,8 +134,8 @@ public class CreateGraphController {
     @FXML
     void generateNowButtonAction(MouseEvent event) {
         
-        LocalDate startDate = dateFrom.getValue();
-        LocalDate endDate = dateTo.getValue();
+        LocalDate startDate = currencyFromDatePicker.getValue();
+        LocalDate endDate = currencyToDatePicker.getValue();
 
         ArrayList<Double> values = GetCurrencyRates.calculateHistorical(
                 convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);

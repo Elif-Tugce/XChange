@@ -47,7 +47,7 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <LineChart fx:id="linearChart" layoutX="19.0" layoutY="414.0" prefHeight="472.0" prefWidth="1066.0">
+      <LineChart fx:id="linearChart" layoutX="25.0" layoutY="414.0" prefHeight="472.0" prefWidth="1066.0">
         <xAxis>
           <CategoryAxis prefHeight="0.0" prefWidth="1013.0" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" />
         </xAxis>
@@ -56,7 +56,7 @@
         </yAxis>
       </LineChart>
       <Button layoutX="531.0" layoutY="344.0" mnemonicParsing="false" onMouseClicked="#generateNowButtonAction" prefHeight="38.0" prefWidth="147.0" text="Generate now!" />
-      <Button layoutX="1086.0" layoutY="728.0" mnemonicParsing="false" onMouseClicked="#saveButtonAction" prefHeight="62.0" prefWidth="119.0" text="Save" />
-      <Button layoutX="1086.0" layoutY="811.0" mnemonicParsing="false" onMouseClicked="#downloadButtonAction" prefHeight="61.0" prefWidth="119.0" text="Download" />
+      <Button layoutX="1089.0" layoutY="728.0" mnemonicParsing="false" onMouseClicked="#saveButtonAction" prefHeight="62.0" prefWidth="119.0" text="Save" />
+      <Button layoutX="1089.0" layoutY="811.0" mnemonicParsing="false" onMouseClicked="#downloadButtonAction" prefHeight="61.0" prefWidth="119.0" text="Download" />
    </children>
 </AnchorPane>
