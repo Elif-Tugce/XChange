@@ -59,6 +59,7 @@ public class SignInController {
 
     @FXML
     void signInButtonListener(MouseEvent event) throws IOException {
+        Navigator.setIsSignIn(true);
 
         if (passwordField.getText().isBlank() || usernameTextField.getText().isBlank()){
             invalidMessage.setText("Invalid login, please try again!");
