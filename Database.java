@@ -139,7 +139,7 @@ public class Database {
     }
 
     public static double getCurrencyValue(String currencyCode, LocalDate date) {
-        if (currencyCode == "USD") {
+        if (currencyCode.equals("USD")) {
             return 1.0;
         }
         double value = 0;
@@ -157,7 +157,7 @@ public class Database {
     }
 
     public static ArrayList<Double> getCurrencyValuesBetween(String currencyCode, LocalDate startDate, LocalDate endDate) {
-        if (currencyCode == "USD") {
+        if (currencyCode.equals("USD")) {
             Period period = Period.between(startDate, endDate);
             int days = Math.abs(period.getDays()) + 1;
             ArrayList<Double> values = new ArrayList<Double>();
