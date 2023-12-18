@@ -26,12 +26,12 @@
             <Label fx:id="info1" layoutX="870.0" layoutY="580.0" prefHeight="103.0" prefWidth="255.0" style="-fx-background-color: #F7FAFC;" wrapText="true" />
             <Label fx:id="info2" layoutX="597.0" layoutY="684.0" prefHeight="103.0" prefWidth="255.0" style="-fx-background-color: #F7FAFC;" wrapText="true" />
             <Label fx:id="info3" layoutX="870.0" layoutY="790.0" prefHeight="103.0" prefWidth="255.0" style="-fx-background-color: #F7FAFC;" wrapText="true" />
-            <LineChart fx:id="currencyConvertLinearChart" alternativeColumnFillVisible="true" layoutX="-10.0" layoutY="174.0" prefHeight="434.0" prefWidth="1204.0" title="Currency Chart">
+            <LineChart fx:id="currencyConvertLinearChart" alternativeColumnFillVisible="true" layoutX="25.0" layoutY="174.0" prefHeight="434.0" prefWidth="1174.0" title="Currency Chart">
               <xAxis>
-                <CategoryAxis label="Time" prefHeight="17.0" prefWidth="1126.0" side="BOTTOM" tickLabelFill="#f7fafc" />
+                <CategoryAxis label="Time" prefHeight="17.0" prefWidth="1126.0" side="BOTTOM" tickLabelFill="#f7fafc" tickLabelsVisible="false" tickMarkVisible="false" />
               </xAxis>
               <yAxis>
-                <NumberAxis forceZeroInRange="false" label="Rate" side="LEFT" tickLabelFill="#f7fafc" />
+                <NumberAxis forceZeroInRange="false" label="Rate" prefHeight="363.0" prefWidth="0.0" side="LEFT" tickLabelFill="#f7fafc" />
               </yAxis>
             </LineChart>
             <AnchorPane layoutX="26.0" layoutY="608.0" prefHeight="273.0" prefWidth="531.0" style="-fx-background-color: #F7FAFC;">
@@ -75,7 +75,7 @@
                   <Image url="@Icons/Currency.png" />
                </image>
             </ImageView>
-            <ComboBox fx:id="currencyConverterDateDropdown" layoutX="1031.0" layoutY="187.0" onAction="#currencyConverterDateDropdownOnAction" prefWidth="150.0" />
+            <ComboBox fx:id="currencyConverterDateDropdown" layoutX="1036.0" layoutY="187.0" onAction="#currencyConverterDateDropdownOnAction" prefWidth="150.0" />
          </children>
       </AnchorPane>
    </children>

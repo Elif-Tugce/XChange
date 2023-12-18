@@ -36,8 +36,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <DatePicker layoutX="266.0" layoutY="55.0" />
-            <DatePicker layoutX="266.0" layoutY="184.0" />
+            <DatePicker fx:id="dateFrom" layoutX="266.0" layoutY="55.0" />
+            <DatePicker fx:id="dateTo" layoutX="266.0" layoutY="184.0" />
             <ComboBox fx:id="convertFromBox" layoutX="102.0" layoutY="55.0" onAction="#fromCurrencyDropdownAction" prefWidth="150.0" />
             <ComboBox fx:id="convertToBox" layoutX="102.0" layoutY="184.0" onAction="#toCurrencyDropdownAction" prefWidth="150.0" />
          </children>
@@ -47,16 +47,16 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <LineChart fx:id="linearChart" layoutX="134.0" layoutY="414.0" prefHeight="472.0" prefWidth="768.0">
+      <LineChart fx:id="linearChart" layoutX="19.0" layoutY="414.0" prefHeight="472.0" prefWidth="1066.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis prefHeight="0.0" prefWidth="1013.0" side="BOTTOM" tickLabelsVisible="false" tickMarkVisible="false" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" tickLabelFill="#f7fafc" />
+          <NumberAxis forceZeroInRange="false" prefHeight="442.0" prefWidth="0.0" side="LEFT" tickLabelFill="#f7fafc" />
         </yAxis>
       </LineChart>
       <Button layoutX="531.0" layoutY="344.0" mnemonicParsing="false" onMouseClicked="#generateNowButtonAction" prefHeight="38.0" prefWidth="147.0" text="Generate now!" />
-      <Button layoutX="931.0" layoutY="715.0" mnemonicParsing="false" onMouseClicked="#saveButtonAction" prefHeight="62.0" prefWidth="119.0" text="Save" />
-      <Button layoutX="931.0" layoutY="799.0" mnemonicParsing="false" onMouseClicked="#downloadButtonAction" prefHeight="61.0" prefWidth="119.0" text="Download" />
+      <Button layoutX="1086.0" layoutY="728.0" mnemonicParsing="false" onMouseClicked="#saveButtonAction" prefHeight="62.0" prefWidth="119.0" text="Save" />
+      <Button layoutX="1086.0" layoutY="811.0" mnemonicParsing="false" onMouseClicked="#downloadButtonAction" prefHeight="61.0" prefWidth="119.0" text="Download" />
    </children>
 </AnchorPane>

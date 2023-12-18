@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
@@ -21,6 +23,8 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
@@ -47,10 +51,16 @@ public class CreateGraphController {
     private URL location;
 
     @FXML
-    private LineChart<String, Number> linearChart;
+    private LineChart<String, Double> linearChart;
 
     @FXML
     private ComboBox convertFromBox;
+
+    @FXML
+    private DatePicker dateFrom;
+
+    @FXML
+    private DatePicker dateTo;
 
     @FXML
     private ComboBox convertToBox;
@@ -116,13 +126,66 @@ public class CreateGraphController {
     }
 
     @FXML
-    void convertedAmountDropDownAction(ActionEvent event) {
-
-    }
-
-    @FXML
     void generateNowButtonAction(MouseEvent event) {
         
+        LocalDate startDate = dateFrom.getValue();
+        LocalDate endDate = dateTo.getValue();
+
+        ArrayList<Double> values = GetCurrencyRates.calculateHistorical(
+                convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);
+        ArrayList<LocalDate> dates = GetCurrencyRates.getHistoricalDates(values, endDate);
+
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+
+        linearChart.getData().clear();
+
+        for (int i = 0; i < values.size(); i++) {
+            series.getData().add(new XYChart.Data<>(Integer.toString(i + 1), values.get(i)));
+        }
+
+        linearChart.setCreateSymbols(false);
+        linearChart.getData().add(series);
+
+        linearChart.getXAxis().setTickLabelsVisible(false);
+
+        Tooltip tooltip = new Tooltip();
+        Tooltip.install(linearChart, tooltip);
+
+        linearChart.setOnMouseMoved(e -> {
+            double mouseX = e.getX();
+
+            String nearestDate = "";
+            Double nearestValue = null;
+            double nearestDistance = Double.MAX_VALUE;
+
+            for (XYChart.Series<String, Double> s : linearChart.getData()) {
+                for (XYChart.Data<String, Double> d : s.getData()) {
+                    double displayX = linearChart.getXAxis().getDisplayPosition(d.getXValue());
+
+                    double distance = Math.abs(displayX - mouseX);
+
+                    if (distance < nearestDistance) {
+                        nearestDistance = distance;
+                        nearestDate = dates.get(Integer.parseInt(d.getXValue()) - 1).toString();
+                        nearestValue = d.getYValue();
+                    }
+                }
+            }
+
+            if (nearestValue != null) {
+                tooltip.setText("Date: " + nearestDate + "\nValue: " + nearestValue);
+                tooltip.show(linearChart, e.getScreenX(), e.getScreenY() + 20);
+            } else {
+                tooltip.hide();
+            }
+        });
+
+        linearChart.setOnMouseExited(e -> {
+            tooltip.hide();
+        });
+
+
+
     }
 
     @FXML
