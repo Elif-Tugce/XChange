@@ -45,7 +45,7 @@ public class CurrencyConverterController{
     private URL location;
 
     @FXML
-    private LineChart<Number, LocalDate> currencyConvertLinearChart;
+    private LineChart<String, Double> currencyConvertLinearChart;
 
     @FXML
     private ComboBox currencyConverterDateDropdown;
@@ -164,7 +164,8 @@ public class CurrencyConverterController{
     @FXML
     void currencyConverterDateDropdownOnAction(ActionEvent event) {
         LocalDate startDate = LocalDate.now();
-        LocalDate endDate = LocalDate.now().minusDays(1);
+        LocalDate endDate = LocalDate.now();
+        endDate = endDate.minusDays(1);
         if (currencyConverterDateDropdown.getValue().equals("Yearly")) {
             startDate = startDate.minusDays(365);
         }
@@ -177,12 +178,17 @@ public class CurrencyConverterController{
         else if (currencyConverterDateDropdown.getValue().equals("Weekly")) {
             startDate = startDate.minusDays(7);
         }
+
         ArrayList<Double> values = GetCurrencyRates.calculateHistorical(convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);
         ArrayList<LocalDate> dates = GetCurrencyRates.getHistoricalDates(values, endDate);
 
-        XYChart.Series<Number, LocalDate> series = new XYChart.Series<>();
-        for (int i = 0; i < values.size(); i++) {
-            series.getData().add(new XYChart.Data<>(values.get(i), dates.get(i)));
+        for (int i = 0; i < dates.size(); i++) {
+            XYChart.Series<String, Double> series = new XYChart.Series<>();
+            series.setName("Series " + (i + 1));
+
+            for (int j = 0; j < values.size(); j++) {
+                series.getData().add(new XYChart.Data<>(dates.get(i).toString(), values.get(i)));
+            }
             currencyConvertLinearChart.getData().add(series);
         }
 

@@ -75,7 +75,7 @@
                   <Image url="@Icons/Currency.png" />
                </image>
             </ImageView>
-            <ComboBox fx:id="currencyConverterDateDropdown" layoutX="597.0" layoutY="193.0" onAction="#currencyConverterDateDropdownOnAction" prefWidth="150.0" />
+            <ComboBox fx:id="currencyConverterDateDropdown" layoutX="597.0" layoutY="192.0" onAction="#currencyConverterDateDropdownOnAction" prefWidth="150.0" />
          </children>
       </AnchorPane>
    </children>
