@@ -90,6 +90,10 @@ public class CurrencyConverterController{
 
         infoBoxes = getRandomInfo();
 
+        info1.setText(infoBoxes.get(0));
+        info2.setText(infoBoxes.get(1));
+        info3.setText(infoBoxes.get(2));
+
         currencyConverterDateDropdown.setItems(graphTimeList);
 
         //theRate = GetCurrencyRates.latest(Navigator.getUser().getCurDefaultFrom(), Navigator.getUser().getCurDefaultTo());
