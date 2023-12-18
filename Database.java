@@ -10,7 +10,9 @@ public class Database {
     private static Connection connection = DatabaseConnection.connectDatabase();
 
     public static void main(String[] args) {
-        System.out.println(getCurrencyValue("TRY", LocalDate.parse("2025-10-09")));
+        //System.out.println(getCurrencyValue("TRY", LocalDate.parse("2025-10-09")));
+
+        insertCurrencyValue("TRY", LocalDate.parse("2023-12-01"), 0);
     }
 
     public static int getMaxID() {
