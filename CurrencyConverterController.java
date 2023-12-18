@@ -78,6 +78,8 @@ public class CurrencyConverterController{
     @FXML
     void initialize() throws Exception {
 
+        infoBoxes = getRandomInfo();
+
         currencyConverterDateDropdown.setItems(graphTimeList);
 
         //theRate = GetCurrencyRates.latest(Navigator.getUser().getCurDefaultFrom(), Navigator.getUser().getCurDefaultTo());
@@ -153,9 +155,9 @@ public class CurrencyConverterController{
         }
         else if (!isValidInput(fromCurreencyTextField.getText())) {
             event.consume();
-        }
+    }
 
-        else {
+    else {
             toCurreencyLabelField.setText("" + (theRate * Double.parseDouble(fromCurreencyTextField.getText())));
         }
        
@@ -202,6 +204,9 @@ public class CurrencyConverterController{
             Scanner sc = new Scanner(new File("information.txt"));
             
             while (sc.hasNextLine()) {
+                if (sc.nextLine().equals("")) {
+                    break;
+                }
                 allInfo.add(sc.nextLine());
             }
         } catch (FileNotFoundException e) {
