@@ -18,13 +18,15 @@
       </Label>
       <TableView fx:id="MyGraphsTable" layoutY="47.0" prefHeight="440.0" prefWidth="1210.0">
         <columns>
-          <TableColumn prefWidth="315.333353638649" text="Name" />
-          <TableColumn minWidth="0.0" prefWidth="291.99993896484375" text="Description" />
-            <TableColumn prefWidth="180.0" text="Date" />
-            <TableColumn minWidth="0.0" prefWidth="106.66668701171875" text="İmportance" />
-            <TableColumn prefWidth="130.66668701171875" text="Currency" />
-            <TableColumn prefWidth="102.6666259765625" text="Download" />
-            <TableColumn prefWidth="82.0" text="Remove" />
+          <TableColumn prefWidth="264.66669714450836" text="Name" />
+          <TableColumn minWidth="0.0" prefWidth="422.6665954589844" text="Description" />
+            <TableColumn prefWidth="134.6666259765625" text="Date" />
+            <TableColumn minWidth="0.0" prefWidth="77.33343505859375" text="Importance" />
+            <TableColumn prefWidth="74.0001220703125" text="From" />
+            <TableColumn prefWidth="58.00006103515625" text="To" />
+            <TableColumn prefWidth="48.0" text="View" />
+            <TableColumn prefWidth="68.6666259765625" text="Download" />
+            <TableColumn prefWidth="57.3333740234375" text="Remove" />
         </columns>
       </TableView>
       <AnchorPane layoutY="486.0" prefHeight="410.0" prefWidth="1210.0">
