@@ -34,7 +34,7 @@
                 <NumberAxis forceZeroInRange="false" label="Rate" prefHeight="363.0" prefWidth="0.0" side="LEFT" tickLabelFill="#f7fafc" />
               </yAxis>
             </LineChart>
-            <AnchorPane layoutX="26.0" layoutY="608.0" prefHeight="273.0" prefWidth="531.0" style="-fx-background-color: #F7FAFC;">
+            <AnchorPane layoutX="26.0" layoutY="608.0" prefHeight="273.0" prefWidth="538.0" style="-fx-background-color: #F7FAFC;">
                <children>
                   <Text layoutX="21.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" />
                   <Text layoutX="21.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Converted Amount" />
@@ -65,17 +65,27 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="138.0" fitWidth="138.0" layoutX="1071.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="138.0" fitWidth="138.0" layoutX="1038.0" layoutY="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Coin.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="138.0" layoutX="929.0" layoutY="669.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="138.0" layoutX="656.0" layoutY="563.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Currency.png" />
                </image>
             </ImageView>
-            <ComboBox fx:id="currencyConverterDateDropdown" layoutX="1036.0" layoutY="187.0" onAction="#currencyConverterDateDropdownOnAction" prefWidth="150.0" />
+            <ComboBox fx:id="currencyConverterDateDropdown" layoutX="1031.0" layoutY="187.0" onAction="#currencyConverterDateDropdownOnAction" prefWidth="150.0" />
+            <ImageView fitHeight="103.0" fitWidth="138.0" layoutX="951.0" layoutY="684.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/shockedFace.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="95.0" fitWidth="130.0" layoutX="677.0" layoutY="794.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/thinkingFace.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </children>

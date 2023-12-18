@@ -1,6 +1,9 @@
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -11,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
 
 public class SaveGraphFrameController {
 
@@ -36,8 +40,7 @@ public class SaveGraphFrameController {
     
     @FXML
     void saveGraphButtonAction(MouseEvent event) throws IOException {
-    
-
+        CreateGraphController.graphObjectGetter().saveGraph(graphNameTextField.getText(), Integer.parseInt(graphImportanceTextField.getText()), graphDescriptionTextField.getText());
     }
 
     @FXML

@@ -72,6 +72,18 @@ public class CreateGraphController {
     private ImageView toCurrencyFlag;
 
     @FXML
+    private DatePicker currencyFromDatePicker;
+
+    @FXML
+    private DatePicker currencyToDatePicker;
+
+    private static Graph graph;
+
+    public static Graph graphObjectGetter(){
+        return graph;
+    }
+
+    @FXML
     void initialize() {
         
         String imagePath = Database.getCurrencyFlag(Navigator.getUser().getCurDefaultFrom());
