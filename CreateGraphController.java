@@ -242,7 +242,6 @@ public class CreateGraphController {
 
         Stage mainStage = new Stage();
 
-        popupStage.initOwner(mainStage);
         popupStage.setTitle("Save Graph");
 
         Scene popupScene = new Scene(root);
