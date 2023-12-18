@@ -179,7 +179,11 @@ public class CurrencyConverterController{
             toCurreencyLabelField.setText("");
         }
         else if (!isValidInput(fromCurrencyInput)) {
-            fromCurreencyTextField.setText(fromCurrencyInput.substring(0, fromCurrencyInput.length()));
+            int length = fromCurrencyInput.length()-1;
+            if(length >= 0){
+                fromCurreencyTextField.setText(fromCurrencyInput.substring(0, length));
+            
+            }
             fromCurreencyTextField.positionCaret(fromCurreencyTextField.getText().length());
             event.consume();
     }
