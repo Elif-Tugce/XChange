@@ -23,18 +23,18 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="info1" layoutX="928.0" layoutY="281.0" prefHeight="103.0" prefWidth="255.0" style="-fx-background-color: #F7FAFC;" wrapText="true" />
-            <Label fx:id="info2" layoutX="778.0" layoutY="398.0" prefHeight="103.0" prefWidth="255.0" style="-fx-background-color: #F7FAFC;" wrapText="true" />
-            <Label fx:id="info3" layoutX="928.0" layoutY="515.0" prefHeight="103.0" prefWidth="255.0" style="-fx-background-color: #F7FAFC;" wrapText="true" />
-            <LineChart fx:id="currencyConvertLinearChart" alternativeColumnFillVisible="true" layoutX="26.0" layoutY="179.0" prefHeight="429.0" prefWidth="734.0" title="Currency Chart">
+            <Label fx:id="info1" layoutX="870.0" layoutY="580.0" prefHeight="103.0" prefWidth="255.0" style="-fx-background-color: #F7FAFC;" wrapText="true" />
+            <Label fx:id="info2" layoutX="597.0" layoutY="684.0" prefHeight="103.0" prefWidth="255.0" style="-fx-background-color: #F7FAFC;" wrapText="true" />
+            <Label fx:id="info3" layoutX="870.0" layoutY="790.0" prefHeight="103.0" prefWidth="255.0" style="-fx-background-color: #F7FAFC;" wrapText="true" />
+            <LineChart fx:id="currencyConvertLinearChart" alternativeColumnFillVisible="true" layoutX="-10.0" layoutY="174.0" prefHeight="434.0" prefWidth="1204.0" title="Currency Chart">
               <xAxis>
-                <CategoryAxis label="Time" side="BOTTOM" tickLabelFill="#f7fafc" />
+                <CategoryAxis label="Time" prefHeight="17.0" prefWidth="1126.0" side="BOTTOM" tickLabelFill="#f7fafc" />
               </xAxis>
               <yAxis>
-                <NumberAxis label="Rate" side="LEFT" tickLabelFill="#f7fafc" />
+                <NumberAxis forceZeroInRange="false" label="Rate" side="LEFT" tickLabelFill="#f7fafc" />
               </yAxis>
             </LineChart>
-            <AnchorPane layoutX="160.0" layoutY="609.0" prefHeight="273.0" prefWidth="531.0" style="-fx-background-color: #F7FAFC;">
+            <AnchorPane layoutX="26.0" layoutY="608.0" prefHeight="273.0" prefWidth="531.0" style="-fx-background-color: #F7FAFC;">
                <children>
                   <Text layoutX="21.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" />
                   <Text layoutX="21.0" layoutY="158.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Converted Amount" />
@@ -60,22 +60,22 @@
                   <ComboBox fx:id="convertToBox" layoutX="105.0" layoutY="193.0" onAction="#toCurrencyDropdownAction" prefWidth="150.0" />
                </children>
             </AnchorPane>
-            <Label fx:id="welcomeText" alignment="CENTER" layoutX="316.0" layoutY="74.0" prefHeight="95.0" prefWidth="577.0" style="-fx-background-color: #FFFFFF;" text="WELCOME BACK TO XCHANGE SERKAN YILMAZ">
+            <Label fx:id="welcomeText" alignment="CENTER" layoutX="316.0" layoutY="69.0" prefHeight="95.0" prefWidth="577.0" style="-fx-background-color: #FFFFFF;" text="WELCOME BACK TO XCHANGE SERKAN YILMAZ">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="983.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="138.0" fitWidth="138.0" layoutX="1071.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Coin.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="188.0" fitWidth="197.0" layoutX="973.0" layoutY="687.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="138.0" layoutX="929.0" layoutY="669.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/Currency.png" />
                </image>
             </ImageView>
-            <ComboBox fx:id="currencyConverterDateDropdown" layoutX="597.0" layoutY="192.0" onAction="#currencyConverterDateDropdownOnAction" prefWidth="150.0" />
+            <ComboBox fx:id="currencyConverterDateDropdown" layoutX="1031.0" layoutY="187.0" onAction="#currencyConverterDateDropdownOnAction" prefWidth="150.0" />
          </children>
       </AnchorPane>
    </children>
