@@ -1,4 +1,5 @@
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -6,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -39,11 +41,14 @@ public class MyGraphsController{
 
     private final ObservableList<Graph> data = FXCollections.observableArrayList();
 
+    private final ArrayList<Button>
 
-    public void addToTable(Graph graph){
-        for (int j = 0; j < Navigator.getUser().getGraphs().size(); j++) {
-            data.add(Navigator.getUser().getGraphs().get(j));
-            MyGraphsTable.setItems(data);
+
+    public void addToTable(){
+        ArrayList<Graph> graphs = Navigator.getUser().getGraphs();
+        for (int i = 0; i < graphs.size(); i++) {
+            Graph graph = graphs.get(i);
+            data.add(new TableObject(graph.getGraphName(), graph.getGraphDescription(), graph.getDateCreated(), graph.getGraphImportance(), graph.getCurFromCode(), graph.getCurToCode(), , null, null))
         }
     }
 

@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import javafx.application.Application;
@@ -29,8 +30,14 @@ public class Navigator extends Application{
     }
 
     public static void main(String[] args) {
+        if (Database.getLatestDate().isBefore(LocalDate.now()) && Database.getCurrencyValue(, )) {
+            try {
+                GetCurrencyRates.saveHistoricalData();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
         launch(args);
-
     }
     
     public static User getUser() {

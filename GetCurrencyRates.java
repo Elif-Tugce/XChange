@@ -46,13 +46,13 @@ public class GetCurrencyRates {
     }
 
     public static void saveHistoricalData() throws Exception {
-        LocalDate date = Database.getLatestDate();
-        for(String currency: Database.getCurrencies()){
-            while(!date.isAfter(LocalDate.now())){
+        LocalDate date = Database.getLatestDate().plusDays(1);        
+        while(!date.isAfter(LocalDate.now())){
+            for(String currency : Database.getCurrencies()){
                 Double rate = GetRatesAPI.requestHistorical(date, currency);
                 Database.insertCurrencyValue(currency, date, rate);
-                date.plusDays(1);
             }
+            date = date.plusDays(1);
         }
     }
     
