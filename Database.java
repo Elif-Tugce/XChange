@@ -11,7 +11,7 @@ public class Database {
     private static Connection connection = DatabaseConnection.connectDatabase();
 
     public static void main(String[] args) {
-        
+
     }
 
     public static int getMaxID() {
@@ -177,6 +177,21 @@ public class Database {
             e.printStackTrace();
         }
         return values;
+    }
+
+    public static LocalDate getLatestDate() {
+        LocalDate date = LocalDate.now();
+        try {
+            Statement st = connection.createStatement();
+            String sql = "SELECT MAX(ValueDate) FROM CurrencyValues WHERE CurrencyCode = 'TRY'";
+            ResultSet rs = st.executeQuery(sql);
+            while (rs.next()) {
+                date = LocalDate.parse(rs.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return date;
     }
 
     public static void updateUserName(int userID, String userName) {
