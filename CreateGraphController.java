@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
@@ -23,6 +24,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
@@ -33,6 +35,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 public class CreateGraphController {
 
@@ -40,6 +43,9 @@ public class CreateGraphController {
     private Stage stage;
     private Scene scene;
     private Graph createdGraph;
+    private static Stage popupStage = new Stage();
+    private LocalDate startDate = LocalDate.of(2020,01, 01);
+    private LocalDate endDate = LocalDate.now();
     
     @FXML
     private ResourceBundle resources;
@@ -98,6 +104,34 @@ public class CreateGraphController {
 
         convertToBox.setValue(Navigator.getUser().getCurDefaultTo());
         convertToBox.setItems(currencyList);
+
+
+        final Callback<DatePicker, DateCell> dayCellFactory = new Callback<DatePicker, DateCell>() {
+                @Override
+                public DateCell call(final DatePicker datePicker) {
+                    return new DateCell() {
+                        @Override
+                        public void updateItem(LocalDate item, boolean empty) {
+                            super.updateItem(item, empty);
+                           
+                            if (item.isBefore(startDate)) {
+                                    setDisable(true);
+                                    setStyle("-fx-background-color: #ffc0cb;");
+                            } 
+                            if (item.isAfter(endDate))  {
+
+                                setDisable(true);
+                                setStyle("-fx-background-color: #ffc0cb;");
+
+                            }
+                    }
+                };
+            }
+        };
+        currencyFromDatePicker.setDayCellFactory(dayCellFactory);
+        currencyToDatePicker.setDayCellFactory(dayCellFactory);
+
+
     }
 
     @FXML
@@ -133,12 +167,14 @@ public class CreateGraphController {
 
     @FXML
     void generateNowButtonAction(MouseEvent event) {
+
+        graph = new Graph((String)convertFromBox.getValue(), (String)convertToBox.getValue(), currencyFromDatePicker.getValue(), currencyToDatePicker.getValue()); 
         
         LocalDate startDate = currencyFromDatePicker.getValue();
         LocalDate endDate = currencyToDatePicker.getValue();
 
         ArrayList<Double> values = GetCurrencyRates.calculateHistorical(
-                convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);
+            convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);
         ArrayList<LocalDate> dates = GetCurrencyRates.getHistoricalDates(values, endDate);
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
@@ -257,25 +293,28 @@ public class CreateGraphController {
         }
     }
 
+    
     @FXML
     void saveButtonAction(MouseEvent event) throws IOException {
         FXMLLoader rootLoader = new FXMLLoader(getClass().getResource("SaveGraphFrame.fxml"));
-
         Parent root = rootLoader.load();
 
-        
-
         Stage mainStage = new Stage();
-        Stage popupStage = new Stage();
 
         popupStage.initOwner(mainStage);
         popupStage.setTitle("Save Graph");
 
         Scene popupScene = new Scene(root);
         popupStage.setScene(popupScene);
-        popupStage.showAndWait();
-
-
+        popupStage.show();
+            
     }
+
+    public static Stage getStage () {
+        return popupStage;
+    }
+
+
+    
 
 }

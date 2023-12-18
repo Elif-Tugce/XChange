@@ -9,6 +9,13 @@
             "name": "Database",
             "request": "launch",
             "mainClass": "Database",
+            "projectName": "XChange_61b551c7"
+        },
+        {
+            "type": "java",
+            "name": "Database",
+            "request": "launch",
+            "mainClass": "Database",
             "projectName": "XChange_c63aab4b"
         },
         {

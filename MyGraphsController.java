@@ -28,28 +28,36 @@ public class MyGraphsController{
     private LineChart<?, ?> MyGraph;
 
     @FXML
-    private TableColumn<Graph, String> gName;
+    private TableColumn<TableObject, String> gName;
 
     @FXML
-    private TableColumn<Graph, String> gDescription;
+    private TableColumn<TableObject, String> gDescription;
 
     @FXML
-    private TableColumn<Graph, Integer> gImportance;
+    private TableColumn<TableObject, Integer> gImportance;
 
     @FXML
-    private TableView<Graph> MyGraphsTable;
+    private TableView<TableObject> MyGraphsTable;
 
-    private final ObservableList<Graph> data = FXCollections.observableArrayList();
+    private final ObservableList<TableObject> data = FXCollections.observableArrayList();
 
-    // private final ArrayList<Button>
+    private ArrayList<Button> viewButtons;
+
+    private ArrayList<Button> downloadButtons;
+
+    private ArrayList<Button> removeButtons;
 
 
-    // public void addToTable(){
-    //     ArrayList<Graph> graphs = Navigator.getUser().getGraphs();
-    //     for (int i = 0; i < graphs.size(); i++) {
-    //         Graph graph = graphs.get(i);
-    //         data.add(new TableObject(graph.getGraphName(), graph.getGraphDescription(), graph.getDateCreated(), graph.getGraphImportance(), graph.getCurFromCode(), graph.getCurToCode(), , null, null))
-    //     }
-    // }
+    public void addToTable(){
+        ArrayList<Graph> graphs = Navigator.getUser().getGraphs();
+        for (int i = 0; i < graphs.size(); i++) {
+            Graph graph = graphs.get(i);
+            viewButtons.add(new Button());
+            downloadButtons.add(new Button());
+            removeButtons.add(new Button());
+            data.add(new TableObject(graph.getGraphName(), graph.getGraphDescription(), graph.getDateCreated(), graph.getGraphImportance(), graph.getCurFromCode(), graph.getCurToCode(), viewButtons.get(i), downloadButtons.get(i), removeButtons.remove(i)));
+            MyGraphsTable.setItems(data);
+        }
+    }
 
 }

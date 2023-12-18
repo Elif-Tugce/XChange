@@ -14,19 +14,19 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Text layoutX="228.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of the graph">
+      <Text layoutX="226.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name of the graph">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
       <TextField fx:id="graphNameTextField" layoutX="13.0" layoutY="75.0" prefHeight="25.0" prefWidth="571.0" />
-      <Text layoutX="159.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description for the graph (MAX 50)">
+      <Text layoutX="202.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description of the graph" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
       <TextField fx:id="graphDescriptionTextField" layoutX="13.0" layoutY="155.0" prefHeight="25.0" prefWidth="571.0" />
-      <Text layoutX="236.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Importance (1-5)">
+      <Text layoutX="234.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Importance (1-5)">
          <font>
             <Font size="18.0" />
          </font>
