@@ -68,6 +68,8 @@ public class CurrencyConverterController{
     @FXML
     void initialize() throws Exception {
 
+        infoBoxes = getRandomInfo();
+
         //theRate = GetCurrencyRates.latest(Navigator.getUser().getCurDefaultFrom(), Navigator.getUser().getCurDefaultTo());
         fromCurreencyTextField.setText("1");
         toCurreencyLabelField.setText("" + theRate);
@@ -141,9 +143,9 @@ public class CurrencyConverterController{
         }
         else if (!isValidInput(fromCurreencyTextField.getText())) {
             event.consume();
-        }
+    }
 
-        else {
+    else {
             toCurreencyLabelField.setText("" + (theRate * Double.parseDouble(fromCurreencyTextField.getText())));
         }
        
@@ -157,18 +159,25 @@ public class CurrencyConverterController{
             Scanner sc = new Scanner(new File("information.txt"));
             
             while (sc.hasNextLine()) {
+                if (sc.nextLine().equals("")) {
+                    break;
+                }
                 allInfo.add(sc.nextLine());
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
-        Random rand = new Random();
+        /*Random rand = new Random();
         for (int i = 0; i < 3; i++) {
             int index = rand.nextInt(allInfo.size());
             randomInfo.add(allInfo.get(index));
             allInfo.remove(index);
-        }
+        }*/
+
+        randomInfo.add(allInfo.get(allInfo.size()-3));
+        randomInfo.add(allInfo.get(allInfo.size()-2));
+        randomInfo.add(allInfo.get(allInfo.size()-1));
 
         return randomInfo;
     }

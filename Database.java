@@ -2,6 +2,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.sql.Connection;
 import java.time.LocalDate;
+import java.time.Period;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -10,8 +11,7 @@ public class Database {
     private static Connection connection = DatabaseConnection.connectDatabase();
 
     public static void main(String[] args) {
-        ArrayList<String> infos = CurrencyConverterController.getRandomInfo();
-        System.out.println(infos);
+        
     }
 
     public static int getMaxID() {
@@ -139,6 +139,9 @@ public class Database {
     }
 
     public static double getCurrencyValue(String currencyCode, LocalDate date) {
+        if (currencyCode == "USD") {
+            return 1.0;
+        }
         double value = 0;
         try {
             Statement st = connection.createStatement();
@@ -154,6 +157,14 @@ public class Database {
     }
 
     public static ArrayList<Double> getCurrencyValuesBetween(String currencyCode, LocalDate startDate, LocalDate endDate) {
+        if (currencyCode == "USD") {
+            Period period = Period.between(startDate, endDate);
+            int days = Math.abs(period.getDays()) + 1;
+            ArrayList<Double> values = new ArrayList<Double>();
+            for (int i = 0; i < days; i++) {
+                values.add(1.0);
+            }
+        }
         ArrayList<Double> values = new ArrayList<Double>();
         try {
             Statement st = connection.createStatement();
