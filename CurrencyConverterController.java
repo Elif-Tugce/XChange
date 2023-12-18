@@ -199,16 +199,19 @@ public class CurrencyConverterController{
 
         ArrayList<Double> values = GetCurrencyRates.calculateHistorical(convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);
         ArrayList<LocalDate> dates = GetCurrencyRates.getHistoricalDates(values, endDate);
+        
+        XYChart.Series<String, Double> series = new XYChart.Series<>();
+        //series.setName("Currency Conversion");
 
+        currencyConvertLinearChart.getData().clear();
+        
         for (int i = 0; i < dates.size(); i++) {
-            XYChart.Series<String, Double> series = new XYChart.Series<>();
-            series.setName("Series " + (i + 1));
-
-            for (int j = 0; j < values.size(); j++) {
-                series.getData().add(new XYChart.Data<>(dates.get(j).toString(), values.get(j)));
-            }
-            currencyConvertLinearChart.getData().add(series);
+            series.getData().add(new XYChart.Data<>(dates.get(i).toString(), values.get(i)));
         }
+
+        currencyConvertLinearChart.setCreateSymbols(false);
+        
+        currencyConvertLinearChart.getData().add(series);
 
     }
 
