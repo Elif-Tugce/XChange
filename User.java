@@ -131,5 +131,14 @@ public class User {
         return darkModeOn;
     }
 
+    //returns true if another graph with same name exist
+    public boolean checkGraphName(String name) {
+        for (Graph graph : graphs) {
+            if (graph.getGraphName().equals(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
     
 }
