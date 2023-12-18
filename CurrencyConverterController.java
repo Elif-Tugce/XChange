@@ -168,16 +168,12 @@ public class CurrencyConverterController{
             e.printStackTrace();
         }
 
-        /*Random rand = new Random();
+        Random rand = new Random();
         for (int i = 0; i < 3; i++) {
             int index = rand.nextInt(allInfo.size());
             randomInfo.add(allInfo.get(index));
             allInfo.remove(index);
-        }*/
-
-        randomInfo.add(allInfo.get(allInfo.size()-3));
-        randomInfo.add(allInfo.get(allInfo.size()-2));
-        randomInfo.add(allInfo.get(allInfo.size()-1));
+        }
 
         return randomInfo;
     }
