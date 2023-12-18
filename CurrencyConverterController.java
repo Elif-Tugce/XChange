@@ -47,6 +47,16 @@ public class CurrencyConverterController{
     @FXML
     private LineChart<String, Double> currencyConvertLinearChart;
 
+    
+    @FXML
+    private Label info1;
+
+    @FXML
+    private Label info2;
+
+    @FXML
+    private Label info3;
+
     @FXML
     private ComboBox currencyConverterDateDropdown;
 
@@ -189,7 +199,7 @@ public class CurrencyConverterController{
             series.setName("Series " + (i + 1));
 
             for (int j = 0; j < values.size(); j++) {
-                series.getData().add(new XYChart.Data<>(dates.get(i).toString(), values.get(i)));
+                series.getData().add(new XYChart.Data<>(dates.get(j).toString(), values.get(j)));
             }
             currencyConvertLinearChart.getData().add(series);
         }
