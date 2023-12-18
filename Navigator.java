@@ -14,7 +14,7 @@ public class Navigator extends Application{
 
     private static User user;
     private static ArrayList<String> currencies = Database.getCurrencies();
-    private static boolean isSignIn;
+private static boolean isSignIn;
 
     @Override
     public void start(Stage stage){
@@ -23,14 +23,14 @@ public class Navigator extends Application{
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-            isSignIn = true;
+isSignIn = true;
         } catch(Exception e) {
             e.printStackTrace();
            }
     }
 
     public static void main(String[] args) {
-        if (Database.getLatestDate().isBefore(LocalDate.now()) && Database.getCurrencyValue(, )) {
+        if (Database.getLatestDate().isBefore(LocalDate.now()) && Database.getCurrencyValue("TRY", LocalDate.parse("2023-12-01")) != 0) {
             try {
                 GetCurrencyRates.saveHistoricalData();
             } catch (Exception e) {
@@ -51,8 +51,8 @@ public class Navigator extends Application{
     public static ArrayList<String> getCurrencies() {
         return currencies;
     }
-
-    public static boolean getIsSignIn() {
+    
+public static boolean getIsSignIn() {
         return isSignIn;
     }
 
