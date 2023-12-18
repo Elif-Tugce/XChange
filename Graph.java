@@ -60,7 +60,7 @@ public class Graph {
         return startDate;
     }
 
-    public void saveGraph(String graphName, int graphImportance, String graphDescription, String imagePath) {
+    public void saveGraph(String graphName, int graphImportance, String graphDescription) {
         this.graphName = graphName;
         this.graphImportance = graphImportance;
         this.graphDescription = graphDescription;
