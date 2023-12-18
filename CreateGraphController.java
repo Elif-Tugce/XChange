@@ -134,12 +134,14 @@ public class CreateGraphController {
 
     @FXML
     void generateNowButtonAction(MouseEvent event) {
+
+        graph = new Graph((String)convertFromBox.getValue(), (String)convertToBox.getValue(), currencyFromDatePicker.getValue(), currencyToDatePicker.getValue()); 
         
         LocalDate startDate = currencyFromDatePicker.getValue();
         LocalDate endDate = currencyToDatePicker.getValue();
 
         ArrayList<Double> values = GetCurrencyRates.calculateHistorical(
-                convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);
+            convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);
         ArrayList<LocalDate> dates = GetCurrencyRates.getHistoricalDates(values, endDate);
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();
