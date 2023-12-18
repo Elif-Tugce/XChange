@@ -206,7 +206,7 @@ public class CurrencyConverterController{
         }
 
         ArrayList<Double> values = GetCurrencyRates.calculateHistorical(
-                convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);
+        convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);
         ArrayList<LocalDate> dates = GetCurrencyRates.getHistoricalDates(values, endDate);
 
         XYChart.Series<String, Double> series = new XYChart.Series<>();

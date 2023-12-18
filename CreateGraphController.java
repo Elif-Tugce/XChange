@@ -233,20 +233,46 @@ public class CreateGraphController {
     @FXML
     void downloadButtonAction(MouseEvent event) {
 
-    LineChart<String, Number> linearChart = new LineChart<>(new CategoryAxis(), new NumberAxis());
-    //SOME JUNK DATA FOR DOWNLOAD GRAPH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        CategoryAxis xAxis = new CategoryAxis();
+        NumberAxis yAxis = new NumberAxis(); 
+
+    LineChart<String, Number> linearChart = new LineChart<>(xAxis, yAxis);
+    //     //SOME JUNK DATA FOR DOWNLOAD GRAPH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //         XYChart.Series<String, Number> series = new XYChart.Series<>();
+    //         series.getData().add(new XYChart.Data<>("1 Jan 2022", 210));
+    //         series.getData().add(new XYChart.Data<>("1 Feb 2022", 17));
+    //         series.getData().add(new XYChart.Data<>("1 March 2022", 10));
+    //         series.getData().add(new XYChart.Data<>("1 April 2022", 24));
+    //         series.getData().add(new XYChart.Data<>("1 May 2022", 39));
+    //         series.getData().add(new XYChart.Data<>("2 Jan 2022", 28));
+    //         series.getData().add(new XYChart.Data<>("2 Feb 2022", 11));
+    //         series.getData().add(new XYChart.Data<>("2 March 2022", 11));
+    //         series.getData().add(new XYChart.Data<>("2 April 2022", 24));
+    //         series.getData().add(new XYChart.Data<>("2 May 2022", 11));
+    //         linearChart.getData().add(series);
+
+        LocalDate startDate = currencyFromDatePicker.getValue();
+        LocalDate endDate = currencyToDatePicker.getValue();
+
+        ArrayList<Double> values = GetCurrencyRates.calculateHistorical(
+        convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);
+        ArrayList<LocalDate> dates = GetCurrencyRates.getHistoricalDates(values, endDate);
+
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-        series.getData().add(new XYChart.Data<>("1 Jan 2022", 210));
-        series.getData().add(new XYChart.Data<>("1 Feb 2022", 17));
-        series.getData().add(new XYChart.Data<>("1 March 2022", 10));
-        series.getData().add(new XYChart.Data<>("1 April 2022", 24));
-        series.getData().add(new XYChart.Data<>("1 May 2022", 39));
-        series.getData().add(new XYChart.Data<>("2 Jan 2022", 28));
-        series.getData().add(new XYChart.Data<>("2 Feb 2022", 11));
-        series.getData().add(new XYChart.Data<>("2 March 2022", 11));
-        series.getData().add(new XYChart.Data<>("2 April 2022", 24));
-        series.getData().add(new XYChart.Data<>("2 May 2022", 11));
+
+        linearChart.getData().clear();
+        yAxis.setForceZeroInRange(false);
+        linearChart.setHorizontalGridLinesVisible(false);
+        linearChart.setVerticalGridLinesVisible(false);
+
+        for (int i = 0; i < values.size(); i++) {
+            series.getData().add(new XYChart.Data<>(Integer.toString(i + 1), values.get(i)));
+        }
+
+        linearChart.setCreateSymbols(false);
         linearChart.getData().add(series);
+
+        linearChart.getXAxis().setTickLabelsVisible(false);
 
         Group chartGroup = new Group(linearChart);
 
