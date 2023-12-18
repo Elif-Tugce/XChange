@@ -41,8 +41,10 @@ public class MyGraphsController{
 
 
     public void addToTable(Graph graph){
-        data.add(graph);
-        MyGraphsTable.setItems(data);
+        for (int j = 0; j < Navigator.getUser().getGraphs().size(); j++) {
+            data.add(Navigator.getUser().getGraphs().get(j));
+            MyGraphsTable.setItems(data);
+        }
     }
 
 }

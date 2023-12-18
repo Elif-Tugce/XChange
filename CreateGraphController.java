@@ -21,6 +21,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
@@ -59,6 +60,18 @@ public class CreateGraphController {
 
     @FXML
     private ImageView toCurrencyFlag;
+
+    @FXML
+    private DatePicker currencyFromDatePicker;
+
+    @FXML
+    private DatePicker currencyToDatePicker;
+
+    private static Graph graph;
+
+    public static Graph graphObjectGetter(){
+        return graph;
+    }
 
     @FXML
     void initialize() {
@@ -121,7 +134,7 @@ public class CreateGraphController {
 
     @FXML
     void generateNowButtonAction(MouseEvent event) {
-
+        graph = new Graph((String)convertFromBox.getValue(), (String)convertToBox.getValue(), currencyFromDatePicker.getValue(), currencyToDatePicker.getValue());
     }
 
     @FXML

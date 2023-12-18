@@ -36,8 +36,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <DatePicker layoutX="266.0" layoutY="55.0" />
-            <DatePicker layoutX="266.0" layoutY="184.0" />
+            <DatePicker fx:id="currencyFromDatePicker" layoutX="266.0" layoutY="55.0" />
+            <DatePicker fx:id="currencyToDatePicker" layoutX="266.0" layoutY="184.0" />
             <ComboBox fx:id="convertFromBox" layoutX="102.0" layoutY="55.0" onAction="#fromCurrencyDropdownAction" prefWidth="150.0" />
             <ComboBox fx:id="convertToBox" layoutX="102.0" layoutY="184.0" onAction="#toCurrencyDropdownAction" prefWidth="150.0" />
          </children>
