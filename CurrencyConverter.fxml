@@ -31,7 +31,7 @@
                 <CategoryAxis label="Time" prefHeight="17.0" prefWidth="1126.0" side="BOTTOM" tickLabelFill="#f7fafc" />
               </xAxis>
               <yAxis>
-                <NumberAxis label="Rate" side="LEFT" tickLabelFill="#f7fafc" />
+                <NumberAxis forceZeroInRange="false" label="Rate" side="LEFT" tickLabelFill="#f7fafc" />
               </yAxis>
             </LineChart>
             <AnchorPane layoutX="26.0" layoutY="608.0" prefHeight="273.0" prefWidth="531.0" style="-fx-background-color: #F7FAFC;">
