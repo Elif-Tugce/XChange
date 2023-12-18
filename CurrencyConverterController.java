@@ -174,7 +174,7 @@ public class CurrencyConverterController{
 
         String fromCurrencyInput = fromCurreencyTextField.getText();
 
-        if ( fromCurrencyInput == "") {
+        if ( fromCurrencyInput.equals("")) {
 
             toCurreencyLabelField.setText("");
         }
