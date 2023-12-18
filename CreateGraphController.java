@@ -44,7 +44,7 @@ public class CreateGraphController {
     private Scene scene;
     private Graph createdGraph;
     private static Stage popupStage = new Stage();
-    private LocalDate startDate = LocalDate.of(2020,01, 01);
+    private LocalDate startDate = LocalDate.of(2013,01, 01);
     private LocalDate endDate = LocalDate.now();
     
     @FXML
@@ -302,8 +302,6 @@ public class CreateGraphController {
         Parent root = rootLoader.load();
 
         Stage mainStage = new Stage();
-
-        popupStage.initOwner(mainStage);
         popupStage.setTitle("Save Graph");
 
         Scene popupScene = new Scene(root);

@@ -52,9 +52,9 @@ public class MyGraphsController{
         ArrayList<Graph> graphs = Navigator.getUser().getGraphs();
         for (int i = 0; i < graphs.size(); i++) {
             Graph graph = graphs.get(i);
-            viewButtons.add(new Button());
-            downloadButtons.add(new Button());
-            removeButtons.add(new Button());
+            viewButtons.add(new Button("View"));
+            downloadButtons.add(new Button("Download"));
+            removeButtons.add(new Button("Remove"));
             data.add(new TableObject(graph.getGraphName(), graph.getGraphDescription(), graph.getDateCreated(), graph.getGraphImportance(), graph.getCurFromCode(), graph.getCurToCode(), viewButtons.get(i), downloadButtons.get(i), removeButtons.remove(i)));
             MyGraphsTable.setItems(data);
         }
