@@ -30,13 +30,13 @@ isSignIn = true;
     }
 
     public static void main(String[] args) {
-        if (Database.getLatestDate().isBefore(LocalDate.now()) && Database.getCurrencyValue("TRY", LocalDate.parse("2023-12-01")) != 0) {
+        /*if (Database.getLatestDate().isBefore(LocalDate.now())) {
             try {
                 GetCurrencyRates.saveHistoricalData();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }
+        }*/
         launch(args);
     }
     
