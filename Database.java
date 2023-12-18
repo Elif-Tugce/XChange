@@ -376,7 +376,7 @@ public class Database {
     public static void saveGraph(Graph graph, int userID) {
         try {
             Statement st = connection.createStatement();
-            String sql = "INSERT INTO Graphs (UserID, GraphName, GraphDescription, GraphImportance, DateCreated, CurrencyFrom, CurrencyTo, StartDate, EndDate, ImagePath)"
+            String sql = "INSERT INTO Graphs (UserID, GraphName, GraphDescription, GraphImportance, DateCreated, CurrencyFrom, CurrencyTo, StartDate, EndDate)"
                        + "SELECT " + userID + ", '" + graph.getGraphName() + "', " + graph.getGraphImportance() + ", '" + graph.getDateCreated().toString() + "', '" + graph.getCurFromCode() + "', '" + graph.getCurToCode() + "', '" + graph.getStartDate().toString() + "', '" + graph.getEndDate().toString() + "'";
             st.execute(sql);
         } catch (SQLException e) {
