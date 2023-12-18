@@ -40,6 +40,7 @@ public class CreateGraphController {
     private Stage stage;
     private Scene scene;
     private Graph createdGraph;
+    private static Stage popupStage = new Stage();
     
     @FXML
     private ResourceBundle resources;
@@ -231,25 +232,25 @@ public class CreateGraphController {
         }
     }
 
+    
     @FXML
     void saveButtonAction(MouseEvent event) throws IOException {
         FXMLLoader rootLoader = new FXMLLoader(getClass().getResource("SaveGraphFrame.fxml"));
-
         Parent root = rootLoader.load();
 
-        
-
         Stage mainStage = new Stage();
-        Stage popupStage = new Stage();
 
         popupStage.initOwner(mainStage);
         popupStage.setTitle("Save Graph");
 
         Scene popupScene = new Scene(root);
         popupStage.setScene(popupScene);
-        popupStage.showAndWait();
+        popupStage.show();
+            
+    }
 
-
+    public static Stage getStage () {
+        return popupStage;
     }
 
 }
