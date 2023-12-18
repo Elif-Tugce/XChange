@@ -43,8 +43,10 @@ public class SaveGraphFrameController {
     
     @FXML
     void saveGraphButtonAction(MouseEvent event) throws IOException {
+        MyGraphsController myGraphsController = new MyGraphsController();
         CreateGraphController.getStage().close();
         CreateGraphController.graphObjectGetter().saveGraph(graphNameTextField.getText(), Integer.parseInt(graphImportanceTextField.getText()), graphDescriptionTextField.getText());
+        myGraphsController.addToTable();
         
     }
 
