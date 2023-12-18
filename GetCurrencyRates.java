@@ -44,6 +44,13 @@ public class GetCurrencyRates {
 
         return dates;
     }
+
+    //Ansar you can implement this to save missing last days to database in the format of USD/cur
+    //There is a Database method getLatestDate which returns the latest date we have exchange rates
+    //Also Database.getCurrencies returns codes of all currencies we have as an arraylist
+    public static void saveHistoricalData() {
+
+    }
     
 
 }
