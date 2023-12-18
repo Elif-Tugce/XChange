@@ -264,6 +264,8 @@ public class CreateGraphController {
         yAxis.setForceZeroInRange(false);
         linearChart.setHorizontalGridLinesVisible(false);
         linearChart.setVerticalGridLinesVisible(false);
+        xAxis.setTickLabelsVisible(false);
+        xAxis.setTickMarkVisible(false);
 
         for (int i = 0; i < values.size(); i++) {
             series.getData().add(new XYChart.Data<>(Integer.toString(i + 1), values.get(i)));
