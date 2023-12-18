@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
@@ -12,6 +13,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -29,6 +32,7 @@ import java.io.File;
 public class CurrencyConverterController{
 
     ObservableList<String> currencyList = FXCollections.observableArrayList();
+    ObservableList<String> graphTimeList = FXCollections.observableArrayList("Yearly", "6 Months", "Monthly", "Weekly");
 
 
     @FXML
@@ -39,6 +43,12 @@ public class CurrencyConverterController{
 
     @FXML
     private URL location;
+
+    @FXML
+    private LineChart<String, Double> currencyConvertLinearChart;
+
+    @FXML
+    private ComboBox currencyConverterDateDropdown;
 
     @FXML
     private TextField fromCurreencyTextField;
@@ -69,6 +79,8 @@ public class CurrencyConverterController{
     void initialize() throws Exception {
 
         infoBoxes = getRandomInfo();
+
+        currencyConverterDateDropdown.setItems(graphTimeList);
 
         //theRate = GetCurrencyRates.latest(Navigator.getUser().getCurDefaultFrom(), Navigator.getUser().getCurDefaultTo());
         fromCurreencyTextField.setText("1");
@@ -149,6 +161,39 @@ public class CurrencyConverterController{
             toCurreencyLabelField.setText("" + (theRate * Double.parseDouble(fromCurreencyTextField.getText())));
         }
        
+    }
+
+    @FXML
+    void currencyConverterDateDropdownOnAction(ActionEvent event) {
+        LocalDate startDate = LocalDate.now();
+        LocalDate endDate = LocalDate.now();
+        endDate = endDate.minusDays(1);
+        if (currencyConverterDateDropdown.getValue().equals("Yearly")) {
+            startDate = startDate.minusDays(365);
+        }
+        else if (currencyConverterDateDropdown.getValue().equals("6 Months")) {
+            startDate = startDate.minusDays(180);
+        }
+        else if (currencyConverterDateDropdown.getValue().equals("Monthly")) {
+            startDate = startDate.minusDays(30);
+        }
+        else if (currencyConverterDateDropdown.getValue().equals("Weekly")) {
+            startDate = startDate.minusDays(7);
+        }
+
+        ArrayList<Double> values = GetCurrencyRates.calculateHistorical(convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);
+        ArrayList<LocalDate> dates = GetCurrencyRates.getHistoricalDates(values, endDate);
+
+        for (int i = 0; i < dates.size(); i++) {
+            XYChart.Series<String, Double> series = new XYChart.Series<>();
+            series.setName("Series " + (i + 1));
+
+            for (int j = 0; j < values.size(); j++) {
+                series.getData().add(new XYChart.Data<>(dates.get(i).toString(), values.get(i)));
+            }
+            currencyConvertLinearChart.getData().add(series);
+        }
+
     }
 
     public static ArrayList<String> getRandomInfo() {
