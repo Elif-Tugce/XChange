@@ -49,8 +49,8 @@
                         <Image url="@Flags/turkey.png" />
                      </image>
                   </ImageView>
-                  <TextField layoutX="303.0" layoutY="62.0" onInputMethodTextChanged="#currencyConverterAmountListener" prefHeight="32.0" prefWidth="160.0" style="-fx-border-color: #000000;" />
-                  <Label layoutX="303.0" layoutY="190.0" prefHeight="32.0" prefWidth="160.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF;" />
+                  <TextField fx:id="fromCurreencyTextField" layoutX="303.0" layoutY="62.0" onKeyTyped="#currencyConverterAmountListener" prefHeight="32.0" prefWidth="160.0" style="-fx-border-color: #000000;" />
+                  <Label fx:id="toCurreencyLabelField" layoutX="303.0" layoutY="190.0" prefHeight="32.0" prefWidth="160.0" style="-fx-border-color: #000000; -fx-background-color: #FFFFFF;" />
                   <Button layoutX="240.0" layoutY="118.0" mnemonicParsing="false" onMouseClicked="#changeButtonListener" prefHeight="38.0" prefWidth="63.0" style="-fx-background-color: #26278D;" text="Change" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
