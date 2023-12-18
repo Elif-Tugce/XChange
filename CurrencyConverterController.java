@@ -19,6 +19,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.InputMethodEvent;
@@ -180,39 +181,74 @@ public class CurrencyConverterController{
     }
 
     @FXML
-    void currencyConverterDateDropdownOnAction(ActionEvent event) {
+    public void currencyConverterDateDropdownOnAction(ActionEvent event) {
         LocalDate startDate = LocalDate.now();
-        LocalDate endDate = LocalDate.now();
-        endDate = endDate.minusDays(1);
+        LocalDate endDate = LocalDate.now().minusDays(1);
+
         if (currencyConverterDateDropdown.getValue().equals("Yearly")) {
             startDate = startDate.minusDays(365);
-        }
-        else if (currencyConverterDateDropdown.getValue().equals("6 Months")) {
+        } else if (currencyConverterDateDropdown.getValue().equals("6 Months")) {
             startDate = startDate.minusDays(180);
-        }
-        else if (currencyConverterDateDropdown.getValue().equals("Monthly")) {
+        } else if (currencyConverterDateDropdown.getValue().equals("Monthly")) {
             startDate = startDate.minusDays(30);
-        }
-        else if (currencyConverterDateDropdown.getValue().equals("Weekly")) {
+        } else if (currencyConverterDateDropdown.getValue().equals("Weekly")) {
             startDate = startDate.minusDays(7);
         }
 
-        ArrayList<Double> values = GetCurrencyRates.calculateHistorical(convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);
+        ArrayList<Double> values = GetCurrencyRates.calculateHistorical(
+                convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);
         ArrayList<LocalDate> dates = GetCurrencyRates.getHistoricalDates(values, endDate);
-        
+
         XYChart.Series<String, Double> series = new XYChart.Series<>();
-        //series.setName("Currency Conversion");
 
         currencyConvertLinearChart.getData().clear();
-        
-        for (int i = 0; i < dates.size(); i++) {
-            series.getData().add(new XYChart.Data<>(dates.get(i).toString(), values.get(i)));
+
+        for (int i = 0; i < values.size(); i++) {
+            series.getData().add(new XYChart.Data<>(Integer.toString(i + 1), values.get(i)));
         }
 
         currencyConvertLinearChart.setCreateSymbols(false);
-        
         currencyConvertLinearChart.getData().add(series);
 
+        currencyConvertLinearChart.getXAxis().setTickLabelsVisible(false);
+
+        Tooltip tooltip = new Tooltip();
+        Tooltip.install(currencyConvertLinearChart, tooltip);
+
+        currencyConvertLinearChart.setOnMouseMoved(e -> {
+            double mouseX = e.getX();
+            double mouseY = e.getY();
+
+            String nearestDate = "";
+            Double nearestValue = null;
+            double nearestDistance = Double.MAX_VALUE;
+
+            for (XYChart.Series<String, Double> s : currencyConvertLinearChart.getData()) {
+                for (XYChart.Data<String, Double> d : s.getData()) {
+                    double displayX = currencyConvertLinearChart.getXAxis().getDisplayPosition(d.getXValue());
+                    double displayY = currencyConvertLinearChart.getYAxis().getDisplayPosition(d.getYValue());
+
+                    double distance = Math.abs(displayX - mouseX);
+
+                    if (distance < nearestDistance) {
+                        nearestDistance = distance;
+                        nearestDate = dates.get(Integer.parseInt(d.getXValue()) - 1).toString();
+                        nearestValue = d.getYValue();
+                    }
+                }
+            }
+
+            if (nearestValue != null) {
+                tooltip.setText("Date: " + nearestDate + "\nValue: " + nearestValue);
+                tooltip.show(currencyConvertLinearChart, e.getScreenX(), e.getScreenY() + 20);
+            } else {
+                tooltip.hide();
+            }
+        });
+
+        currencyConvertLinearChart.setOnMouseExited(e -> {
+            tooltip.hide();
+        });
     }
 
     public static ArrayList<String> getRandomInfo() {
