@@ -23,7 +23,7 @@ private static boolean isSignIn;
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-isSignIn = true;
+            isSignIn = true;
         } catch(Exception e) {
             e.printStackTrace();
            }
