@@ -13,6 +13,8 @@ public class Navigator extends Application{
 
     private static User user;
     private static ArrayList<String> currencies = Database.getCurrencies();
+    private static boolean isSignIn;
+
     @Override
     public void start(Stage stage){
         try{
@@ -20,6 +22,7 @@ public class Navigator extends Application{
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
+            isSignIn = true;
         } catch(Exception e) {
             e.printStackTrace();
            }
@@ -40,6 +43,14 @@ public class Navigator extends Application{
 
     public static ArrayList<String> getCurrencies() {
         return currencies;
+    }
+
+    public static boolean getIsSignIn() {
+        return isSignIn;
+    }
+
+    public static void setIsSignIn(boolean isSign){
+         isSignIn = isSign;
     }
     
 }

@@ -35,6 +35,7 @@ public class CreateGraphController {
     ObservableList<String> currencyList = FXCollections.observableArrayList();
     private Stage stage;
     private Scene scene;
+    private Graph createdGraph;
     
     @FXML
     private ResourceBundle resources;
@@ -121,7 +122,7 @@ public class CreateGraphController {
 
     @FXML
     void generateNowButtonAction(MouseEvent event) {
-
+        
     }
 
     @FXML
@@ -167,6 +168,8 @@ public class CreateGraphController {
 
         Parent root = rootLoader.load();
 
+        
+
         Stage mainStage = new Stage();
         Stage popupStage = new Stage();
 
@@ -176,6 +179,8 @@ public class CreateGraphController {
         Scene popupScene = new Scene(root);
         popupStage.setScene(popupScene);
         popupStage.showAndWait();
+
+
     }
 
 }

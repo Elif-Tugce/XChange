@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -6,10 +7,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
@@ -141,6 +147,7 @@ public class SettingsController {
 
     @FXML
     void initialize() {
+        Navigator.setIsSignIn(false);
 
         for (int i = 0; i < Navigator.getCurrencies().size(); i ++){
             currencyList.add(Navigator.getCurrencies().get(i));
@@ -259,7 +266,7 @@ public class SettingsController {
     }
 
     @FXML
-    void applyChangesButtonAction(MouseEvent event) {
+    void applyChangesButtonAction(MouseEvent event) throws IOException {
 
         if (!usernameTextField.getText().equals(Navigator.getUser().getUserName()) && Database.checkUsername(usernameTextField.getText())) {
             applyChangesLabel.setTextFill(Color.color(1, 0, 0));
@@ -269,6 +276,13 @@ public class SettingsController {
             Navigator.getUser().setFirstName(firstNameTextField.getText());
             Navigator.getUser().setLastName(lastNameTextField.getText());
             Navigator.getUser().setUserName(usernameTextField.getText());
+
+            Parent root = FXMLLoader.load(getClass().getResource("SidebarMenu.fxml"));
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.centerOnScreen();
+            stage.show();
+
             wrongPassword.setTextFill(Color.color(0, 1, 0));
             applyChangesLabel.setText("Succesfully Changed");
         }

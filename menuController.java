@@ -46,7 +46,7 @@ public class menuController {
         aboutUsRoot = FXMLLoader.load(getClass().getResource("AboutUs.fxml"));
         helpRoot = FXMLLoader.load(getClass().getResource("Help.fxml"));
         myGraphsRoot = FXMLLoader.load(getClass().getResource("MyGraphs.fxml"));
-        settingsRoot = FXMLLoader.load(getClass().getResource("Settings.fxml"));
+        //settingsRoot = FXMLLoader.load(getClass().getResource("Settings.fxml"));
     }
 
     @FXML
@@ -147,7 +147,7 @@ public class menuController {
     @FXML
     void settingsButtonListener(MouseEvent event) throws IOException {
         //Parent root = FXMLLoader.load(getClass().getResource("Settings.fxml"));
-
+        settingsRoot = FXMLLoader.load(getClass().getResource("Settings.fxml"));
         sp.getItems().clear();
         sp.getItems().addAll(sideBarLeft ,settingsRoot.lookup("#settingsAnchorPane") );
 
@@ -159,8 +159,17 @@ public class menuController {
         usernameText.setText(Navigator.getUser().getFirstName() + " " + Navigator.getUser().getLastName());
 
         Parent currencyConverterRoot = FXMLLoader.load(getClass().getResource("CurrencyConverter.fxml"));
-
         Node currencyNode = currencyConverterRoot.lookup("#currencyConverterAnchorPane");
+
+        if (Navigator.getIsSignIn()){
+            currencyConverterRoot = FXMLLoader.load(getClass().getResource("CurrencyConverter.fxml"));
+            currencyNode = currencyConverterRoot.lookup("#currencyConverterAnchorPane");
+        }
+        else{
+            currencyConverterRoot = FXMLLoader.load(getClass().getResource("Settings.fxml"));
+            currencyNode = currencyConverterRoot.lookup("#settingsAnchorPane");
+        }
+    
 
         if(Navigator.getUser().getDarkModeOn() == 1){
             currencyNode.setStyle("-fx-background-color: #00072D");
