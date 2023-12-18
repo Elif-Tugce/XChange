@@ -163,16 +163,18 @@ public class CurrencyConverterController{
     @FXML
     void currencyConverterAmountListener(KeyEvent event) {
 
-        if (fromCurreencyTextField.getText() == null) {
+        String fromCurrencyInput = fromCurreencyTextField.getText();
 
-            fromCurreencyTextField.setText("");
+        if ( fromCurrencyInput == "") {
+
+            toCurreencyLabelField.setText("");
         }
-        else if (!isValidInput(fromCurreencyTextField.getText())) {
+        else if (!isValidInput(fromCurrencyInput)) {
             event.consume();
     }
 
     else {
-            toCurreencyLabelField.setText("" + (theRate * Double.parseDouble(fromCurreencyTextField.getText())));
+            toCurreencyLabelField.setText("" + (theRate * Double.parseDouble(fromCurrencyInput)));
         }
        
     }
