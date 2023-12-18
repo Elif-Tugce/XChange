@@ -219,7 +219,6 @@ public class CurrencyConverterController{
 
         currencyConvertLinearChart.setOnMouseMoved(e -> {
             double mouseX = e.getX();
-            double mouseY = e.getY();
 
             String nearestDate = "";
             Double nearestValue = null;
@@ -228,7 +227,6 @@ public class CurrencyConverterController{
             for (XYChart.Series<String, Double> s : currencyConvertLinearChart.getData()) {
                 for (XYChart.Data<String, Double> d : s.getData()) {
                     double displayX = currencyConvertLinearChart.getXAxis().getDisplayPosition(d.getXValue());
-                    double displayY = currencyConvertLinearChart.getYAxis().getDisplayPosition(d.getYValue());
 
                     double distance = Math.abs(displayX - mouseX);
 
