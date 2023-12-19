@@ -40,7 +40,7 @@ public class SaveGraphFrameController {
         else if (!StringUtils.isNumeric(graphImportanceTextField.getText())) {
             errorLabel.setText("Importance value must be numeric");
         }
-        else if (Integer.parseInt(graphImportanceTextField.getText()) >= 5 || Integer.parseInt(graphImportanceTextField.getText()) <= 1) {
+        else if (Integer.parseInt(graphImportanceTextField.getText()) > 5 || Integer.parseInt(graphImportanceTextField.getText()) < 1) {
             errorLabel.setText("Importance value must be between 1 and 5");
         }
         else{
