@@ -229,7 +229,7 @@ public class MyGraphsController{
                 public void handle(ActionEvent event) {
 
                     Navigator.getUser().deleteGraph(graph.getGraphName());
-                    myGraphsTable.getItems().remove(myGraphsTable.getSelectionModel().getSelectedItems());
+                    myGraphsTable.getItems().remove(myGraphsTable.getSelectionModel().getSelectedIndex());
                     myGraphsTable.refresh();
                 }
             });
