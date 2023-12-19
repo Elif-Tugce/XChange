@@ -51,7 +51,7 @@ public class SaveGraphFrameController {
     void saveGraphButtonAction(MouseEvent event) throws IOException {
 
         if (Navigator.getUser().checkGraphName(graphNameTextField.getText())) {
-            errorLabel.setText("This graph name is already exist, try another name");
+            errorLabel.setText("This graph name already exists, try another name");
         }
         else if (!StringUtils.isNumeric(graphImportanceTextField.getText())) {
             errorLabel.setText("Importance value must be numeric");
