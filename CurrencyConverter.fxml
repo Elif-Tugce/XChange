@@ -70,20 +70,20 @@
                   <Image url="@Icons/Coin.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="138.0" layoutX="656.0" layoutY="563.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Icons/Currency.png" />
-               </image>
-            </ImageView>
             <ComboBox fx:id="currencyConverterDateDropdown" layoutX="1031.0" layoutY="187.0" onAction="#currencyConverterDateDropdownOnAction" prefWidth="150.0" />
-            <ImageView fitHeight="103.0" fitWidth="138.0" layoutX="951.0" layoutY="684.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="103.0" fitWidth="138.0" layoutX="714.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Icons/shockedFace.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="95.0" fitWidth="130.0" layoutX="677.0" layoutY="794.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="103.0" fitWidth="82.0" layoutX="715.0" layoutY="792.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Icons/thinkingFace.png" />
+                  <Image url="@Icons/pngegg.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="111.0" fitWidth="180.0" layoutX="887.0" layoutY="680.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/111111.png" />
                </image>
             </ImageView>
          </children>

@@ -25,11 +25,6 @@
                   <Image url="@Icons/Coin.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="moneyImage" fitHeight="188.0" fitWidth="197.0" layoutX="973.0" layoutY="687.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Icons/Currency.png" />
-               </image>
-            </ImageView>
             <Label fx:id="profileText" layoutX="561.0" layoutY="74.0" text="PROFILE">
                <font>
                   <Font size="24.0" />
@@ -108,5 +103,10 @@
             <ComboBox fx:id="toDefaultComboBox" layoutX="127.0" layoutY="540.0" onAction="#defaultToDropdownAction" prefWidth="150.0" />
          </children>
       </AnchorPane>
+      <ImageView fitHeight="235.0" fitWidth="535.0" layoutX="671.0" layoutY="672.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Icons/33333.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
