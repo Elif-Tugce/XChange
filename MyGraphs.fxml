@@ -18,15 +18,15 @@
       </Label>
       <TableView fx:id="myGraphsTable" layoutY="47.0" prefHeight="440.0" prefWidth="1210.0">
         <columns>
-          <TableColumn fx:id="nameColumn" prefWidth="264.66669714450836" text="Name" />
-          <TableColumn fx:id="descriptionColumn" minWidth="0.0" prefWidth="422.6665954589844" text="Description" />
-            <TableColumn fx:id="dateColumn" prefWidth="134.6666259765625" text="Date" />
-            <TableColumn fx:id="importanceColumn" minWidth="0.0" prefWidth="77.33343505859375" text="Importance" />
-            <TableColumn fx:id="fromColumn" prefWidth="74.0001220703125" text="From" />
+          <TableColumn fx:id="nameColumn" prefWidth="241.33334350585938" text="Name" />
+          <TableColumn fx:id="descriptionColumn" minWidth="0.0" prefWidth="390.6666259765625" text="Description" />
+            <TableColumn fx:id="dateColumn" prefWidth="116.0" text="Date" />
+            <TableColumn fx:id="importanceColumn" minWidth="0.0" prefWidth="73.3333740234375" text="Importance" />
+            <TableColumn fx:id="fromColumn" prefWidth="60.6666259765625" text="From" />
             <TableColumn fx:id="toColumn" prefWidth="58.00006103515625" text="To" />
-            <TableColumn fx:id="viewColumn" prefWidth="48.0" text="View" />
-            <TableColumn fx:id="downloadColumn" prefWidth="68.6666259765625" text="Download" />
-            <TableColumn fx:id="removeColumn" prefWidth="51.333251953125" text="Remove" />
+            <TableColumn fx:id="viewColumn" prefWidth="61.333251953125" text="View" />
+            <TableColumn fx:id="downloadColumn" prefWidth="96.66656494140625" text="Download" />
+            <TableColumn fx:id="removeColumn" prefWidth="109.33349609375" text="Remove" />
         </columns>
       </TableView>
       <AnchorPane layoutY="486.0" prefHeight="410.0" prefWidth="1210.0">
