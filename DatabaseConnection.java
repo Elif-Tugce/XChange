@@ -10,10 +10,6 @@ public class DatabaseConnection {
     private static String user = "sa";
     private static String password = "1";
 
-    public static void main(String[] args) {
-        connectDatabase();
-    }
-
     public static Connection connectDatabase() {
         try {
             Connection connection = DriverManager.getConnection(url, user, password);

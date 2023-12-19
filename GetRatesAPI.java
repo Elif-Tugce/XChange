@@ -3,7 +3,6 @@ import java.net.URL;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.time.LocalDate;
-import java.util.Date;
 import org.json.JSONObject;
 
 public class GetRatesAPI {

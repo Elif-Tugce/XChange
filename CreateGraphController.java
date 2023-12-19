@@ -3,7 +3,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.ResourceBundle;
 
 import javax.imageio.ImageIO;
@@ -15,7 +14,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
@@ -30,11 +28,9 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -106,13 +102,9 @@ public class CreateGraphController {
 
         convertToBox.setValue(Navigator.getUser().getCurDefaultTo());
         convertToBox.setItems(currencyList);
-
-        //////////////
         
         currencyFromDatePicker.setDayCellFactory(disableDatePicker(startDate, endDate));
         currencyToDatePicker.setDayCellFactory(disableDatePicker(startDate, endDate));
-
-        ////////////////
 
     }
     
@@ -248,19 +240,6 @@ public class CreateGraphController {
         NumberAxis yAxis = new NumberAxis(); 
 
     LineChart<String, Number> linearChart = new LineChart<>(xAxis, yAxis);
-    //     //SOME JUNK DATA FOR DOWNLOAD GRAPH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    //         XYChart.Series<String, Number> series = new XYChart.Series<>();
-    //         series.getData().add(new XYChart.Data<>("1 Jan 2022", 210));
-    //         series.getData().add(new XYChart.Data<>("1 Feb 2022", 17));
-    //         series.getData().add(new XYChart.Data<>("1 March 2022", 10));
-    //         series.getData().add(new XYChart.Data<>("1 April 2022", 24));
-    //         series.getData().add(new XYChart.Data<>("1 May 2022", 39));
-    //         series.getData().add(new XYChart.Data<>("2 Jan 2022", 28));
-    //         series.getData().add(new XYChart.Data<>("2 Feb 2022", 11));
-    //         series.getData().add(new XYChart.Data<>("2 March 2022", 11));
-    //         series.getData().add(new XYChart.Data<>("2 April 2022", 24));
-    //         series.getData().add(new XYChart.Data<>("2 May 2022", 11));
-    //         linearChart.getData().add(series);
 
         LocalDate startDate = currencyFromDatePicker.getValue();
         LocalDate endDate = currencyToDatePicker.getValue();
