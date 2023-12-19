@@ -30,6 +30,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -46,6 +47,7 @@ public class CreateGraphController {
     private static Stage popupStage = new Stage();
     private LocalDate startDate = LocalDate.of(2013,01, 01);
     private LocalDate endDate = LocalDate.now();
+    
     
     @FXML
     private ResourceBundle resources;
@@ -105,7 +107,17 @@ public class CreateGraphController {
         convertToBox.setValue(Navigator.getUser().getCurDefaultTo());
         convertToBox.setItems(currencyList);
 
+        //////////////
+        
+        currencyFromDatePicker.setDayCellFactory(disableDatePicker(startDate, endDate));
+        currencyToDatePicker.setDayCellFactory(disableDatePicker(startDate, endDate));
 
+        ////////////////
+
+    }
+    
+    private Callback <DatePicker, DateCell> disableDatePicker (LocalDate startDate, LocalDate endDate){
+        
         final Callback<DatePicker, DateCell> dayCellFactory = new Callback<DatePicker, DateCell>() {
                 @Override
                 public DateCell call(final DatePicker datePicker) {
@@ -128,10 +140,8 @@ public class CreateGraphController {
                 };
             }
         };
-        currencyFromDatePicker.setDayCellFactory(dayCellFactory);
-        currencyToDatePicker.setDayCellFactory(dayCellFactory);
 
-
+        return dayCellFactory;
     }
 
     @FXML
@@ -173,6 +183,7 @@ public class CreateGraphController {
         LocalDate startDate = currencyFromDatePicker.getValue();
         LocalDate endDate = currencyToDatePicker.getValue();
 
+        
         ArrayList<Double> values = GetCurrencyRates.calculateHistorical(
             convertFromBox.getValue().toString(), convertToBox.getValue().toString(), startDate, endDate);
         ArrayList<LocalDate> dates = GetCurrencyRates.getHistoricalDates(values, endDate);
@@ -315,6 +326,26 @@ public class CreateGraphController {
     }
 
 
+    @FXML
+    void startDateListener(ActionEvent event) {
+        this.startDate = currencyFromDatePicker.getValue();
+
+        if(startDate == null){
+            this.startDate = LocalDate.of(2013,01, 01);
+        }
+        currencyToDatePicker.setDayCellFactory(disableDatePicker(this.startDate, this.endDate));
+           
+    }
     
+    @FXML
+    void endDateListener(ActionEvent event) {
+        this.endDate = currencyToDatePicker.getValue();
+
+        if (endDate == null){
+            this.endDate = LocalDate.now();
+        }
+
+        currencyFromDatePicker.setDayCellFactory(disableDatePicker(this.startDate, this.endDate));
+    }
 
 }

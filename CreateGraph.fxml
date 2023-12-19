@@ -42,8 +42,8 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <DatePicker fx:id="currencyFromDatePicker" layoutX="64.0" layoutY="210.0" />
-            <DatePicker fx:id="currencyToDatePicker" layoutX="287.0" layoutY="210.0" />
+            <DatePicker fx:id="currencyFromDatePicker" layoutX="64.0" layoutY="210.0" onAction="#startDateListener" />
+            <DatePicker fx:id="currencyToDatePicker" layoutX="287.0" layoutY="210.0" onAction="#endDateListener" />
             <ComboBox fx:id="convertFromBox" layoutX="102.0" layoutY="68.0" onAction="#fromCurrencyDropdownAction" prefWidth="150.0" />
             <ComboBox fx:id="convertToBox" layoutX="287.0" layoutY="68.0" onAction="#toCurrencyDropdownAction" prefWidth="150.0" />
             <Text layoutX="117.0" layoutY="197.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Starting Date">
