@@ -132,13 +132,22 @@ public class User {
     }
 
     //returns true if another graph with same name exist
-    public boolean checkGraphName(String name) {
+    public boolean checkGraphName(String graphName) {
         for (Graph graph : graphs) {
-            if (graph.getGraphName().equals(name)) {
+            if (graph.getGraphName().equals(graphName)) {
                 return true;
             }
         }
         return false;
+    }
+
+    public void deleteGraph(String graphName) {
+        for (int i = 0; i < graphs.size(); i++) {
+            if (graphs.get(i).getGraphName().equals(graphName)) {
+                graphs.remove(i);
+            }
+        }
+        Database.deleteGraph(graphName);
     }
     
 }

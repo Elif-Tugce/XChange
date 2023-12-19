@@ -384,4 +384,14 @@ public class Database {
         }
     }
 
+    public static void deleteGraph(String graphName) {
+        try {
+            Statement st = connection.createStatement();
+            String sql = "DELETE FROM Graphs WHERE GraphName = '" + graphName + "'";
+            st.execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
