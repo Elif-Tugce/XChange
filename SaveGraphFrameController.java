@@ -4,6 +4,8 @@ import java.util.ResourceBundle;
 
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.CloseAction;
 
+import com.microsoft.sqlserver.jdbc.StringUtils;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -50,6 +52,12 @@ public class SaveGraphFrameController {
 
         if (Navigator.getUser().checkGraphName(graphNameTextField.getText())) {
             errorLabel.setText("This graph name is already exist, try another name");
+        }
+        else if (!StringUtils.isNumeric(graphImportanceTextField.getText())) {
+            errorLabel.setText("Importance value must be numeric");
+        }
+        else if (Integer.parseInt(graphImportanceTextField.getText()) >= 5 || Integer.parseInt(graphImportanceTextField.getText()) <= 1) {
+            errorLabel.setText("Importance value must be between 1 and 5");
         }
         else{
             CreateGraphController.graphObjectGetter().saveGraph(graphNameTextField.getText(), Integer.parseInt(graphImportanceTextField.getText()), graphDescriptionTextField.getText());
