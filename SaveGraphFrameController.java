@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.ClosePath;
@@ -28,6 +29,9 @@ public class SaveGraphFrameController {
     private TextField graphNameTextField;
 
     @FXML
+    private Label errorLabel;
+
+    @FXML
     private TextField graphDescriptionTextField;
 
     @FXML
@@ -43,8 +47,15 @@ public class SaveGraphFrameController {
     
     @FXML
     void saveGraphButtonAction(MouseEvent event) throws IOException {
-        CreateGraphController.getStage().close();
-        CreateGraphController.graphObjectGetter().saveGraph(graphNameTextField.getText(), Integer.parseInt(graphImportanceTextField.getText()), graphDescriptionTextField.getText());
+
+        if (Navigator.getUser().checkGraphName(graphNameTextField.getText())) {
+            errorLabel.setText("This graph name is already exist, try another name");
+        }
+        else{
+            CreateGraphController.graphObjectGetter().saveGraph(graphNameTextField.getText(), Integer.parseInt(graphImportanceTextField.getText()), graphDescriptionTextField.getText());
+            CreateGraphController.getStage().close();
+        }
+        
         
     }
 

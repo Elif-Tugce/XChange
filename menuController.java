@@ -133,17 +133,19 @@ public class menuController {
     @FXML
     void myGraphsButtonListener(MouseEvent event) throws IOException {
 
-        //Parent root = FXMLLoader.load(getClass().getResource("MyGraphs.fxml"));
-        Node node = myGraphsRoot.lookup("#myGraphAnchorPane");
+        Parent myGraphsRoot = FXMLLoader.load(getClass().getResource("MyGraphs.fxml"));
+
+        Node myGraphsNode = myGraphsRoot.lookup("#myGraphAnchorPane");
 
         if(Navigator.getUser().getDarkModeOn() == 1){
-            node.setStyle("-fx-background-color: #00072D");
+            myGraphsNode.setStyle("-fx-background-color: #00072D");
         }
         else{
-            node.setStyle("-fx-background-color: #AFD3E2");
+            myGraphsNode.setStyle("-fx-background-color: #AFD3E2");
         }
+
         sp.getItems().clear();
-        sp.getItems().addAll(sideBarLeft ,node );
+        sp.getItems().addAll(sideBarLeft ,myGraphsNode);
 
         myGraphsController = myGraphsLoader.getController();
 
