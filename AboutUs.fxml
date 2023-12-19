@@ -54,5 +54,11 @@
             <Font size="36.0" />
          </font>
       </Text>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="235.0" fitWidth="535.0" layoutX="661.0" layoutY="683.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Icons/33333.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -20,12 +20,7 @@
             <Image url="@Icons/Coin.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="188.0" fitWidth="197.0" layoutX="973.0" layoutY="694.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Icons/Currency.png" />
-         </image>
-      </ImageView>
-      <TextArea layoutX="31.0" layoutY="230.0" prefHeight="478.0" prefWidth="1129.0" style="-fx-background-color: #AFD3E2;" text="To turn back to the main menu, click the logo.&#10;&#10;With the Convert Currency page, you can see the values of desired currencies by selecting them from the dropdown menu.&#10;&#10;You can calculate the selected currency’s value by giving an amount.&#10;&#10;You will also see a graph that shows the rate of change of the chosen currency over the selected time interval.&#10;&#10;With the Create Graph option, you can create the graphs of desired currencies by selecting a currency and defining a specific time interval.&#10;&#10;You can also save and download the graphs you created for later purposes.&#10;&#10;With the My Graphs option, you can see your previously saved graphs and download them if you haven’t.&#10;&#10;With the settings menu, you can set your default currency and change the">
+      <TextArea layoutX="31.0" layoutY="230.0" prefHeight="447.0" prefWidth="1130.0" style="-fx-background-color: #AFD3E2;" text="&#10;With the Convert Currency page, you may see the values of desired currencies by selecting them from the dropdown menu.&#10;&#10;You may calculate the selected currency’s value by giving an amount.&#10;&#10;You will also see a graph that shows the rate of change of the chosen currency over the selected time interval.&#10;&#10;With the Create Graph option, you may create the graphs of desired currencies by selecting a currency and defining a specific time interval.&#10;&#10;You may also save and download the graphs you created for later purposes.&#10;&#10;With the My Graphs option, you may see your previously saved graphs and download them if you haven’t.&#10;&#10;With the settings menu, you may set your default currency and change the">
          <font>
             <Font size="18.0" />
          </font>
@@ -35,5 +30,10 @@
             <Font size="36.0" />
          </font>
       </Text>
+      <ImageView fitHeight="235.0" fitWidth="535.0" layoutX="681.0" layoutY="674.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Icons/33333.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
