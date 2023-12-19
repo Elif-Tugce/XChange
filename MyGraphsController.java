@@ -40,9 +40,6 @@ public class MyGraphsController{
     private URL location;
 
     @FXML
-    private TableColumn<TableObject, LocalDate> dateColumn;
-
-    @FXML
     private TableColumn<TableObject, String> descriptionColumn = new TableColumn<>();
 
     @FXML
@@ -67,6 +64,15 @@ public class MyGraphsController{
     private TableColumn<TableObject, Integer> importanceColumn;
 
     @FXML
+    private TableColumn<TableObject, LocalDate> dateFromColumn;
+
+    @FXML
+    private TableColumn<TableObject, LocalDate> dateToColumn;
+
+    @FXML
+    private TableColumn<TableObject, LocalDate> dateCreatedColumn;
+
+    @FXML
     private LineChart<String, Double> MyGraph;
 
     
@@ -89,7 +95,9 @@ public class MyGraphsController{
         removeColumn.setCellValueFactory(new PropertyValueFactory<TableObject, Button>("Remove"));
         viewColumn.setCellValueFactory(new PropertyValueFactory<TableObject, Button>("View"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<TableObject, String>("Name"));
-        dateColumn.setCellValueFactory(new PropertyValueFactory<TableObject, LocalDate>("Date"));
+        dateCreatedColumn.setCellValueFactory(new PropertyValueFactory<TableObject, LocalDate>("Date"));
+        dateFromColumn.setCellValueFactory(new PropertyValueFactory<TableObject, LocalDate>("dateFrom"));
+        dateToColumn.setCellValueFactory(new PropertyValueFactory<TableObject, LocalDate>("dateTo"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<TableObject, String>("Description"));
         fromColumn.setCellValueFactory(new PropertyValueFactory<TableObject, String>("currencyFrom"));
         toColumn.setCellValueFactory(new PropertyValueFactory<TableObject, String>("currencyTo"));
@@ -226,7 +234,7 @@ public class MyGraphsController{
                 }
             });
 
-            TableObject table = new TableObject(graph.getGraphName(), graph.getGraphDescription(), graph.getDateCreated(), graph.getGraphImportance(), graph.getCurFromCode(), graph.getCurToCode(), viewButtons.get(viewButtons.size() - 1), downloadButtons.get(downloadButtons.size() - 1), removeButtons.get(removeButtons.size() - 1));
+            TableObject table = new TableObject(graph.getGraphName(), graph.getGraphDescription(), graph.getDateCreated(), graph.getStartDate(), graph.getEndDate(), graph.getCurFromCode(), graph.getCurToCode(), graph.getGraphImportance(), viewButtons.get(viewButtons.size() - 1), downloadButtons.get(downloadButtons.size() - 1), removeButtons.get(removeButtons.size() - 1));
             data.add(table);
             myGraphsTable.setItems(data);
         }
