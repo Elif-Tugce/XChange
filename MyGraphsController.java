@@ -55,6 +55,7 @@ public class MyGraphsController{
     @FXML
     private LineChart<TableObject, String> MyGraph;
 
+    
     @FXML
     private TableView<TableObject> myGraphsTable;
 
@@ -76,8 +77,8 @@ public class MyGraphsController{
         nameColumn.setCellValueFactory(new PropertyValueFactory<TableObject, String>("Name"));
         dateColumn.setCellValueFactory(new PropertyValueFactory<TableObject, LocalDate>("Date"));
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<TableObject, String>("Description"));
-        fromColumn.setCellValueFactory(new PropertyValueFactory<TableObject, String>("From"));
-        toColumn.setCellValueFactory(new PropertyValueFactory<TableObject, String>("To"));
+        fromColumn.setCellValueFactory(new PropertyValueFactory<TableObject, String>("currencyFrom"));
+        toColumn.setCellValueFactory(new PropertyValueFactory<TableObject, String>("currencyTo"));
 
         ArrayList<Graph> graphs = Navigator.getUser().getGraphs();
     
