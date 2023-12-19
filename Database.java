@@ -9,10 +9,6 @@ public class Database {
     
     private static Connection connection = DatabaseConnection.connectDatabase();
 
-    public static void main(String[] args) {
-        
-    }
-
     public static int getMaxID() {
         try {
             Statement st = connection.createStatement();
