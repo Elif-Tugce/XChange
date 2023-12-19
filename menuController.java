@@ -37,6 +37,8 @@ public class menuController {
 
     @FXML
     private AnchorPane allAnchorPane;
+    private static MyGraphsController myGraphsController;
+    FXMLLoader myGraphsLoader = new FXMLLoader(getClass().getResource("MyGraphs.fxml"));
 
 
     @FXML
@@ -45,7 +47,8 @@ public class menuController {
     public menuController() throws IOException{
         aboutUsRoot = FXMLLoader.load(getClass().getResource("AboutUs.fxml"));
         helpRoot = FXMLLoader.load(getClass().getResource("Help.fxml"));
-        myGraphsRoot = FXMLLoader.load(getClass().getResource("MyGraphs.fxml"));
+        myGraphsRoot = myGraphsLoader.load();
+        myGraphsController = myGraphsLoader.getController();
         //settingsRoot = FXMLLoader.load(getClass().getResource("Settings.fxml"));
     }
 
@@ -142,6 +145,12 @@ public class menuController {
         sp.getItems().clear();
         sp.getItems().addAll(sideBarLeft ,node );
 
+        myGraphsController = myGraphsLoader.getController();
+
+    }
+
+    public static MyGraphsController getMyGraphsController() {
+        return myGraphsController;
     }
 
     @FXML
