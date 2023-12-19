@@ -79,6 +79,7 @@ public class MyGraphsController{
     @FXML
     private TableView<TableObject> myGraphsTable;
 
+
     private final ObservableList<TableObject> data = FXCollections.observableArrayList();
 
     private ArrayList<Button> viewButtons = new ArrayList<Button>();
@@ -101,6 +102,16 @@ public class MyGraphsController{
         descriptionColumn.setCellValueFactory(new PropertyValueFactory<TableObject, String>("Description"));
         fromColumn.setCellValueFactory(new PropertyValueFactory<TableObject, String>("currencyFrom"));
         toColumn.setCellValueFactory(new PropertyValueFactory<TableObject, String>("currencyTo"));
+
+        importanceColumn.setStyle("-fx-alignment: CENTER;");
+        downloadColumn.setStyle("-fx-alignment: CENTER;");
+        removeColumn.setStyle("-fx-alignment: CENTER;");
+        viewColumn.setStyle("-fx-alignment: CENTER;");
+        dateFromColumn.setStyle("-fx-alignment: CENTER;");
+        dateToColumn.setStyle("-fx-alignment: CENTER;");
+        dateCreatedColumn.setStyle("-fx-alignment: CENTER;");
+        fromColumn.setStyle("-fx-alignment: CENTER;");
+        toColumn.setStyle("-fx-alignment: CENTER;");
 
         ArrayList<Graph> graphs = Navigator.getUser().getGraphs();
 
