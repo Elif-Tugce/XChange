@@ -84,7 +84,7 @@ public class ForgotPasswordController {
             invalidMessage.setText("Answer to the security question is wrong, please try again!");
         }
         else{
-            invalidMessage.setText("The repeated password is not the same as the original, please try again!");
+            invalidMessage.setText("The repeated password is not the same as the original");
         }
     }
 
