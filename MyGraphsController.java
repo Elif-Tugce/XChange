@@ -68,7 +68,7 @@ public class MyGraphsController{
     private ArrayList<Button> removeButtons = new ArrayList<Button>();
 
 
-    public void addToTable() {
+    public void initialize() {
 
         importanceColumn.setCellValueFactory(new PropertyValueFactory<TableObject, Integer>("Importance"));
         downloadColumn.setCellValueFactory(new PropertyValueFactory<TableObject, Button>("Download"));
