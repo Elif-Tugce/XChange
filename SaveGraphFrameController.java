@@ -43,13 +43,11 @@ public class SaveGraphFrameController {
     
     @FXML
     void saveGraphButtonAction(MouseEvent event) throws IOException {
-        if (Navigator.getUser().checkGraphName(graphNameTextField.getText())) {
-            //error message
-        }
-        else {
-            CreateGraphController.getStage().close();
-            CreateGraphController.graphObjectGetter().saveGraph(graphNameTextField.getText(), Integer.parseInt(graphImportanceTextField.getText()), graphDescriptionTextField.getText());
-        }
+        MyGraphsController myGraphsController = menuController.getMyGraphsController();
+        CreateGraphController.getStage().close();
+        CreateGraphController.graphObjectGetter().saveGraph(graphNameTextField.getText(), Integer.parseInt(graphImportanceTextField.getText()), graphDescriptionTextField.getText());
+        myGraphsController.addToTable();
+        
     }
 
     @FXML

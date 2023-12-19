@@ -14,7 +14,7 @@ public class Navigator extends Application{
 
     private static User user;
     private static ArrayList<String> currencies = Database.getCurrencies();
-private static boolean isSignIn;
+    private static boolean isSignIn;
 
     @Override
     public void start(Stage stage){

@@ -1,4 +1,5 @@
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -25,38 +26,67 @@ public class MyGraphsController{
     private URL location;
 
     @FXML
-    private LineChart<?, ?> MyGraph;
+    private TableColumn<TableObject, LocalDate> dateColumn;
 
     @FXML
-    private TableColumn<TableObject, String> gName;
+    private TableColumn<TableObject, String> descriptionColumn = new TableColumn<>();
 
     @FXML
-    private TableColumn<TableObject, String> gDescription;
+    private TableColumn<TableObject, String> downloadColumn;
 
     @FXML
-    private TableColumn<TableObject, Integer> gImportance;
+    private TableColumn<TableObject, String> viewColumn;
+
+    @FXML
+    private TableColumn<TableObject, String> nameColumn = new TableColumn<>();
+
+    @FXML
+    private TableColumn<TableObject, String> removeColumn;
+
+    @FXML
+    private TableColumn<TableObject, String> fromColumn;
+
+    @FXML
+    private TableColumn<TableObject, String> toColumn;
+
+    @FXML
+    private TableColumn<TableObject, Integer> importanceColumn;
+
+    @FXML
+    private LineChart<TableObject, String> MyGraph;
 
     @FXML
     private TableView<TableObject> MyGraphsTable;
 
     private final ObservableList<TableObject> data = FXCollections.observableArrayList();
 
-    private ArrayList<Button> viewButtons;
+    private ArrayList<Button> viewButtons = new ArrayList<Button>();
 
-    private ArrayList<Button> downloadButtons;
+    private ArrayList<Button> downloadButtons = new ArrayList<Button>();
 
-    private ArrayList<Button> removeButtons;
+    private ArrayList<Button> removeButtons = new ArrayList<Button>();
 
 
-    public void addToTable(){
+    public void addToTable() {
         ArrayList<Graph> graphs = Navigator.getUser().getGraphs();
-        for (int i = 0; i < graphs.size(); i++) {
-            Graph graph = graphs.get(i);
-            viewButtons.add(new Button("View"));
-            downloadButtons.add(new Button("Download"));
-            removeButtons.add(new Button("Remove"));
-            data.add(new TableObject(graph.getGraphName(), graph.getGraphDescription(), graph.getDateCreated(), graph.getGraphImportance(), graph.getCurFromCode(), graph.getCurToCode(), viewButtons.get(i), downloadButtons.get(i), removeButtons.remove(i)));
-            MyGraphsTable.setItems(data);
+    
+        // Clearing items in the TableView before adding new data
+        MyGraphsTable.getItems().clear();
+    
+        // Assuming nameColumn, descriptionColumn, etc. are TableColumn instances associated with MyGraphsTable
+        // Make sure these TableColumn instances are defined and associated correctly with FXML or in code.
+    
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name")); // Replace "name" with the actual property name in TableObject
+        descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description")); // Replace "description" with the actual property name in TableObject
+        // Repeat the above lines for other columns as well
+    
+        for (Graph graph : graphs) {
+            viewButtons.add(new Button());
+            downloadButtons.add(new Button());
+            removeButtons.add(new Button());
+            TableObject newData = new TableObject(graph.getGraphName(), graph.getGraphDescription(), graph.getDateCreated(), graph.getGraphImportance(), graph.getCurFromCode(), graph.getCurToCode(), viewButtons.get(viewButtons.size() - 1), downloadButtons.get(downloadButtons.size() - 1), removeButtons.get(removeButtons.size() - 1));
+            MyGraphsTable.getItems().add(newData);
+            System.out.println(graph.getGraphName() + graph.getGraphDescription() + graph.getDateCreated() + graph.getGraphImportance() + graph.getCurFromCode() + graph.getCurToCode() + viewButtons.get(viewButtons.size() - 1) + downloadButtons.get(downloadButtons.size() - 1) + removeButtons.get(removeButtons.size() - 1));
         }
     }
 

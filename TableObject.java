@@ -26,4 +26,32 @@ public class TableObject {
         this.remove = remove;
     }
 
+    public String getName() {
+        return name;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public LocalDate getDate() {
+        return date;
+    }
+    public int getImportance() {
+        return importance;
+    }
+    public String getCurrencyFrom() {
+        return currencyFrom;
+    }
+    public String getCurrencyTo() {
+        return currencyTo;
+    }
+    public Button getDownload() {
+        return download;
+    }
+    public Button getRemove() {
+        return remove;
+    }
+    public Button getView() {
+        return view;
+    }
+    
 }
