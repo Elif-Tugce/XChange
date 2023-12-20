@@ -184,9 +184,14 @@ public class menuController {
 
         if(Navigator.getUser().getDarkModeOn() == 1){
             currencyNode.setStyle("-fx-background-color: #00072D");
+            sideBarLeft.setStyle("-fx-background-color: #00072D");
+            usernameText.setStyle("-fx-text-fill: #FFFFFF");
         }
         else{
             currencyNode.setStyle("-fx-background-color: #AFD3E2");
+            sideBarLeft.setStyle("-fx-background-color: #FFFFFF");
+            usernameText.setStyle("-fx-text-fill: #000000");
+            
         }
 
         sp.getItems().clear();
