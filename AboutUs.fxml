@@ -14,12 +14,12 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="447.0" layoutY="86.0" text="WHO ARE WE?" textFill="#f7fafc">
+      <Label fx:id="labelOne" layoutX="447.0" layoutY="86.0" text="WHO ARE WE?" textFill="#f7fafc">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Label layoutX="737.0" layoutY="269.0" text="GROUP NIGHTHAWKS" textFill="#f7fafc">
+      <Label fx:id="labelTwo" layoutX="737.0" layoutY="269.0" text="GROUP NIGHTHAWKS" textFill="#f7fafc">
          <font>
             <Font size="36.0" />
          </font>
@@ -29,27 +29,27 @@
             <Image url="@Icons/LightLogo.png" />
          </image>
       </ImageView>
-      <Text fill="#f7fafc" layoutX="51.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mehmet Batuhan Neziroğlu">
+      <Text fx:id="textThree" fill="#f7fafc" layoutX="51.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mehmet Batuhan Neziroğlu">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text fill="#f7fafc" layoutX="51.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emir Atlas">
+      <Text fx:id="textFour" fill="#f7fafc" layoutX="51.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emir Atlas">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text fill="#f7fafc" layoutX="50.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elif Tuğçe Neziroğlu">
+      <Text fx:id="textFive" fill="#f7fafc" layoutX="50.0" layoutY="333.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Elif Tuğçe Neziroğlu">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text fill="#f7fafc" layoutX="51.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ece Bulut">
+      <Text fx:id="textSix" fill="#f7fafc" layoutX="51.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ece Bulut">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text fill="#f7fafc" layoutX="51.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ansar Myrzagerey">
+      <Text fx:id="textSeven" fill="#f7fafc" layoutX="51.0" layoutY="415.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ansar Myrzagerey">
          <font>
             <Font size="36.0" />
          </font>

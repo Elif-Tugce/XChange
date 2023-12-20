@@ -16,9 +16,9 @@
                <children>
                   <AnchorPane prefHeight="900.0" prefWidth="230.0" >
                      <children>
-                        <ImageView fitHeight="230.0" fitWidth="230.0" layoutY="-78.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id = "logo"  fitHeight="230.0" fitWidth="230.0" layoutY="-78.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@Icons/211.png" />
+                              <Image   url="@Icons/211.png" />
                            </image>
                         </ImageView>
                         <Button layoutY="64.0" mnemonicParsing="false" onMouseClicked="#convertCurrencyButtonListener" prefHeight="70.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;" text="Convert Currency">
