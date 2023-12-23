@@ -10,4 +10,5 @@ Bilkent CS 2023/2024, Team: 1M, Group Name: Nightawks, Project Name: XChange
 
 4. Install the JDK and run the code.
 
-!Dependencies and libraries required: JavaFX, JSON, JDBC
+### Dependencies and libraries required:
+JavaFX, JSON, JDBC
