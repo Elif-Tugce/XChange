@@ -77,7 +77,7 @@ public class CurrencyConverterController{
 
     ArrayList<String> infoBoxes;
 
-    double theRate = 1.5;
+    double theRate;
 
     @FXML
     void initialize() throws Exception {
@@ -90,7 +90,7 @@ public class CurrencyConverterController{
 
         currencyConverterDateDropdown.setItems(graphTimeList);
 
-        //theRate = GetCurrencyRates.calculateLatest(Navigator.getUser().getCurDefaultFrom(), Navigator.getUser().getCurDefaultTo());
+        theRate = GetCurrencyRates.calculateLatest(Navigator.getUser().getCurDefaultFrom(), Navigator.getUser().getCurDefaultTo());
         fromCurreencyTextField.setText("1");
         toCurreencyLabelField.setText("" + theRate);
 
@@ -127,7 +127,7 @@ public class CurrencyConverterController{
         Image image = new Image(file.toURI().toString());
         fromCurrencyFlag.setImage(image);
 
-        //theRate = GetCurrencyRates.calculateLatest((String)convertFromBox.getValue(), (String)convertToBox.getValue());
+        theRate = GetCurrencyRates.calculateLatest((String)convertFromBox.getValue(), (String)convertToBox.getValue());
         currencyConverterDateDropdown.setValue("Monthly");
         currencyConverterDateDropdownOnAction();
     }
@@ -139,7 +139,7 @@ public class CurrencyConverterController{
         Image image2 = new Image(file2.toURI().toString());
         toCurrencyFlag.setImage(image2);
 
-        //theRate = GetCurrencyRates.calculateLatest((String)convertFromBox.getValue(), (String)convertToBox.getValue());
+        theRate = GetCurrencyRates.calculateLatest((String)convertFromBox.getValue(), (String)convertToBox.getValue());
 
         currencyConverterDateDropdown.setValue("Monthly");
         currencyConverterDateDropdownOnAction();
