@@ -7,6 +7,7 @@ go
 CREATE TABLE CurrencyFlags
 (
 CurrencyCode varchar(5) UNIQUE NOT NULL,
+CurrencyName varchar(100),
 CurrencyFlagPath varchar(200)
 )
 go
@@ -18,7 +19,7 @@ CREATE TABLE CurrencyValues
 (
 CurrencyCode varchar(5) UNIQUE NOT NULL,
 ValueDate date NOT NULL,
-CurrencyValue decimal(20, 4) NOT NULL
+CurrencyValue decimal(20, 10) NOT NULL
 )
 go
 
@@ -48,17 +49,16 @@ go
 CREATE TABLE Graphs
 (
 UserID int NOT NULL,
-GraphName varchar(50),
-GraphDescription varchar(5000),
+GraphName UNIQUE varchar(50) NOT NULL,
+GraphDescription varchar(100),
 GraphImportance int,
-DateCreated datetime DEFAULT GETDATE(),
+DateCreated date,
 CurrencyFrom varchar(5) NOT NULL,
 CurrencyTo varchar(5) NOT NULL,
 StartDate date NOT NULL,
 EndDate date NOT NULL,
-ImagePath varchar(200)
 )
 go
 
-CREATE UNIQUE CLUSTERED INDEX CIX_Graphs ON Graphs(UserID, DateCreated)
+CREATE UNIQUE CLUSTERED INDEX CIX_Graphs ON Graphs(UserID, GraphName)
 go
