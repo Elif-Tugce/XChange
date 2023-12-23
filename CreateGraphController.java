@@ -168,6 +168,7 @@ public class CreateGraphController {
     }
 
     @FXML
+    //“Chatgpt.” ChatGPT, openai.com/chatgpt. Accessed 18 Dec. 2023. Only used for make the values seen near the cursor.
     void generateNowButtonAction(MouseEvent event) {
 
         graph = new Graph((String)convertFromBox.getValue(), (String)convertToBox.getValue(), currencyFromDatePicker.getValue(), currencyToDatePicker.getValue()); 
@@ -234,6 +235,7 @@ public class CreateGraphController {
     }
 
     @FXML
+    //“Chatgpt.” ChatGPT, openai.com/chatgpt. Accessed 18 Dec. 2023. Only used for taking the graph as image and saving it to the computer.
     void downloadButtonAction(MouseEvent event) {
 
         CategoryAxis xAxis = new CategoryAxis();

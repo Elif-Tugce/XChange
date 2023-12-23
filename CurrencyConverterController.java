@@ -188,6 +188,7 @@ public class CurrencyConverterController{
     }
 
     @FXML
+    //“Chatgpt.” ChatGPT, openai.com/chatgpt. Accessed 18 Dec. 2023. I mentioned before but I will mention here too as I used here. Only used for make the values seen near the cursor. 
     public void currencyConverterDateDropdownOnAction() {
         LocalDate startDate = LocalDate.now();
         LocalDate endDate = LocalDate.now().minusDays(1);

@@ -88,7 +88,7 @@ public class MyGraphsController{
 
     private ArrayList<Button> removeButtons = new ArrayList<Button>();
 
-
+    //“Chatgpt.” ChatGPT, openai.com/chatgpt. Accessed 18 Dec. 2023. Only used for taking the graph as image and saving it to the computer and for view button.
     public void initialize() {
 
         importanceColumn.setCellValueFactory(new PropertyValueFactory<TableObject, Integer>("Importance"));
