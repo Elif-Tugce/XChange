@@ -221,7 +221,7 @@ public class SettingsController {
 
 
     @FXML
-    void visibilityAction(MouseEvent event) {
+    void visibilityAction(MouseEvent event) throws IOException {
         CreateGraphController createGraphController = new CreateGraphController();
 
         if (darkRadioButton.isSelected()) {
@@ -239,6 +239,12 @@ public class SettingsController {
             Database.updateDarkModeOn(Navigator.getUser().getUserID(), 0);
             lightMode();
         }
+
+        Parent root = FXMLLoader.load(getClass().getResource("SidebarMenu.fxml"));
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.centerOnScreen();
+        stage.show();
     }
 
     @FXML
@@ -278,6 +284,8 @@ public class SettingsController {
         }
         
     }
+
+
 
 
 }
