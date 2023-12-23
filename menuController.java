@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -35,6 +37,11 @@ public class menuController {
     @FXML
     private Label usernameText;
 
+    @FXML
+    private ImageView logo;
+
+    
+    
     @FXML
     private AnchorPane allAnchorPane;
     private static MyGraphsController myGraphsController;
@@ -93,6 +100,7 @@ public class menuController {
 
         if(Navigator.getUser().getDarkModeOn() == 1){
             node.setStyle("-fx-background-color: #00072D");
+            
         }
         else{
             node.setStyle("-fx-background-color: #AFD3E2");
@@ -165,6 +173,9 @@ public class menuController {
 
     }
 
+    //private Image imgOne = new Image("@C:\\Users\\VICTUS\\Desktop\\XChange\\Icons/LightLogo.png");
+    //private Image imgTwo = new Image("@Icons/211.png");
+
     @FXML
     void initialize() throws IOException {
         usernameText.setText(Navigator.getUser().getFirstName() + " " + Navigator.getUser().getLastName());
@@ -184,9 +195,20 @@ public class menuController {
 
         if(Navigator.getUser().getDarkModeOn() == 1){
             currencyNode.setStyle("-fx-background-color: #00072D");
+            sideBarLeft.setStyle("-fx-background-color: #00072D");
+            usernameText.setStyle("-fx-text-fill: #FFFFFF");
+            
+            //logo.setImage(imgOne);
         }
         else{
             currencyNode.setStyle("-fx-background-color: #AFD3E2");
+            sideBarLeft.setStyle("-fx-background-color: #FFFFFF");
+            usernameText.setStyle("-fx-text-fill: #000000");
+            //Image img = new Image("@Icons/LightLogo.png");
+            //logo.setImage(imgTwo);
+            //Image img = new Image("@Icons/211.png");
+            //logo.setImage(img);
+            
         }
 
         sp.getItems().clear();
